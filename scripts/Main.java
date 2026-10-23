@@ -66,7 +66,16 @@ public class Main {
     public static final Set<String> arrExclusions = new HashSet<>();
 
     public static void main(String[] args) {
-        extendedMode = args[0].contains("-extended");
+        if (args.length < 1 || args[0] == null || args[0].isBlank()) {
+            System.err.println("Usage: Main <signature-directory> [-extended] [domain-file]");
+            return;
+        }
+        final File signatureDirectory = new File(args[0]);
+        if (!signatureDirectory.isDirectory() || !signatureDirectory.canRead()) {
+            System.err.println("Signature directory does not exist or is not readable: " + signatureDirectory);
+            return;
+        }
+        extendedMode = Arrays.stream(args).skip(1).anyMatch("-extended"::equals);
         //isFileInNsrl("B61905308B336AD268A782790B661616");
         int amtMaxMD5 = 7600000; //7.6m
         if (extendedMode) {
@@ -117,9 +126,12 @@ public class Main {
 
         int amtDomainsRead = 0;
         int amtDomainsAdded = 0;
-        if (args.length == 2 && !extendedMode) {
+        Optional<String> domainArgument = Arrays.stream(args).skip(1)
+                .filter(argument -> !"-extended".equals(argument))
+                .findFirst();
+        if (domainArgument.isPresent() && !extendedMode) {
             System.out.println("Processing domains:");
-            File domainDatabase = new File(args[1]);
+            File domainDatabase = new File(domainArgument.get());
             if (domainDatabase.exists()) {
                 try {
                     Scanner s = new Scanner(domainDatabase);
