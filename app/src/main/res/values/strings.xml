@@ -23,6 +23,10 @@
     <string name="lblScanSystem">Scan /system</string>
     <string name="lblScanApps">Scan App APKs</string>
     <string name="lblScanRemovable">Scan Removable Storage</string>
+    <string name="signature_count_unknown">Signatures loaded: —</string>
+    <string name="signature_count">Signatures loaded: %1$s</string>
+    <string name="signature_count_content_description">Number of malware signatures currently loaded</string>
+    <string name="logs_title">Activity log</string>
     <string name="lblScanExternal">Scan External Storage</string>
     <string name="lblNotificationMalwareDetectionTitle">Malware Detection</string>
     <string name="lblNotificationMalwareDetectionDescription">Used to alert when malware is detected</string>

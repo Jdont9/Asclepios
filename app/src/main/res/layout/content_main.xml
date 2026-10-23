@@ -16,6 +16,18 @@
         app:popupTheme="@style/ThemeOverlay.AppCompat.DayNight" />
 
     <TextView
+        android:id="@+id/txtSignatureCount"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="15dp"
+        android:paddingEnd="15dp"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp"
+        android:text="@string/signature_count_unknown"
+        android:textAppearance="?android:attr/textAppearanceListItem"
+        android:contentDescription="@string/signature_count_content_description" />
+
+    <TextView
         android:id="@+id/txtLogOutput"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
