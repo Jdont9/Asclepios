@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_copyright">Copyright 2017–2024 Divested Computing Group</string>
+    <string name="app_disclaimer">Ceci est uniquement un scanner de logiciels malveillants qui compare les fichiers à des empreintes déjà connues. Ce n\'est pas une baguette magique qui rend tout votre Android ultra sécurisé. Soyez prudent avec ce que vous téléchargez ou sur quoi vous cliquez !</string>
+    <string name="app_copyright">Copyright 2017–2024 Divested Computing Group\nCopyleft 2025 MaintainTeam Organization</string>
     <string name="app_license">Licence : GPL-3.0</string>
     <string name="app_version">Numéro de version : %s</string>
     <string name="app_db_type_clamav">Propulsé par les signatures de style ClamAV</string>
@@ -78,7 +79,7 @@
     <string name="lblSelfTest">Écrire les fichiers d\'auto-test</string>
     <string name="lblExtendedDatabaseToggle">Base de données étendue</string>
     <string name="confirm_extended_title">Activer la base de données étendue ?</string>
-    <string name="confirm_extended_summary">[EXPÉRIMENTAL]\nCela activera la détection de ~40 millions de signatures supplémentaires.\nCela nécessite un téléchargement de 125 Mo, ralentira le démarrage par plus de deux minutes, augmentera l\'utilisation de la RAM par l\'application et augmentera le taux de faux positifs.\nCette base de données n\'est mise à jour que trimestriellement.</string>
+    <string name="confirm_extended_summary">[EXPÉRIMENTAL]\nCela activera la détection de ~40 millions de signatures supplémentaires.\nCela nécessite un téléchargement de 200 Mo, ralentira le démarrage par plus de deux minutes, augmentera l\'utilisation de la RAM par l\'application et augmentera le taux de faux positifs.\nCette base de données n\'est mise à jour que trimestriellement.</string>
     <string name="confirm_update_title">Confirmer le téléchargement</string>
     <string name="confirm_update_summary">Vous semblez être sur une connexion facturée au volume ou à la durée. Êtes-vous sûr de vouloir mettre à jour les bases de données ?\nCela peut télécharger jusqu\'à %s mégaoctets de données.</string>
     <string name="lblUpdateRunning">Action sautée, une mise à jour est en cours d\'exécution !</string>
@@ -86,7 +87,21 @@
     <string name="main_database_loading">Chargement de la base de données…</string>
     <string name="lblNotificationLinkDetection">Lien malveillant détecté :</string>
     <string name="accessibility_service_description">Extrait les domaines de tout le texte affiché à l\'écran et les compare à une liste de blocage</string>
-    <string name="database_switcher_primary">Serveurs primaires</string>
+    <string name="database_switcher_primary">Serveur principal</string>
+    <string name="database_switcher_mirror">Miroir GitHub</string>
+    <string name="database_switcher_custom">Serveur personnalisé</string>
+    <string name="main_database_new_source">Serveur personnalisé défini : %s</string>
+    <string name="main_database_validate_error">Une erreur s\'est produite lors de la validation de la base de données, veuillez vérifier la clé de signature et la télécharger à nouveau</string>
+    <string name="database_not_loaded_link_scanner">Aucune base de données chargée. Veuillez mettre à jour les bases de données pour utiliser l\'analyseur de liens.</string>
+    <string name="link_scanner_notification_text">L\'écran sera analysé et les liens malveillants seront détectés en temps réel</string>
+    <string name="link_scanner_notification_description">Utilisé pour afficher les informations d\'analyse des liens.</string>
+    <string name="cache_scan_result_deletion_warning">Comme il s\'agissait d\'une analyse de partage, vous devez supprimer ou mettre en quarantaine le fichier manuellement !</string>
+    <string name="service_realtime_label">Scanner de logiciels malveillants en temps réel</string>
+    <string name="receiver_event_label">Gestionnaire d\'événements</string>
+    <string name="notification_domain">Domaine : >>>%s&lt;&lt;&lt;</string>
+    <string name="notification_file">Fichier : >>>%s&lt;&lt;&lt;</string>
+    <string name="notification_file_id">Fichier : >>>%1$s&lt;&lt;&lt;\nID : >>>%2$s&lt;&lt;&lt;</string>
+    <string name="see_notifications">Veuillez consulter les notifications pour gérer le fichier infecté.</string>
     <string name="accessibility_service_label">Analyseur de liens Hypatia</string>
     <string name="lblLinkScannerToggle">Analyseur de liens</string>
     <string name="confirm_link_scanner_title">Activer l\'analyseur de liens ?</string>

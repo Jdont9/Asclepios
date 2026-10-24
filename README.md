@@ -63,6 +63,7 @@ Technical Details
 - Files have their MD5/SHA-1/SHA-256 hashes calculated in one pass
 - Realtime scanner is multithreaded and will use half of the device's core count for scanning multiple files asynchronously
 - Realtime scanning powered by a recursive FileObserver
+- Scans and downloads run on a dedicated thread pool (no deprecated `AsyncTask`); logs and notifications are always emitted from the main thread
 
 Permissions
 -----------------

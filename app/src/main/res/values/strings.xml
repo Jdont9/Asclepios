@@ -104,5 +104,10 @@
     <string name="link_scanner_notification_text">Screen will be scanned and malicious links will be detected in realtime</string>
     <string name="link_scanner_notification_description">Used to show link scanning information.</string>
     <string name="cache_scan_result_deletion_warning">Since this was a share scan you should manually remove or quarantine the file!</string>
+    <string name="service_realtime_label">Realtime Malware Scanner</string>
+    <string name="receiver_event_label">Event Handler</string>
+    <string name="notification_domain">Domain: >>>%s&lt;&lt;&lt;</string>
+    <string name="notification_file">File: >>>%s&lt;&lt;&lt;</string>
+    <string name="notification_file_id">File: >>>%1$s&lt;&lt;&lt;\nID: >>>%2$s&lt;&lt;&lt;</string>
     <string name="see_notifications">Please see Notifications to manage the infected file.</string>
 </resources>
