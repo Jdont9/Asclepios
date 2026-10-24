@@ -88,7 +88,7 @@
 \nTämä voi vaikuttaa merkittävästi suorituskykyyn silloin, kun näytöllä on paljon tekstiä.</string>
     <string name="accessibility_service_description">Poimii verkkotunnukset kaikesta näytön tekstisisällöstä ja vertaa niitä estolistaan</string>
     <string name="app_disclaimer">Tämä on ainoastaan haittaohjelmien tarkistusohjelma, joka vertaa tiedostoja aiemmin löydettyihin hash-tiivistearvoihin. Se ei ole taikasauva, joka pitää koko Android-laitteesi täysin turvassa. Sinun tulee olla varovainen sen suhteen, mitä lataat/klikkaat!</string>
-    <string name="lblResetGitHub">GitHub-peilipalvelin</string>
+    <string name="database_switcher_mirror">GitHub-peilipalvelin</string>
     <string name="database_not_loaded_link_scanner">Tietokantaa ei ole ladattu. Päivitä tietokannat, jotta voit käyttää linkkiskanneria.</string>
     <string name="link_scanner_notification_text">Näyttöä tarkastellaan ja haitalliset linkit havaitaan reaaliajassa</string>
     <string name="link_scanner_notification_description">Käytetään linkkien skannaustietojen näyttämiseen.</string>
