@@ -1,6 +1,0 @@
-4.0: personal fork of MaintainTeam/Hypatia
-remove deprecated AsyncTask, target Android 16 (SDK 36)
-complete French translation and Weblate updates
-link scanner loads the domain database automatically
-fix "no database" after a cold start
-rotation and large screen support
