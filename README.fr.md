@@ -1,5 +1,6 @@
 > [!WARNING]
 > ### Ceci est un fork de l'application [originale](https://github.com/Divested-Mobile/Hypatia) (abandonnée) de DivestOS.
+> ### Ce dépôt ([Jdont9/Hypatia](https://github.com/Jdont9/Hypatia)) est mon fork personnel de [MaintainTeam/Hypatia](https://github.com/MaintainTeam/Hypatia), voir [Modifications de ce fork](#modifications-de-ce-fork-40).
 
 ![Bannière](./fastlane/metadata/android/en-US/images/featureGraphic.png)
 
@@ -16,6 +17,22 @@ Hypatia est le premier scanner de logiciels malveillants FOSS (logiciel libre) a
 [<img src="https://hosted.weblate.org/widget/maintainteam/hypatia/287x66-grey.png"
      alt="État des traductions"
      height="66">](https://hosted.weblate.org/projects/maintainteam/hypatia/)
+
+<a id="modifications-de-ce-fork-40"></a>
+Modifications de ce fork (4.0)
+------------------------------
+Ceci est [mon fork personnel](https://github.com/Jdont9/Hypatia) de [MaintainTeam/Hypatia](https://github.com/MaintainTeam/Hypatia). Les APK signés sont sur la [page des Releases](https://github.com/Jdont9/Hypatia/releases). Par rapport à la branche `stable` d'origine (3.18) :
+
+- **Modernisation :** suppression d'`AsyncTask` (déprécié) : les analyses et les téléchargements de bases tournent sur un pool de threads dédié, et les journaux et notifications partent toujours du thread principal ; une exception pendant une analyse est désormais journalisée au lieu de faire planter l'application.
+- **Cible Android 16 :** `targetSdk` passé de 34 à 36, avec gestion de l'affichage bord à bord, suppression de la surcharge de `onBackPressed()` (geste retour prédictif) et déclaration de `PROPERTY_SPECIAL_USE_FGS_SUBTYPE` sur les deux services de premier plan.
+- **Rotation / grands écrans :** le verrouillage en portrait est retiré et les changements de configuration (rotation, redimensionnement, pliage) ne recréent plus l'activité principale, ce qui conserve le journal.
+- **Traductions :** traduction française complète (avertissement, noms des serveurs de bases, analyseur de liens et notifications manquaient), textes des notifications (`Domaine :` / `Fichier :`) et libellés des services déplacés dans des ressources traduisibles, et intégration des mises à jour Weblate de la PR amont #98 (bg, de, et, fi, pl, ro, ru).
+- **Analyseur de liens :** la base de domaines est désormais chargée automatiquement (après vérification de sa signature GPG) quand l'analyseur en a besoin, sans dépendre du scanner temps réel ni d'une analyse manuelle (d'après la PR amont #94).
+- **Bases disponibles après un démarrage à froid :** l'application restaure sa liste de bases au lancement, donc l'analyse manuelle et l'analyseur de liens n'affichent plus « aucune base » alors que les fichiers sont déjà sur l'appareil (d'après un correctif de la PR amont #101).
+- **Workflow de publication :** pousser un tag `v*` (par exemple `v4.0`) compile, signe et publie désormais automatiquement une release GitHub depuis ce dépôt, au lieu de celui de MaintainTeam.
+- **Documentation :** le README français a été réécrit pour correspondre à la version anglaise.
+
+Non repris de l'amont : la refonte de l'interface de la PR #101 (carte de progression et liste des menaces), que les mainteneurs ont demandé de proposer séparément.
 
 Caractéristiques
 ----------------
@@ -46,7 +63,9 @@ Informations sur l'APK et sécurité
 
 Les versions debug, release et nightly sont compilées par GitHub Actions. Vous pouvez comparer la somme de contrôle de l'application avec celle indiquée dans les Release Actions ou dans le fichier checksum.txt des publications.
 
-Voici l'empreinte SHA de la clé de signature d'Hypatia, qui permet de vérifier les APK téléchargés et signés par nos soins :
+L'empreinte ci-dessous est celle de la clé des versions officielles de MaintainTeam. Les versions de ce fork sont signées avec une autre clé : vérifiez-les avec `apksigner verify --print-certs`, et ne comptez pas sur elles pour mettre à jour l'application officielle (ou la version IzzyOnDroid).
+
+Voici l'empreinte SHA de la clé de signature d'Hypatia, qui permet de vérifier les APK téléchargés et signés par MaintainTeam :
 ```
 1B:00:8D:64:BB:95:AB:47:74:D6:8B:87:F2:2B:8B:E9:A2:72:F4:92:4D:F5:20:29:D7:E6:18:38:35:D9:18:CC
 ```

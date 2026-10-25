@@ -1,21 +1,15 @@
-In this release we did some major updates to the database handling in the app, including upgrading the architecture, adding easier database source switching and better error handling.
+Personal fork of MaintainTeam/Hypatia, see the README for the full list of changes.
 
 ## Features
-- Added the ability to switch database sources between our Codeberg source, a GitHub mirror and a high-quality third-party database.
-- Improved the error messages when downloading and validating databases.
+- The link scanner now loads the domain database by itself (after GPG verification).
+- Rotation and large screens are supported (no more portrait lock).
 
 ## Bug Fixes
-- Fixed a NullPointerException when using link scanning.
-- Stopped the app from opening up on boot to show you an error message
-- Switched to using the GitHub mirror by default for database updates, as the Codeberg server has been unreliable.
+- Fixed "no database available" after a cold start even though the databases were already downloaded.
+- Fixed untranslated strings (French) and hardcoded notification texts.
 
 ## Development Updates
-- Refactored the entire database loading code, removing many potential bugs and bringing the codebase closer to modern Android.
-- Updated our build scripts to use version catalogs.
-- Migrated most remaining Java code to idiomatic Kotlin.
-- Updated various dependencies.
-- Updated translations.
-
-## Database Updates
-- Added the targeted threats database (https://github.com/MaintainTeam/HypatiaDatabases/commit/589362f45146a3d86be2507e0c5e25d36fb0fc56)
-- Added some Indicators of Compromise relating to Covid-19 (https://github.com/MaintainTeam/HypatiaDatabases/commit/1d1a210bae8908802e5912342b59e60cb5b3e54a)
+- Removed the deprecated `AsyncTask`.
+- `targetSdk` raised to 36 (edge-to-edge, predictive back, foreground service declarations).
+- Release workflow now builds and publishes from this repository.
+- Updated translations (bg, de, et, fi, pl, ro, ru, fr).

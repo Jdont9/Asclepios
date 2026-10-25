@@ -1,5 +1,6 @@
 > [!WARNING]
 > ### This is a fork of the [original](https://github.com/Divested-Mobile/Hypatia) (and discontinued) app from DivestOS.
+> ### This repository ([Jdont9/Hypatia](https://github.com/Jdont9/Hypatia)) is my personal fork of [MaintainTeam/Hypatia](https://github.com/MaintainTeam/Hypatia), see [Changes in this fork](#changes-in-this-fork-40).
 
 ![Banner](./fastlane/metadata/android/en-US/images/featureGraphic.png)
 
@@ -19,6 +20,21 @@ Hypatia is the world's first FOSS malware scanner for Android. It is powered by 
 [<img src="https://hosted.weblate.org/widget/maintainteam/hypatia/287x66-grey.png"
      alt="Translation status"
      height="66">](https://hosted.weblate.org/projects/maintainteam/hypatia/)
+
+Changes in this fork (4.0)
+--------------------------
+This is [my personal fork](https://github.com/Jdont9/Hypatia) of [MaintainTeam/Hypatia](https://github.com/MaintainTeam/Hypatia). Signed APKs are on the [Releases page](https://github.com/Jdont9/Hypatia/releases). Compared to upstream `stable` (3.18):
+
+- **Modernisation:** removed the deprecated `AsyncTask` (scans and database downloads now run on a dedicated thread pool, with logs and notifications always posted from the main thread); an exception during a scan is now logged instead of crashing the app.
+- **Android 16 target:** `targetSdk` raised from 34 to 36, with edge-to-edge window insets handling, removal of the `onBackPressed()` override (predictive back) and the `PROPERTY_SPECIAL_USE_FGS_SUBTYPE` declaration on both foreground services.
+- **Rotation / large screens:** the portrait lock is removed and configuration changes (rotation, resizing, folding) no longer recreate the main activity, so the log is preserved.
+- **Translations:** complete French translation (the disclaimer, database server names, link scanner and notification strings were missing), notification texts (`Domain:` / `File:`) and service labels moved to translatable resources, and the Weblate updates from upstream PR #98 (bg, de, et, fi, pl, ro, ru) merged.
+- **Link scanner:** the domain database is now loaded automatically (after GPG signature verification) when the link scanner needs it, instead of depending on the realtime scanner or a manual scan (based on upstream PR #94).
+- **Database availability after a cold start:** the app now restores its database list on startup, so manual scans and the link scanner no longer report "no database" while the files are already on the device (based on a fix from upstream PR #101).
+- **Release workflow:** pushing a `v*` tag (for example `v4.0`) now builds, signs and publishes a GitHub release automatically from this repository, instead of MaintainTeam's.
+- **Documentation:** the French README was rewritten to match the English one.
+
+Not merged from upstream: the UI redesign of PR #101 (scan progress card and threat list), which the maintainers asked to be submitted separately.
 
 Features
 --------
@@ -49,7 +65,9 @@ APK Info & Security
 
 Both debug, release and nightly versions built by GitHub Actions. You can check checksum notice in Release Actions or/and checksum.txt in releases to compare with Application's
 
-This is the SHA fingerprint of Hypatia's signing key to verify downloaded APKs which are signed by us.
+The fingerprint below is the signing key of MaintainTeam's official releases. Releases of this fork are signed with a different key: check them with `apksigner verify --print-certs`, and do not expect them to update over the official app (or the IzzyOnDroid build).
+
+This is the SHA fingerprint of Hypatia's signing key to verify downloaded APKs which are signed by MaintainTeam.
 ```
 1B:00:8D:64:BB:95:AB:47:74:D6:8B:87:F2:2B:8B:E9:A2:72:F4:92:4D:F5:20:29:D7:E6:18:38:35:D9:18:CC
 ```

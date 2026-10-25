@@ -1,31 +1,45 @@
 name: Release
 
 on:
+  # Pushing a tag such as v4.0 builds, signs and publishes a release automatically
+  push:
+    tags:
+      - 'v*'
+  # Manual run (the tag is created from the current commit)
   workflow_dispatch:
     inputs:
       title:
         type: string
-        description: 'Title'
-        required: true
-        default: 'v0.00.0 R0'
+        description: 'Release title (defaults to the tag)'
+        required: false
+        default: ''
 
 jobs:
   build-and-release:
     runs-on: ubuntu-latest
 
-    permissions: write-all
+    permissions:
+      contents: write
 
     steps:
       - name: Checkout
-        env:
-          BRANCH: ${{ github.ref_name }}
-        run: |
-          mkdir -p "${{ github.workspace }}/stable"
-          mkdir -p "${{ github.workspace }}/output"
+        uses: actions/checkout@v4
+        with:
+          path: stable
 
-          cd "${{ github.workspace }}/stable"
-          git clone --no-checkout https://github.com/MaintainTeam/Hypatia.git .
-          git checkout --progress --force "stable"
+      - name: Check that the tag matches versionName
+        if: ${{ github.event_name == 'push' }}
+        env:
+          REF_NAME: ${{ github.ref_name }}
+        run: |
+          version=$( grep "versionName" "${{ github.workspace }}/stable/app/build.gradle" | head -n1 | awk -F'"' '{print $2}' )
+          if [ "${REF_NAME}" != "v${version}" ]; then
+            echo "::error::Tag ${REF_NAME} does not match versionName ${version} in app/build.gradle (expected v${version})"
+            exit 1
+          fi
+
+      - name: Prepare output directory
+        run: mkdir -p "${{ github.workspace }}/output"
 
       - name: Set up JDK
         uses: actions/setup-java@v5
@@ -51,9 +65,12 @@ jobs:
           cd "${{ github.workspace }}/output/"
           echo "${KEYSTORE}" | base64 -d > apksign.keystore
 
-          version=$( grep "versionName" "${{ github.workspace }}/stable/app/build.gradle" | awk -F'"' '{print $2}' )
-          ${ANDROID_HOME}/build-tools/34.0.0/apksigner sign --ks apksign.keystore --ks-pass env:SIGNING_STORE_PASSWORD "./stable.apk"
+          version=$( grep "versionName" "${{ github.workspace }}/stable/app/build.gradle" | head -n1 | awk -F'"' '{print $2}' )
+          build_tools=$(ls "${ANDROID_HOME}/build-tools" | sort -V | tail -n1)
+          "${ANDROID_HOME}/build-tools/${build_tools}/apksigner" sign --ks apksign.keystore --ks-pass env:SIGNING_STORE_PASSWORD "./stable.apk"
+          "${ANDROID_HOME}/build-tools/${build_tools}/apksigner" verify --print-certs "./stable.apk"
           mv "stable.apk" "hypatia_v${version}.apk"
+          rm -f apksign.keystore
 
           echo ${version} > version.num
           ls -la
@@ -65,15 +82,28 @@ jobs:
           echo "::notice::$(echo $(cat ./checksums.txt))"
           ls -la
 
-
       - name: Create release and upload
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          EVENT: ${{ github.event_name }}
+          REF_NAME: ${{ github.ref_name }}
+          INPUT_TITLE: ${{ inputs.title }}
         run: |
-          gh auth login --with-token <<<"${{ secrets.GITHUB_TOKEN }}"
           cd "${{ github.workspace }}/output/"
           version=$(cat version.num)
-          echo $version
-          gh release create "v${version}" --title "${{ inputs.title }}" --notes-file "./changelog.md" --prerelease="true" --discussion-category "Announcements" --repo MaintainTeam/Hypatia
-          gh release upload "v${version}" $(echo $(find . -name '*.apk' -type f -exec basename \{} \;) checksums.txt) --repo MaintainTeam/Hypatia
+          if [ "${EVENT}" = "push" ]; then
+            tag="${REF_NAME}"
+          else
+            tag="v${version}"
+          fi
+          title="${INPUT_TITLE:-${tag}}"
+          echo "Publishing ${tag} (${title})"
+          gh release create "${tag}" \
+            --title "${title}" \
+            --notes-file "./changelog.md" \
+            --target "${GITHUB_SHA}" \
+            --repo "${GITHUB_REPOSITORY}" \
+            "hypatia_v${version}.apk" checksums.txt
 
       - name: Archive reports for job
         uses: actions/upload-artifact@v6
