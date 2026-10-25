@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_copyright">版权所有 2017–2024 Divested Computing Group</string>
-    <string name="app_license">许可证：GPL-3.0</string>
+    <string name="app_copyright">版权所有 2017–2024 Divested Computing Group\nCopyleft 2026 Julien D</string>
+    <string name="app_license">许可证：AGPL-3.0</string>
     <string name="app_version">版本：%s</string>
     <string name="app_db_type_clamav">由 ClamAV 数据库特征码提供支持</string>
     <string name="lblOnionRoutingToggle">通过 Tor 下载</string>
@@ -19,7 +19,7 @@
     <string name="lblNotificationRealtimeTitle">实时扫描</string>
     <string name="lblNotificationRealtimeDescription">用于显示已扫描文件数量和维护后台服务</string>
     <string name="lblNotificationRealtimeText">实时检测已知恶意程序</string>
-    <string name="lblNotificationRealtimeStopped">Hypatia：实时扫描已停止</string>
+    <string name="lblNotificationRealtimeStopped">Asclépios AV：实时扫描已停止</string>
     <string name="lblNotificationRealtimeDetection">检测到恶意程序：</string>
     <string name="lblRealtimeScannerToggle">实时扫描</string>
     <string name="lblReset">重置</string>
@@ -79,7 +79,7 @@
     <string name="lblWroteTestFiles">自检文件已编写！</string>
     <string name="lblLinkScannerToggle">链接扫描器</string>
     <string name="confirm_link_scanner_title">启用链接扫描器？</string>
-    <string name="accessibility_service_label">Hypatia链接扫描器</string>
+    <string name="accessibility_service_label">Asclépios AV链接扫描器</string>
     <string name="confirm_link_scanner_summary">[实验性功能]
 \n此功能将下载一个额外的域名数据库。
 \n在屏幕内容中找到的任何域名都将与该数据库进行比对。

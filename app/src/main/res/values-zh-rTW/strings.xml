@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_copyright">版權所有 2017–2024 Divested Computing Group</string>
-    <string name="app_license">授權： GPL-3.0</string>
+    <string name="app_copyright">版權所有 2017–2024 Divested Computing Group\nCopyleft 2026 Julien D</string>
+    <string name="app_license">授權： AGPL-3.0</string>
     <string name="app_version">版本： %s</string>
     <string name="app_db_type_clamav">由 ClamAV 資料庫特徵提供支援</string>
     <string name="lblOnionRoutingToggle">透過 Tor 下載</string>
@@ -19,7 +19,7 @@
     <string name="lblNotificationRealtimeDescription">用於顯示已掃描的檔案數量和維護背景服務</string>
     <string name="lblNotificationRealtimeText">即時偵測已知的惡意軟體</string>
     <string name="lblNotificationRealtimeTitle">即時掃描</string>
-    <string name="lblNotificationRealtimeStopped">Hypatia：即時掃描已停止</string>
+    <string name="lblNotificationRealtimeStopped">Asclépios AV：即時掃描已停止</string>
     <string name="lblNotificationRealtimeDetection">偵測到惡意軟體：</string>
     <string name="lblRealtimeScannerToggle">即時掃描</string>
     <string name="lblReset">重製</string>
@@ -74,7 +74,7 @@
     <string name="database_switcher_primary">主要伺服器</string>
     <string name="confirm_extended_title">要啟用增強版資料庫嗎？</string>
     <string name="confirm_extended_summary">此資料庫僅每季更新一次。</string>
-    <string name="accessibility_service_label">Hypatia 連結掃描器</string>
+    <string name="accessibility_service_label">Asclépios AV 連結掃描器</string>
     <string name="lblNotificationLinkDetection">偵測到惡意連結：</string>
     <string name="lblLinkScannerToggle">連結掃描器</string>
     <string name="confirm_link_scanner_title">啟用連結掃描器？</string>

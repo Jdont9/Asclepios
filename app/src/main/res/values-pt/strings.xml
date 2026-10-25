@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_copyright">Direitos autorais 2017–2024 Divested Computing Group\nCopyleft 2025 Organização MaintainTeam</string>
-    <string name="app_license">Licença: GPL-3.0</string>
+    <string name="app_copyright">Direitos autorais 2017–2024 Divested Computing Group\nCopyleft 2025 Organização MaintainTeam\nCopyleft 2026 Julien D</string>
+    <string name="app_license">Licença: AGPL-3.0</string>
     <string name="app_version">Versão: %s</string>
     <string name="app_db_type_clamav">Produzido por assinaturas estilo ClamAV</string>
     <string name="lblOnionRoutingEnabledHint">Baixando via Tor, isto pode demorar um pouco…</string>
@@ -17,7 +17,7 @@
     <string name="lblNotificationRealtimeTitle">Análise em tempo real</string>
     <string name="lblNotificationRealtimeDescription">Usado para mostrar contador de arquivos analisados e manter o serviço de segundo plano</string>
     <string name="lblNotificationRealtimeText">O malware conhecido será detectado em tempo real</string>
-    <string name="lblNotificationRealtimeStopped">Hypatia: Análise em tempo real parou</string>
+    <string name="lblNotificationRealtimeStopped">Asclépios AV: Análise em tempo real parou</string>
     <string name="lblNotificationRealtimeDetection">Malware detectado:</string>
     <string name="lblRealtimeScannerToggle">Analisar em tempo real</string>
     <string name="main_database_updating">Atualizando %s base de dados…</string>
@@ -74,7 +74,7 @@
     <string name="lblUpdateRunning">A pular a ação, uma atualização está em execução!</string>
     <string name="lblWroteTestFiles">Ficheiros de auto-verificação foram criados!</string>
     <string name="database_switcher_primary">Servidores Primários</string>
-    <string name="accessibility_service_label">Scanner de ligações do Hypatia</string>
+    <string name="accessibility_service_label">Scanner de ligações do Asclépios AV</string>
     <string name="accessibility_service_description">Extrai domínios de todo o conteúdo de texto do ecrã e verifica se estão numa lista de bloqueio</string>
     <string name="lblNotificationLinkDetection">Ligação maliciosa detetada:</string>
     <string name="lblLinkScannerToggle">Scanner de ligações</string>

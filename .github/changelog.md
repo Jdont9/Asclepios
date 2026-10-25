@@ -1,4 +1,6 @@
-Personal fork of MaintainTeam/Hypatia, see the README for the full list of changes.
+Asclépios AV (`fr.jd.asclepios`): personal fork of MaintainTeam/Hypatia, see the README for the full list of changes.
+
+This release renames the app and uses a new application id, so it installs next to the original Hypatia and does not update it.
 
 ## Features
 - The link scanner now loads the domain database by itself (after GPG verification).

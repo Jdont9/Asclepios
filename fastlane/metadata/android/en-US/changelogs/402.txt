@@ -1,0 +1,7 @@
+4.2: renamed to Asclepios AV (fr.jd.asclepios), new icon
+deep scan (root) now works on Android 11+ (global mount namespace)
+scan newly installed or updated apps
+database sanity checks
+remove deprecated AsyncTask, target Android 16 (SDK 36)
+complete French translation and Weblate updates
+link scanner loads the domain database automatically

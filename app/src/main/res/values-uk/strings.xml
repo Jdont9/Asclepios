@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_copyright">Авторські права 2017–2024 Divested Computing Group\nКопілефт 2025 MaintainTeam Organization</string>
-    <string name="app_license">Ліцензія: GPL-3.0</string>
+    <string name="app_copyright">Авторські права 2017–2024 Divested Computing Group\nКопілефт 2025 MaintainTeam Organization\nCopyleft 2026 Julien D</string>
+    <string name="app_license">Ліцензія: AGPL-3.0</string>
     <string name="app_version">Версія: %s</string>
     <string name="app_db_type_clamav">Працює на основі сигнатур ClamAV</string>
     <string name="lblOnionRoutingToggle">Завантажити через Tor</string>
@@ -47,7 +47,7 @@
     <string name="lblSelfTest">Написання файлів самотестування</string>
     <string name="lblUpdateRunning">Пропуск дії, оновлення триває!</string>
     <string name="database_switcher_primary">Основні сервери</string>
-    <string name="accessibility_service_label">Сканер посилань Hypatia</string>
+    <string name="accessibility_service_label">Сканер посилань Asclépios AV</string>
     <string name="accessibility_service_description">Витягує домени з усього текстового вмісту екрана та перевіряє їх за блок-листом</string>
     <string name="confirm_link_scanner_title">Увімкнути сканер посилань?</string>
     <string name="lblWroteTestFiles">Файли самотестування записано!</string>
@@ -59,7 +59,7 @@
     <string name="lblNotificationRealtimeDescription">Використовується для відображення лічильника відсканованих файлів й підтримки фонової служби</string>
     <string name="main_files_pending_scan">%s файлів, що очікують на перевірку</string>
     <string name="lblNotificationRealtimeText">Відомі шкідливі застосунки будуть виявлятися в режимі реального часу</string>
-    <string name="lblNotificationRealtimeStopped">Hypatia: Сканування у реальному часі зупинено</string>
+    <string name="lblNotificationRealtimeStopped">Asclépios AV: Сканування у реальному часі зупинено</string>
     <string name="lblRealtimeScannerToggle">Сканер у реальному часі</string>
     <string name="lblOverride">Перевизначити</string>
     <string name="main_database_updating">Оновлення %s баз даних…</string>

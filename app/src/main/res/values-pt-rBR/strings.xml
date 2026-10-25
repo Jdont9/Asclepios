@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_copyright">Direitos Autorais 2017–2024 Divested Computing Group\nCopyleft 2025 MaintainTeam Organization</string>
-    <string name="app_license">Licença: GPL-3.0</string>
+    <string name="app_copyright">Direitos Autorais 2017–2024 Divested Computing Group\nCopyleft 2025 MaintainTeam Organization\nCopyleft 2026 Julien D</string>
+    <string name="app_license">Licença: AGPL-3.0</string>
     <string name="app_version">Versão: %s</string>
     <string name="app_db_type_clamav">Alimentado por assinaturas no estilo ClamAV</string>
     <string name="lblOnionRoutingToggle">Baixar via Tor</string>
@@ -19,7 +19,7 @@
     <string name="lblNotificationRealtimeTitle">Busca em Tempo Real</string>
     <string name="lblNotificationRealtimeDescription">Usado para mostrar o contador de arquivos escaneados e manter o serviço em segundo plano</string>
     <string name="lblNotificationRealtimeText">Malware conhecido será detectado em tempo real</string>
-    <string name="lblNotificationRealtimeStopped">Hypatia: A varredura em tempo real foi interrompida</string>
+    <string name="lblNotificationRealtimeStopped">Asclépios AV: A varredura em tempo real foi interrompida</string>
     <string name="lblNotificationRealtimeDetection">Malware Detectado:</string>
     <string name="lblRealtimeScannerToggle">Buscar em Tempo Real</string>
     <string name="lblReset">Redefinir</string>
@@ -79,7 +79,7 @@
 \nPrecisa que a permissão de serviço de acessibilidade seja concedida manualmente.
 \nPode ter um impacto considerável em telas com grandes quantidades de texto.</string>
     <string name="database_switcher_primary">Servidores Primários</string>
-    <string name="accessibility_service_label">Busca de Links do Hypatia</string>
+    <string name="accessibility_service_label">Busca de Links do Asclépios AV</string>
     <string name="accessibility_service_description">Extrai domínios de todo o conteúdo de texto da tela e verifica se estão numa lista de bloqueio</string>
     <string name="lblNotificationLinkDetection">Link Malicioso Detectado:</string>
     <string name="lblLinkScannerToggle">Busca de Links</string>

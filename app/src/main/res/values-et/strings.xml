@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_license">Litsents: GPL-3.0</string>
+    <string name="app_license">Litsents: AGPL-3.0</string>
     <string name="app_version">Versioon: %s</string>
-    <string name="app_copyright">Autoriõigused 2017–2024 Divested Computing Group\nAutoriõigused 2025 MaintainTeam Organization</string>
+    <string name="app_copyright">Autoriõigused 2017–2024 Divested Computing Group\nAutoriõigused 2025 MaintainTeam Organization\nCopyleft 2026 Julien D</string>
     <string name="main_database_override">Kasutame serverit %s</string>
     <string name="database_switcher_primary">Põhiserverid</string>
     <string name="lblFullCredits">Rakenduse teave</string>
@@ -21,7 +21,7 @@
     <string name="lblNotificationRealtimeTitle">Kontrolli reaalajas</string>
     <string name="lblNotificationRealtimeDescription">See eelistus hoiab taustateenust töös ja kuvab kontrollitud failide loendit</string>
     <string name="lblNotificationRealtimeText">Tuvastame teadaoleva pahavara reaalajas</string>
-    <string name="lblNotificationRealtimeStopped">Hypatia: Reaalajas kontroll on peatatud</string>
+    <string name="lblNotificationRealtimeStopped">Asclépios AV: Reaalajas kontroll on peatatud</string>
     <string name="lblNotificationRealtimeDetection">Tuvastasime pahavara:</string>
     <string name="lblRealtimeScannerToggle">Kontroll reaalajas</string>
     <string name="lblReset">Lähtesta</string>
@@ -73,7 +73,7 @@
     <string name="lblWroteTestFiles">Salvestasime testfailid!</string>
     <string name="confirm_update_summary">Tundub, et kasutad mahupõhist internetiühendust. Kas sa oled kindel, et soovid uuendada viirusetunnuste andmebaase?
 \nLaadime alla kuni %s megabaiti andmeid.</string>
-    <string name="accessibility_service_label">Hypatia linkide kontrollija</string>
+    <string name="accessibility_service_label">Asclépios AV linkide kontrollija</string>
     <string name="lblNotificationLinkDetection">Tuvastasime pahavara lingi:</string>
     <string name="lblLinkScannerToggle">Linkide kontrollija</string>
     <string name="accessibility_service_description">Tuvastame kogu ekraanivaates leiduvad kõik lingid ning kontrollime nende olemasolu pahavara linkide andmekogus</string>

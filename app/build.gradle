@@ -8,16 +8,16 @@ android {
     namespace 'us.spotco.malwarescanner'
 
     defaultConfig {
-        applicationId "org.maintainteam.hypatia"
-        resValue "string", "app_name", "Hypatia"
+        applicationId "fr.jd.asclepios"
+        resValue "string", "app_name", "Asclépios AV"
         minSdkVersion 21
         targetSdkVersion 36
         if (System.properties.containsKey('versionCodeOverride')) {
             versionCode System.getProperty('versionCodeOverride') as Integer
         } else {
-            versionCode 401
+            versionCode 402
         }
-        versionName "4.1"
+        versionName "4.2"
         if (System.properties.containsKey('versionNameSuffix')) {
             versionNameSuffix System.getProperty('versionNameSuffix')
         }
@@ -34,10 +34,10 @@ android {
             if (normalizedWorkingBranch.isEmpty() || workingBranch == "master" || workingBranch == "dev" || workingBranch == "stable") {
                 // default values when branch name could not be determined or is master, dev or stable
                 applicationIdSuffix ".debug"
-                resValue "string", "app_name", "Hypatia Debug"
+                resValue "string", "app_name", "Asclépios AV Debug"
             } else {
                 applicationIdSuffix ".debug." + normalizedWorkingBranch
-                resValue "string", "app_name", "Hypatia " + workingBranch
+                resValue "string", "app_name", "Asclépios AV " + workingBranch
             }
 
             zipAlignEnabled true
@@ -46,7 +46,7 @@ android {
         release {
             if (System.properties.containsKey('packageSuffix')) {
                 applicationIdSuffix System.getProperty('packageSuffix')
-                resValue "string", "app_name", "Hypatia " + System.getProperty('packageSuffix')
+                resValue "string", "app_name", "Asclépios AV " + System.getProperty('packageSuffix')
             }
             minifyEnabled true
             shrinkResources false // disabled to fix F-Droid's reproducible build

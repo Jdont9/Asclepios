@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_copyright">Авторско право 2017–2024 Divested Computing Group\nАвторско право 2025 MaintainTeam Organization</string>
+    <string name="app_copyright">Авторско право 2017–2024 Divested Computing Group\nАвторско право 2025 MaintainTeam Organization\nCopyleft 2026 Julien D</string>
     <string name="lblFullCredits">Кредити</string>
     <string name="lblScanRemovable">Сканиране на сменяеми носители</string>
     <string name="lblNotificationMalwareDetectionTitle">Откриване на зловреден софтуер</string>
@@ -20,7 +20,7 @@
     <string name="confirm_extended_title">Активирай разширена база данни?</string>
     <string name="confirm_update_title">Потвърди изтеглянето</string>
     <string name="lblUpdateRunning">Пропускане на действие, изпълнява се актуализация!</string>
-    <string name="accessibility_service_label">Hypatia скенер за връзки</string>
+    <string name="accessibility_service_label">Asclépios AV скенер за връзки</string>
     <string name="lblNotificationLinkDetection">Открита злонамерена връзка:</string>
     <string name="lblLinkScannerToggle">Скенер за връзки</string>
     <string name="app_version">Версия: %s</string>
@@ -37,7 +37,7 @@
     <string name="lblScanSystem">Сканиране / система</string>
     <string name="lblOverride">Замяна</string>
     <string name="lblNotificationRealtimeText">Известният зловреден софтуер ще бъде открит в реално време</string>
-    <string name="lblNotificationRealtimeStopped">Hypatia: Сканирането в реално време е спряно</string>
+    <string name="lblNotificationRealtimeStopped">Asclépios AV: Сканирането в реално време е спряно</string>
     <string name="lblReset">Нулиране</string>
     <string name="main_database_download_error">Файлът не е изтеглен, код на отговор %s</string>
     <string name="main_database_released_on">Пуснато на %s</string>
@@ -59,7 +59,7 @@
     <string name="lblDatabaseLoading">Пропускане на действие, базата данни се зарежда!</string>
     <string name="accessibility_service_description">Извлича домейни от цялото текстово съдържание на екрана и ги проверява в списък за блокиране</string>
     <string name="lblNoNetwork">Няма свързана мрежа!</string>
-    <string name="app_license">Лиценз: GPL-3.0</string>
+    <string name="app_license">Лиценз: AGPL-3.0</string>
     <string name="confirm_link_scanner_title">Активирай скенер на връзки?</string>
     <string name="lblWroteTestFiles">Написах тестови файлове!</string>
     <string name="confirm_lookup_title">Потвърди търсенето</string>

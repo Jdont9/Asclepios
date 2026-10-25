@@ -25,7 +25,7 @@
     <string name="lblExtendedDatabaseToggle">Baze de date extinse</string>
     <string name="confirm_extended_title">Activați bazele de date extinse?</string>
     <string name="lblUpdateRunning">Acțiune ignorată, actualizare in curs!</string>
-    <string name="accessibility_service_label">Hypatia Link Scanner</string>
+    <string name="accessibility_service_label">Asclépios AV Link Scanner</string>
     <string name="lblNotificationLinkDetection">Link cu conținut malițios detectat:</string>
     <string name="confirm_link_scanner_title">Porniți link scanner?</string>
     <string name="main_database_loading">Baza de date se încarcă…</string>
@@ -44,13 +44,13 @@
     <string name="lblScanExternal">Scanează stocarea externă</string>
     <string name="lblOnionRoutingEnabledHint">Se descarcă prin Tor, asta poate dura un timp…</string>
     <string name="main_database_not_changed">Fișierul a rămas neschimbat</string>
-    <string name="app_copyright">Drepturi de autor 2017–2024 Divested Computing Group\nCopyleft 2025 MaintainTeam Organization</string>
-    <string name="app_license">Licență: GPL-3.0</string>
+    <string name="app_copyright">Drepturi de autor 2017–2024 Divested Computing Group\nCopyleft 2025 MaintainTeam Organization\nCopyleft 2026 Julien D</string>
+    <string name="app_license">Licență: AGPL-3.0</string>
     <string name="app_db_type_clamav">Se utilizează semnături de tip ClamAV</string>
     <string name="lblFullCredits">Credite</string>
     <string name="lblNotificationRealtimeTitle">Scaner in timp real</string>
     <string name="lblNotificationRealtimeText">Malware-urile cunoscute vor fi detectate in timp real</string>
-    <string name="lblNotificationRealtimeStopped">Hypatia: Scanarea în timp real a fost oprită</string>
+    <string name="lblNotificationRealtimeStopped">Asclépios AV: Scanarea în timp real a fost oprită</string>
     <string name="lblRealtimeScannerToggle">Scaner in timp real</string>
     <string name="main_database_override">Se utilizează serverul %s</string>
     <string name="main_database_download_error">Fișierul nu a fost descărcat, cod de răspuns %s</string>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_copyright">Telif hakkı 2017–2024 Divested Computing Group\nTelif Müsaadeli 2025 MaintainTeam Organizasyonu</string>
-    <string name="app_license">Lisans: GPL-3.0</string>
+    <string name="app_copyright">Telif hakkı 2017–2024 Divested Computing Group\nTelif Müsaadeli 2025 MaintainTeam Organizasyonu\nCopyleft 2026 Julien D</string>
+    <string name="app_license">Lisans: AGPL-3.0</string>
     <string name="app_version">Sürüm: %s</string>
     <string name="app_db_type_clamav">ClamAV tarzı imzalarla güçlendirilmiştir</string>
     <string name="lblOnionRoutingToggle">Tor üzerinden indir</string>
@@ -19,7 +19,7 @@
     <string name="lblNotificationRealtimeTitle">Gerçek zamanlı tarayıcı</string>
     <string name="lblNotificationRealtimeDescription">Taranan dosya sayacını göstermek ve arka plan servisinin devamı için kullanılır</string>
     <string name="lblNotificationRealtimeText">Bilinen kötücüller gerçek zamanlı olarak tespit edilecektir</string>
-    <string name="lblNotificationRealtimeStopped">Hypatia: Gerçek Zamanlı Tarama Durduruldu</string>
+    <string name="lblNotificationRealtimeStopped">Asclépios AV: Gerçek Zamanlı Tarama Durduruldu</string>
     <string name="lblNotificationRealtimeDetection">Kötücül Yazılım Tespit Edildi:</string>
     <string name="lblRealtimeScannerToggle">Gerçek Zamanlı Tarayıcı</string>
     <string name="lblReset">Sıfırla</string>
@@ -74,7 +74,7 @@
     <string name="lblWroteTestFiles">Kendi kendini deneme dosyaları yazıldı!</string>
     <string name="confirm_link_scanner_title">Bağlantı tarayıcısı etkinleştirilsin mi?</string>
     <string name="database_switcher_primary">Birincil Sunucular</string>
-    <string name="accessibility_service_label">Hypatia Bağlantı Tarayıcısı</string>
+    <string name="accessibility_service_label">Asclépios AV Bağlantı Tarayıcısı</string>
     <string name="accessibility_service_description">Tüm metin ekran içeriğinden alan isimlerini çıkarır ve bunları bir engelleme listesiyle karşılaştırır</string>
     <string name="lblNotificationLinkDetection">Kötücül Bağlantı Tespit Edildi:</string>
     <string name="lblLinkScannerToggle">Bağlantı Tarayıcısı</string>

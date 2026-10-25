@@ -69,7 +69,7 @@ jobs:
           build_tools=$(ls "${ANDROID_HOME}/build-tools" | sort -V | tail -n1)
           "${ANDROID_HOME}/build-tools/${build_tools}/apksigner" sign --ks apksign.keystore --ks-pass env:SIGNING_STORE_PASSWORD "./stable.apk"
           "${ANDROID_HOME}/build-tools/${build_tools}/apksigner" verify --print-certs "./stable.apk"
-          mv "stable.apk" "hypatia_v${version}.apk"
+          mv "stable.apk" "asclepios-av_v${version}.apk"
           rm -f apksign.keystore
 
           echo ${version} > version.num
@@ -103,7 +103,7 @@ jobs:
             --notes-file "./changelog.md" \
             --target "${GITHUB_SHA}" \
             --repo "${GITHUB_REPOSITORY}" \
-            "hypatia_v${version}.apk" checksums.txt
+            "asclepios-av_v${version}.apk" checksums.txt
 
       - name: Archive reports for job
         uses: actions/upload-artifact@v6

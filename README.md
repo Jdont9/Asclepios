@@ -1,29 +1,32 @@
 > [!WARNING]
 > ### This is a fork of the [original](https://github.com/Divested-Mobile/Hypatia) (and discontinued) app from DivestOS.
-> ### This repository ([Jdont9/Hypatia](https://github.com/Jdont9/Hypatia)) is my personal fork of [MaintainTeam/Hypatia](https://github.com/MaintainTeam/Hypatia), see [Changes in this fork](#changes-in-this-fork-41).
+> ### This repository ([Jdont9/Hypatia](https://github.com/Jdont9/Hypatia)) is **Asclépios AV**, my personal fork of [MaintainTeam/Hypatia](https://github.com/MaintainTeam/Hypatia), see [Changes in this fork](#changes-in-this-fork-42).
 
 ![Banner](./fastlane/metadata/android/en-US/images/featureGraphic.png)
 
-Hypatia
-=======
+Asclépios AV
+============
+_A fork of [Hypatia](https://github.com/MaintainTeam/Hypatia), originally created by Divested Computing Group._
 
 Overview
 --------
-Hypatia is the world's first FOSS malware scanner for Android. It is powered by ClamAV style signature databases.
+Asclépios AV is a fork of Hypatia, the world's first FOSS malware scanner for Android. It is powered by ClamAV style signature databases.
 
 <!-- [<img src="https://fdroid.gitlab.io/artwork/badge/get-it-on.png"
      alt="Get it on F-Droid"
      height="80">](https://f-droid.org/packages/us.spotco.malwarescanner/) -->
 [<img src="https://gitlab.com/IzzyOnDroid/repo/-/raw/master/assets/IzzyOnDroid.png"
-     alt="Get it on IzzyOnDroid"
+     alt="Get the original Hypatia on IzzyOnDroid"
      height="80">](https://apt.izzysoft.de/packages/org.maintainteam.hypatia/)
 [<img src="https://hosted.weblate.org/widget/maintainteam/hypatia/287x66-grey.png"
-     alt="Translation status"
+     alt="Translation status (original Hypatia)"
      height="66">](https://hosted.weblate.org/projects/maintainteam/hypatia/)
 
-Changes in this fork (4.1)
+Changes in this fork (4.2)
 --------------------------
-This is [my personal fork](https://github.com/Jdont9/Hypatia) of [MaintainTeam/Hypatia](https://github.com/MaintainTeam/Hypatia). Signed APKs are on the [Releases page](https://github.com/Jdont9/Hypatia/releases). Compared to upstream `stable` (3.18):
+Asclépios AV (application id `fr.jd.asclepios`) is [my personal fork](https://github.com/Jdont9/Hypatia) of [MaintainTeam/Hypatia](https://github.com/MaintainTeam/Hypatia), itself a fork of the discontinued [Divested-Mobile/Hypatia](https://github.com/Divested-Mobile/Hypatia). Signed APKs are on the [Releases page](https://github.com/Jdont9/Hypatia/releases). Compared to upstream `stable` (3.18):
+
+- **Rename and identity:** the app is now called **Asclépios AV** with the application id `fr.jd.asclepios`, so it installs next to the original Hypatia and does not share its settings. It has a new icon, every "Hypatia" label shown in the app was renamed, the license shown in the app is corrected to AGPL-3.0 (as in `LICENSE`) and a copyleft line for this fork was added. The original attributions and credits are kept.
 
 - **Modernisation:** removed the deprecated `AsyncTask` (scans and database downloads now run on a dedicated thread pool, with logs and notifications always posted from the main thread); an exception during a scan is now logged instead of crashing the app.
 - **Android 16 target:** `targetSdk` raised from 34 to 36, with edge-to-edge window insets handling, removal of the `onBackPressed()` override (predictive back) and the `PROPERTY_SPECIAL_USE_FGS_SUBTYPE` declaration on both foreground services.
@@ -34,7 +37,7 @@ This is [my personal fork](https://github.com/Jdont9/Hypatia) of [MaintainTeam/H
 - **Root scan:** a new "Deep scan (root)" menu option hashes /system, /vendor, /product, /data (including other apps' private data) and the other system partitions through a root shell (`su`), using the device's own `md5sum`, `sha1sum` and `sha256sum`. Since Android 11 apps only see their own data in `/data/data`, so the shell is started with `su --mount-master` (global mount namespace, like SD Maid does), falling back to plain `su` with a warning. Nothing is installed, and no dependency is added. The system / apps / internal storage options keep working on their own (without root, or if root is refused); when the root scan succeeds they are skipped since it already covers them. Matches are reported with the usual notifications, but deleting a file in a protected location from the notification is not possible without root.
 - **New and updated apps:** while the realtime scanner is running, the APKs of apps being installed or updated are scanned automatically.
 - **Database sanity checks:** downloads are rejected when empty or truncated (the previous working file is kept), empty databases are refused at load time, and a warning is shown when the built-in test signatures are missing.
-- **Release workflow:** pushing a `v*` tag (for example `v4.1`) now builds, signs and publishes a GitHub release automatically from this repository, instead of MaintainTeam's.
+- **Release workflow:** pushing a `v*` tag (for example `v4.2`) now builds, signs and publishes a GitHub release automatically from this repository, instead of MaintainTeam's.
 - **Documentation:** the French README was rewritten to match the English one.
 
 Not merged from upstream: the UI redesign of PR #101 (scan progress card and threat list), which the maintainers asked to be submitted separately.
@@ -68,9 +71,13 @@ APK Info & Security
 
 Both debug, release and nightly versions built by GitHub Actions. You can check checksum notice in Release Actions or/and checksum.txt in releases to compare with Application's
 
-The fingerprint below is the signing key of MaintainTeam's official releases. Releases of this fork are signed with a different key: check them with `apksigner verify --print-certs`, and do not expect them to update over the official app (or the IzzyOnDroid build).
+Releases of this fork (Asclépios AV) are signed with a key whose SHA-256 certificate fingerprint is:
+```
+6D:D9:76:DD:3E:77:AF:FE:AB:CF:03:3B:B6:AC:3E:07:B8:53:31:D1:EC:60:1F:F0:27:78:CA:EF:73:EE:C1:B6
+```
+Check an APK with `apksigner verify --print-certs`. These releases do not update the original Hypatia (different application id and signing key).
 
-This is the SHA fingerprint of Hypatia's signing key to verify downloaded APKs which are signed by MaintainTeam.
+For reference, this is the SHA fingerprint of the signing key of the original Hypatia, used by MaintainTeam's official releases:
 ```
 1B:00:8D:64:BB:95:AB:47:74:D6:8B:87:F2:2B:8B:E9:A2:72:F4:92:4D:F5:20:29:D7:E6:18:38:35:D9:18:CC
 ```

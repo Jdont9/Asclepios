@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_license">Licenza: GPL-3.0</string>
+    <string name="app_license">Licenza: AGPL-3.0</string>
     <string name="app_version">Versione: %s</string>
     <string name="app_db_type_clamav">Basato su firme in stile ClamAV</string>
     <string name="lblOnionRoutingToggle">Aggiorna tramite Tor</string>
@@ -8,7 +8,7 @@
     <string name="lblOnionRoutingNotInstalled">Orbot non è installato!</string>
     <string name="lblUpdateDatabase">Aggiorna i database</string>
     <string name="lblAutoDatabaseUpdate">Aggiornamenti automatici (una volta al giorno, solo Wi-Fi)</string>
-    <string name="lblAutoDatabaseUpdateEnabled">Aggiornamenti automatici attivati. Hypatia controllerà una volta al giorno via Wi-Fi e scaricherà solo se è disponibile un database più recente.</string>
+    <string name="lblAutoDatabaseUpdateEnabled">Aggiornamenti automatici attivati. Asclépios AV controllerà una volta al giorno via Wi-Fi e scaricherà solo se è disponibile un database più recente.</string>
     <string name="lblAutoDatabaseUpdateDisabled">Aggiornamenti automatici disattivati.</string>
     <string name="lblAutoDatabaseUpdateWaitWifi">Nessun Wi-Fi: il primo controllo avverrà non appena sarà disponibile una connessione non a consumo.</string>
     <string name="lblNotificationDatabaseUpdateTitle">Aggiornamenti database</string>
@@ -26,7 +26,7 @@
     <string name="lblNotificationRealtimeTitle">Scansione in tempo reale</string>
     <string name="lblNotificationRealtimeDescription">Indica il numero di file scansionati e mantiene il servizio in esecuzione in background</string>
     <string name="lblNotificationRealtimeText">Il malware sarà rilevato in tempo reale</string>
-    <string name="lblNotificationRealtimeStopped">Hypatia: la scansione in tempo reale è stata interrotta</string>
+    <string name="lblNotificationRealtimeStopped">Asclépios AV: la scansione in tempo reale è stata interrotta</string>
     <string name="lblNotificationRealtimeDetection">Malware rilevato:</string>
     <string name="lblRealtimeScannerToggle">Scansione in tempo reale</string>
     <string name="lblReset">Reset</string>
@@ -83,8 +83,8 @@
     <string name="database_switcher_primary">Server primari</string>
     <string name="confirm_link_scanner_title">Abilitare lo scanner di link?</string>
     <string name="confirm_link_scanner_summary">[SPERIMENTALE]\nQuesta funzione scaricherà un database aggiuntivo di domini.\nOgni dominio visualizzato a schermo verrà confrontato con quelli nel database.\nCiò richiede l\'abilitazione manuale del servizio di accessibilità.\nCiò può avere un impatto considerevole sulle prestazioni quando sullo schermo è presente una grande quantità di testo.</string>
-    <string name="accessibility_service_label">Scanner di link di Hypatia</string>
+    <string name="accessibility_service_label">Scanner di link di Asclépios AV</string>
     <string name="accessibility_service_description">Estrae i domini dal testo visualizzato a schermo verifica se compaiono su una lista nera</string>
     <string name="lblLinkScannerToggle">Scanner di link</string>
-    <string name="app_copyright">Copyright 2017–2024 di Divested Computing Group</string>
+    <string name="app_copyright">Copyright 2017–2024 di Divested Computing Group\nCopyleft 2026 Julien D</string>
 </resources>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_license">Лицензия: GPL-3.0</string>
+    <string name="app_license">Лицензия: AGPL-3.0</string>
     <string name="app_version">Версия: %s</string>
     <string name="app_db_type_clamav">Используются сигнатуры от ClamAV</string>
     <string name="lblOnionRoutingToggle">Скачать через Tor</string>
@@ -18,7 +18,7 @@
     <string name="lblNotificationRealtimeTitle">Сканер в реальном времени</string>
     <string name="lblNotificationRealtimeDescription">Используется для отображения счетчика просканированных файлов и поддержки фоновой службы</string>
     <string name="lblNotificationRealtimeText">Вредоносное ПО обнаруживается в реальном времени</string>
-    <string name="lblNotificationRealtimeStopped">Hypatia: сканирование в реальном времени остановлено</string>
+    <string name="lblNotificationRealtimeStopped">Asclépios AV: сканирование в реальном времени остановлено</string>
     <string name="lblNotificationRealtimeDetection">Обнаружено вредоносное ПО:</string>
     <string name="lblRealtimeScannerToggle">Сканер в реальном времени</string>
     <string name="lblReset">Сбросить</string>
@@ -71,7 +71,7 @@
     <string name="confirm_update_summary">Похоже, вы используете тарифицируемое подключение. Вы уверены, что хотите обновить базы данных?\nОбъем загружаемых данных может достигать %s мегабайт.</string>
     <string name="lblUpdateRunning">Пропуск действия, запущено обновление!</string>
     <string name="lblWroteTestFiles">Записаны тестовые файлы!</string>
-    <string name="app_copyright">Авторское право 2017-2024 Divested Computing Group\nАвторское лево 2025 MaintainTeam Organization</string>
+    <string name="app_copyright">Авторское право 2017-2024 Divested Computing Group\nАвторское лево 2025 MaintainTeam Organization\nCopyleft 2026 Julien D</string>
     <string name="database_switcher_primary">Основные серверы</string>
     <string name="lblNotificationLinkDetection">Обнаружена вредоносная ссылка:</string>
     <string name="accessibility_service_description">Извлекает домены из всего текстового содержимого экрана и проверяет их на соответствие списку блокировок</string>
@@ -82,6 +82,6 @@
 \nВсе домены, найденные в содержимом экрана, будут проверены по этой базе.
 \nДля этого необходимо вручную предоставить разрешение службе доступности.
 \nЭто может существенно повлиять на производительность экранов с большим количеством текста.</string>
-    <string name="accessibility_service_label">Сканер Hypatia Link</string>
+    <string name="accessibility_service_label">Сканер Asclépios AV Link</string>
     <string name="app_disclaimer">Это всего лишь вредоносный сканер, сравнивающий файлы с известными хэш-суммами из баз данных вредоносных программ, а не чудодейстенное средство, обеспечивающее Вашей системе свехзащищённость. Вам следует быть осторожным и обращать внимание на то, что скачиваете/куда клацаете!</string>
 </resources>

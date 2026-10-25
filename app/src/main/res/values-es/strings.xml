@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_license">Licencia: GPL-3.0</string>
+    <string name="app_license">Licencia: AGPL-3.0</string>
     <string name="app_version">Versión: %s</string>
     <string name="app_db_type_clamav">Con firmas del estilo de ClamAV</string>
     <string name="lblOnionRoutingToggle">Descarga a través de Tor</string>
@@ -8,7 +8,7 @@
     <string name="lblOnionRoutingNotInstalled">¡Orbot no está instalado!</string>
     <string name="lblUpdateDatabase">Actualizar las bases de datos</string>
     <string name="lblAutoDatabaseUpdate">Actualizaciones automáticas (una vez al día, solo Wi-Fi)</string>
-    <string name="lblAutoDatabaseUpdateEnabled">Actualizaciones automáticas activadas. Hypatia comprobará una vez al día por Wi-Fi y solo descargará si hay una base más reciente.</string>
+    <string name="lblAutoDatabaseUpdateEnabled">Actualizaciones automáticas activadas. Asclépios AV comprobará una vez al día por Wi-Fi y solo descargará si hay una base más reciente.</string>
     <string name="lblAutoDatabaseUpdateDisabled">Actualizaciones automáticas desactivadas.</string>
     <string name="lblAutoDatabaseUpdateWaitWifi">Sin Wi-Fi: la primera comprobación se hará en cuanto haya una conexión no medida.</string>
     <string name="lblNotificationDatabaseUpdateTitle">Actualizaciones de bases</string>
@@ -26,7 +26,7 @@
     <string name="lblNotificationRealtimeTitle">Escáner en tiempo real</string>
     <string name="lblNotificationRealtimeDescription">Se utiliza para mostrar el contador de archivos escaneados y mantener el servicio en segundo plano</string>
     <string name="lblNotificationRealtimeText">El software malicioso conocido se detecta en tiempo real</string>
-    <string name="lblNotificationRealtimeStopped">Hypatia: Escaneo en tiempo real detenido</string>
+    <string name="lblNotificationRealtimeStopped">Asclépios AV: Escaneo en tiempo real detenido</string>
     <string name="lblNotificationRealtimeDetection">Software malicioso detectado:</string>
     <string name="lblRealtimeScannerToggle">Escáner en tiempo real</string>
     <string name="lblReset">Reiniciar</string>
@@ -81,7 +81,7 @@
     <string name="lblWroteTestFiles">¡Se escribieron los archivos de prueba!</string>
     <string name="database_switcher_primary">Servidores principales</string>
     <string name="lblNotificationLinkDetection">Enlace malicioso detectado:</string>
-    <string name="app_copyright">Derechos de autor 2017–2024 Divested Computing Group\nCopyleft 2025 Organización MaintainTeam</string>
+    <string name="app_copyright">Derechos de autor 2017–2024 Divested Computing Group\nCopyleft 2025 Organización MaintainTeam\nCopyleft 2026 Julien D</string>
     <string name="accessibility_service_description">Extrae dominios de todo el contenido del texto de la pantalla y los compara con una lista de bloqueo</string>
     <string name="lblLinkScannerToggle">Escáner de enlaces</string>
     <string name="confirm_link_scanner_title">¿Habilitar el escáner de enlaces?</string>
@@ -90,7 +90,7 @@
 \nCualquier dominio que se encuentre en el contenido de la pantalla se cotejará con la base de datos.
 \nEsto requiere conceder manualmente permiso al servicio de accesibilidad.
 \nEsto puede tener un impacto sustancial en el rendimiento de las pantallas con grandes cantidades de texto.</string>
-    <string name="accessibility_service_label">Analizador de enlaces de Hypatia</string>
+    <string name="accessibility_service_label">Analizador de enlaces de Asclépios AV</string>
     <string name="app_disclaimer">Esto es sólo un escáner de malware que compara archivos con hashes encontrados previamente. No es una varita mágica que mantiene todo tu android super seguro. ¡Usted debe tener cuidado con lo que descarga / clic!</string>
     <string name="database_switcher_mirror">Espejo de GitHub</string>
     <string name="cache_scan_result_deletion_warning">Dado que se trata de un escaneo compartido, debe eliminar manualmente el archivo o ponerlo en cuarentena!</string>
