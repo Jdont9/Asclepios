@@ -112,6 +112,7 @@
     <string name="main_root_unavailable">Root access unavailable or refused, root scan skipped</string>
     <string name="main_root_covered">The root scan already covered the system, the apps and the internal storage, skipping their regular scan</string>
     <string name="main_root_incomplete">The root scan could not compute every hash type on this device, also running the regular scan</string>
+    <string name="main_scanning_done_root">Scan completed in %1$s seconds @ %2$s files/s!</string>
     <string name="main_root_hashing">Hashing files as root, this can take a long time…</string>
     <string name="notification_domain">Domain: >>>%s&lt;&lt;&lt;</string>
     <string name="notification_file">File: >>>%s&lt;&lt;&lt;</string>
