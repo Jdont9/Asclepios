@@ -105,6 +105,7 @@
     <string name="main_root_covered">L\'analyse root a déjà couvert le système, les applications et le stockage interne, leur analyse normale est ignorée</string>
     <string name="main_root_incomplete">L\'analyse root n\'a pas pu calculer tous les types d\'empreintes sur cet appareil, l\'analyse normale est aussi lancée</string>
     <string name="main_scanning_done_root">Analyse complétée en %1$s secondes @ %2$s fichiers/s !</string>
+    <string name="main_root_namespace_warning">Attention : le root ne s\'exécute pas dans l\'espace de montage global, les données privées des autres applications (/data/data) peuvent donc être masquées. Dans votre gestionnaire root (Magisk : Réglages &gt; Mode d\'espace de noms de montage) choisissez Global</string>
     <string name="main_root_hashing">Calcul des empreintes en root, cela peut être long…</string>
     <string name="notification_domain">Domaine : >>>%s&lt;&lt;&lt;</string>
     <string name="notification_file">Fichier : >>>%s&lt;&lt;&lt;</string>
