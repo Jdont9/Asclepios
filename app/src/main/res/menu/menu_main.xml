@@ -58,6 +58,11 @@
         android:checkable="true"
         android:checked="false" />
     <item
+        android:id="@+id/mnuScanRoot"
+        android:title="@string/lblScanRoot"
+        android:checkable="true"
+        android:checked="false" />
+    <item
         android:id="@+id/mnuSelfTestReal"
         android:title="@string/lblSelfTest" />
     <item

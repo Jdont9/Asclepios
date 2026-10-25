@@ -1,6 +1,6 @@
 > [!WARNING]
 > ### This is a fork of the [original](https://github.com/Divested-Mobile/Hypatia) (and discontinued) app from DivestOS.
-> ### This repository ([Jdont9/Hypatia](https://github.com/Jdont9/Hypatia)) is my personal fork of [MaintainTeam/Hypatia](https://github.com/MaintainTeam/Hypatia), see [Changes in this fork](#changes-in-this-fork-40).
+> ### This repository ([Jdont9/Hypatia](https://github.com/Jdont9/Hypatia)) is my personal fork of [MaintainTeam/Hypatia](https://github.com/MaintainTeam/Hypatia), see [Changes in this fork](#changes-in-this-fork-41).
 
 ![Banner](./fastlane/metadata/android/en-US/images/featureGraphic.png)
 
@@ -21,7 +21,7 @@ Hypatia is the world's first FOSS malware scanner for Android. It is powered by 
      alt="Translation status"
      height="66">](https://hosted.weblate.org/projects/maintainteam/hypatia/)
 
-Changes in this fork (4.0)
+Changes in this fork (4.1)
 --------------------------
 This is [my personal fork](https://github.com/Jdont9/Hypatia) of [MaintainTeam/Hypatia](https://github.com/MaintainTeam/Hypatia). Signed APKs are on the [Releases page](https://github.com/Jdont9/Hypatia/releases). Compared to upstream `stable` (3.18):
 
@@ -31,7 +31,10 @@ This is [my personal fork](https://github.com/Jdont9/Hypatia) of [MaintainTeam/H
 - **Translations:** complete French translation (the disclaimer, database server names, link scanner and notification strings were missing), notification texts (`Domain:` / `File:`) and service labels moved to translatable resources, and the Weblate updates from upstream PR #98 (bg, de, et, fi, pl, ro, ru) merged.
 - **Link scanner:** the domain database is now loaded automatically (after GPG signature verification) when the link scanner needs it, instead of depending on the realtime scanner or a manual scan (based on upstream PR #94).
 - **Database availability after a cold start:** the app now restores its database list on startup, so manual scans and the link scanner no longer report "no database" while the files are already on the device (based on a fix from upstream PR #101).
-- **Release workflow:** pushing a `v*` tag (for example `v4.0`) now builds, signs and publishes a GitHub release automatically from this repository, instead of MaintainTeam's.
+- **Root scan:** a new "Deep scan (root)" menu option hashes /system, /vendor, /product, /data (including other apps' private data) and the other system partitions through a root shell (`su`), using the device's own `md5sum`, `sha1sum` and `sha256sum`. Nothing is installed, and no dependency is added. The system / apps / internal storage options keep working on their own (without root, or if root is refused); when the root scan succeeds they are skipped since it already covers them. Matches are reported with the usual notifications, but deleting a file in a protected location from the notification is not possible without root.
+- **New and updated apps:** while the realtime scanner is running, the APKs of apps being installed or updated are scanned automatically.
+- **Database sanity checks:** downloads are rejected when empty or truncated (the previous working file is kept), empty databases are refused at load time, and a warning is shown when the built-in test signatures are missing.
+- **Release workflow:** pushing a `v*` tag (for example `v4.1`) now builds, signs and publishes a GitHub release automatically from this repository, instead of MaintainTeam's.
 - **Documentation:** the French README was rewritten to match the English one.
 
 Not merged from upstream: the UI redesign of PR #101 (scan progress card and threat list), which the maintainers asked to be submitted separately.
@@ -42,7 +45,7 @@ Features
 - Extremely fast: it can scan small files (1MB) in <20ms, and even large files (40MB) in 1000ms.
 - Memory efficient: with the default databases enabled it uses under 120MB.
 - Regular scan: allowing selection of /system, internal storage, external storage, and installed apps
-- Realtime scanner: can detect malware in realtime on write/rename in internal storage
+- Realtime scanner: can detect malware in realtime on write/rename in internal storage, and scans apps as they are installed or updated
 - Completely offline: Internet is only used to download signature databases, files will never ever leave your device
 - Optional automatic database updates: once a day, Wi-Fi only, downloads only if the server has a newer file (HTTP 304)
 - Persistence: will automatically restart on boot/update
@@ -112,14 +115,10 @@ Planned Updates
 ----------------
 In order to view the immediate roadmap, please check out the [milestones](https://github.com/MaintainTeam/Hypatia/milestones). From here, you can gauge the time untill the next release. 😀
 - Option to scan on access
-- Scan newly installed/updated apps
 - Option to let 3rd-party apps invoke scans
-- Automatic database updates
-- Database sanity checks
 - Testing
 - Better GUI
 - Translations
-- Scanning entire system using root (low priority)
 
 Goals
 -----

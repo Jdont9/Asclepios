@@ -1,6 +1,6 @@
 > [!WARNING]
 > ### Ceci est un fork de l'application [originale](https://github.com/Divested-Mobile/Hypatia) (abandonnée) de DivestOS.
-> ### Ce dépôt ([Jdont9/Hypatia](https://github.com/Jdont9/Hypatia)) est mon fork personnel de [MaintainTeam/Hypatia](https://github.com/MaintainTeam/Hypatia), voir [Modifications de ce fork](#modifications-de-ce-fork-40).
+> ### Ce dépôt ([Jdont9/Hypatia](https://github.com/Jdont9/Hypatia)) est mon fork personnel de [MaintainTeam/Hypatia](https://github.com/MaintainTeam/Hypatia), voir [Modifications de ce fork](#modifications-de-ce-fork-41).
 
 ![Bannière](./fastlane/metadata/android/en-US/images/featureGraphic.png)
 
@@ -18,8 +18,8 @@ Hypatia est le premier scanner de logiciels malveillants FOSS (logiciel libre) a
      alt="État des traductions"
      height="66">](https://hosted.weblate.org/projects/maintainteam/hypatia/)
 
-<a id="modifications-de-ce-fork-40"></a>
-Modifications de ce fork (4.0)
+<a id="modifications-de-ce-fork-41"></a>
+Modifications de ce fork (4.1)
 ------------------------------
 Ceci est [mon fork personnel](https://github.com/Jdont9/Hypatia) de [MaintainTeam/Hypatia](https://github.com/MaintainTeam/Hypatia). Les APK signés sont sur la [page des Releases](https://github.com/Jdont9/Hypatia/releases). Par rapport à la branche `stable` d'origine (3.18) :
 
@@ -29,7 +29,10 @@ Ceci est [mon fork personnel](https://github.com/Jdont9/Hypatia) de [MaintainTea
 - **Traductions :** traduction française complète (avertissement, noms des serveurs de bases, analyseur de liens et notifications manquaient), textes des notifications (`Domaine :` / `Fichier :`) et libellés des services déplacés dans des ressources traduisibles, et intégration des mises à jour Weblate de la PR amont #98 (bg, de, et, fi, pl, ro, ru).
 - **Analyseur de liens :** la base de domaines est désormais chargée automatiquement (après vérification de sa signature GPG) quand l'analyseur en a besoin, sans dépendre du scanner temps réel ni d'une analyse manuelle (d'après la PR amont #94).
 - **Bases disponibles après un démarrage à froid :** l'application restaure sa liste de bases au lancement, donc l'analyse manuelle et l'analyseur de liens n'affichent plus « aucune base » alors que les fichiers sont déjà sur l'appareil (d'après un correctif de la PR amont #101).
-- **Workflow de publication :** pousser un tag `v*` (par exemple `v4.0`) compile, signe et publie désormais automatiquement une release GitHub depuis ce dépôt, au lieu de celui de MaintainTeam.
+- **Analyse root :** une nouvelle option de menu « Analyse approfondie (root) » calcule les empreintes de /system, /vendor, /product, /data (y compris les données privées des autres applications) et des autres partitions système via un shell root (`su`), avec les commandes `md5sum`, `sha1sum` et `sha256sum` de l'appareil. Rien n'est installé et aucune dépendance n'est ajoutée. Les cases système / applications / stockage interne continuent de fonctionner seules (sans root, ou si le root est refusé) ; quand l'analyse root réussit, elles sont ignorées car déjà couvertes. Les détections s'affichent avec les notifications habituelles, mais supprimer un fichier situé dans un emplacement protégé depuis la notification est impossible sans root.
+- **Applications installées ou mises à jour :** tant que le scanner en temps réel tourne, les APK des applications en cours d'installation ou de mise à jour sont analysés automatiquement.
+- **Vérifications de cohérence des bases :** les téléchargements vides ou tronqués sont rejetés (le fichier précédent est conservé), les bases vides sont refusées au chargement, et un avertissement s'affiche si les signatures de test intégrées sont absentes.
+- **Workflow de publication :** pousser un tag `v*` (par exemple `v4.1`) compile, signe et publie désormais automatiquement une release GitHub depuis ce dépôt, au lieu de celui de MaintainTeam.
 - **Documentation :** le README français a été réécrit pour correspondre à la version anglaise.
 
 Non repris de l'amont : la refonte de l'interface de la PR #101 (carte de progression et liste des menaces), que les mainteneurs ont demandé de proposer séparément.
@@ -40,7 +43,7 @@ Caractéristiques
 - Extrêmement rapide : il peut analyser de petits fichiers (1 Mo) en moins de 20 ms, et même de gros fichiers (40 Mo) en 1000 ms
 - Économe en mémoire : avec les bases de données par défaut, il utilise moins de 120 Mo
 - Analyse manuelle : permet de sélectionner /system, le stockage interne, le stockage externe et les applications installées
-- Scanner en temps réel : détecte les logiciels malveillants à l'écriture ou au renommage de fichiers dans le stockage interne
+- Scanner en temps réel : détecte les logiciels malveillants à l'écriture ou au renommage de fichiers dans le stockage interne, et analyse les applications lors de leur installation ou mise à jour
 - Entièrement hors ligne : Internet n'est utilisé que pour télécharger les bases de signatures, les fichiers ne quittent jamais votre appareil
 - Mises à jour automatiques optionnelles des bases : une fois par jour, en Wi-Fi uniquement, avec téléchargement seulement si le serveur a un fichier plus récent (HTTP 304)
 - Persistance : redémarre automatiquement au démarrage et après une mise à jour
@@ -110,14 +113,10 @@ Mises à jour prévues
 --------------------
 Pour consulter la feuille de route immédiate, regardez les [jalons](https://github.com/MaintainTeam/Hypatia/milestones) : vous pourrez ainsi estimer le délai avant la prochaine version. 😀
 - Option d'analyse à l'accès
-- Analyse des applications nouvellement installées ou mises à jour
 - Option permettant aux applications tierces de lancer des analyses
-- Mises à jour automatiques des bases de données
-- Vérifications de cohérence des bases de données
 - Tests
 - Meilleure interface graphique
 - Traductions
-- Analyse de tout le système avec root (faible priorité)
 
 Objectifs
 ---------

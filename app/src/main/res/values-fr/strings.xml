@@ -98,6 +98,13 @@
     <string name="cache_scan_result_deletion_warning">Comme il s\'agissait d\'une analyse de partage, vous devez supprimer ou mettre en quarantaine le fichier manuellement !</string>
     <string name="service_realtime_label">Scanner de logiciels malveillants en temps réel</string>
     <string name="receiver_event_label">Gestionnaire d\'événements</string>
+    <string name="main_database_sanity_failed">Vérification de cohérence des bases échouée : les signatures de test intégrées sont introuvables. C\'est normal avec une base personnalisée, sinon essayez de mettre à jour les bases</string>
+    <string name="lblScanRoot">Analyse approfondie (root)</string>
+    <string name="main_root_requesting">Demande d\'accès root…</string>
+    <string name="main_root_unavailable">Accès root indisponible ou refusé, analyse root ignorée</string>
+    <string name="main_root_covered">L\'analyse root a déjà couvert le système, les applications et le stockage interne, leur analyse normale est ignorée</string>
+    <string name="main_root_incomplete">L\'analyse root n\'a pas pu calculer tous les types d\'empreintes sur cet appareil, l\'analyse normale est aussi lancée</string>
+    <string name="main_root_hashing">Calcul des empreintes en root, cela peut être long…</string>
     <string name="notification_domain">Domaine : >>>%s&lt;&lt;&lt;</string>
     <string name="notification_file">Fichier : >>>%s&lt;&lt;&lt;</string>
     <string name="notification_file_id">Fichier : >>>%1$s&lt;&lt;&lt;\nID : >>>%2$s&lt;&lt;&lt;</string>
