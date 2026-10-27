@@ -20,11 +20,20 @@
     <string name="lblAutoUpdateLastCheck">Last automatic check: %s</string>
     <string name="lblDatabaseServer">Database server override</string>
     <string name="lblFullCredits">Credits</string>
+    <string name="lblCheckUpdate">Check for app update</string>
+    <string name="update_checking">Checking for updates…</string>
+    <string name="update_available_title">Update available</string>
+    <string name="update_available">Version %1$s is available (installed: %2$s).</string>
+    <string name="update_open_release">Open release page</string>
+    <string name="update_up_to_date">You are up to date (version %1$s).</string>
+    <string name="update_check_failed">Could not check for updates.</string>
     <string name="lblScanSystem">Scan /system</string>
     <string name="lblScanApps">Scan App APKs</string>
     <string name="lblScanRemovable">Scan Removable Storage</string>
     <string name="signature_count_unknown">Signatures loaded: —</string>
     <string name="signature_count">Signatures loaded: %1$s</string>
+    <string name="database_date_unknown">Databases updated: —</string>
+    <string name="database_date">Databases updated: %1$s</string>
     <string name="signature_count_content_description">Number of malware signatures currently loaded</string>
     <string name="logs_title">Activity log</string>
     <string name="lblScanExternal">Scan External Storage</string>
@@ -39,6 +48,8 @@
     <string name="lblReset">Reset</string>
     <string name="lblOverride">Override</string>
 
+    <string name="database_switcher_jdont9" translatable="false">Jdont9</string>
+    <string name="database_switcher_mt_team">Maintain Team Server</string>
     <string name="database_switcher_primary">Primary Server</string>
     <string name="database_switcher_mirror">GitHub Mirror</string>
     <string name="database_switcher_axp_os" translatable="false">AXP.OS</string>

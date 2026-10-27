@@ -3,6 +3,9 @@ Asclépios AV (`fr.jd.asclepios`): personal fork of MaintainTeam/Hypatia, see th
 This release renames the app and uses a new application id, so it installs next to the original Hypatia and does not update it.
 
 ## Features
+- The main screen shows the date and time of the last database update.
+- New manual "Check for app update" menu entry (no automatic check).
+- The default database server is now Jdont9/HypatiaDatabases (key `B93D98077D1C`); a new "Maintain Team Server" choice keeps the previous default.
 - The link scanner now loads the domain database by itself (after GPG verification).
 - Rotation and large screens are supported (no more portrait lock).
 - New "Deep scan (root)" option: scans protected locations such as /data/data through `su`.

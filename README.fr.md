@@ -1,6 +1,6 @@
 > [!WARNING]
 > ### Ceci est un fork de l'application [originale](https://github.com/Divested-Mobile/Hypatia) (abandonnée) de DivestOS.
-> ### Ce dépôt ([Jdont9/Hypatia](https://github.com/Jdont9/Hypatia)) est **Asclépios AV**, mon fork personnel de [MaintainTeam/Hypatia](https://github.com/MaintainTeam/Hypatia), voir [Modifications de ce fork](#modifications-de-ce-fork-42).
+> ### Ce dépôt ([Jdont9/Hypatia](https://github.com/Jdont9/Hypatia)) est **Asclépios AV**, mon fork personnel de [MaintainTeam/Hypatia](https://github.com/MaintainTeam/Hypatia), voir [Modifications de ce fork](#modifications-de-ce-fork-43).
 
 ![Bannière](./fastlane/metadata/android/en-US/images/featureGraphic.png)
 
@@ -19,11 +19,14 @@ Asclépios AV est un fork d'Hypatia, le premier scanner de logiciels malveillant
      alt="État des traductions (Hypatia d'origine)"
      height="66">](https://hosted.weblate.org/projects/maintainteam/hypatia/)
 
-<a id="modifications-de-ce-fork-42"></a>
-Modifications de ce fork (4.2)
+<a id="modifications-de-ce-fork-43"></a>
+Modifications de ce fork (4.3)
 ------------------------------
 Asclépios AV (identifiant d'application `fr.jd.asclepios`) est [mon fork personnel](https://github.com/Jdont9/Hypatia) de [MaintainTeam/Hypatia](https://github.com/MaintainTeam/Hypatia), lui-même un fork de l'application abandonnée [Divested-Mobile/Hypatia](https://github.com/Divested-Mobile/Hypatia). Les APK signés sont sur la [page des Releases](https://github.com/Jdont9/Hypatia/releases). Par rapport à la branche `stable` d'origine (3.18) :
 
+- **Date des bases (4.3) :** l'écran principal affiche la date et l'heure de la dernière mise à jour des bases sous le nombre de signatures.
+- **Vérification manuelle des mises à jour (4.3) :** une nouvelle entrée de menu « Rechercher une mise à jour de l'application » interroge la dernière release de ce dépôt sur GitHub uniquement quand on la touche (jamais automatiquement) et propose d'ouvrir la page de la release.
+- **Serveurs de bases (4.3) :** le serveur par défaut est désormais [Jdont9/HypatiaDatabases](https://github.com/Jdont9/HypatiaDatabases) (clé de signature `B93D98077D1C`), un nouveau choix « Serveur Maintain Team » reprend l'ancien défaut, et le README liste chaque serveur avec sa clé de signature.
 - **Nom et identité :** l'application s'appelle désormais **Asclépios AV** avec l'identifiant `fr.jd.asclepios` : elle s'installe à côté d'Hypatia et ne partage pas ses réglages. Elle a une nouvelle icône, tous les libellés « Hypatia » affichés dans l'application ont été renommés, la licence affichée dans l'application est corrigée en AGPL-3.0 (comme dans `LICENSE`) et une ligne de copyleft pour ce fork a été ajoutée. Les attributions et crédits d'origine sont conservés.
 
 - **Modernisation :** suppression d'`AsyncTask` (déprécié) : les analyses et les téléchargements de bases tournent sur un pool de threads dédié, et les journaux et notifications partent toujours du thread principal ; une exception pendant une analyse est désormais journalisée au lieu de faire planter l'application.
@@ -35,7 +38,7 @@ Asclépios AV (identifiant d'application `fr.jd.asclepios`) est [mon fork person
 - **Analyse root :** une nouvelle option de menu « Analyse approfondie (root) » calcule les empreintes de /system, /vendor, /product, /data (y compris les données privées des autres applications) et des autres partitions système via un shell root (`su`), avec les commandes `md5sum`, `sha1sum` et `sha256sum` de l'appareil. Depuis Android 11, une application ne voit que ses propres données dans `/data/data` : le shell est donc lancé avec `su --mount-master` (espace de montage global, comme le fait SD Maid), avec un retour à `su` simple et un avertissement. Rien n'est installé et aucune dépendance n'est ajoutée. Les cases système / applications / stockage interne continuent de fonctionner seules (sans root, ou si le root est refusé) ; quand l'analyse root réussit, elles sont ignorées car déjà couvertes. Les détections s'affichent avec les notifications habituelles, mais supprimer un fichier situé dans un emplacement protégé depuis la notification est impossible sans root.
 - **Applications installées ou mises à jour :** tant que le scanner en temps réel tourne, les APK des applications en cours d'installation ou de mise à jour sont analysés automatiquement.
 - **Vérifications de cohérence des bases :** les téléchargements vides ou tronqués sont rejetés (le fichier précédent est conservé), les bases vides sont refusées au chargement, et un avertissement s'affiche si les signatures de test intégrées sont absentes.
-- **Workflow de publication :** pousser un tag `v*` (par exemple `v4.2`) compile, signe et publie désormais automatiquement une release GitHub depuis ce dépôt, au lieu de celui de MaintainTeam.
+- **Workflow de publication :** pousser un tag `v*` (par exemple `v4.3`) compile, signe et publie désormais automatiquement une release GitHub depuis ce dépôt, au lieu de celui de MaintainTeam.
 - **Documentation :** le README français a été réécrit pour correspondre à la version anglaise.
 
 Non repris de l'amont : la refonte de l'interface de la PR #101 (carte de progression et liste des menaces), que les mainteneurs ont demandé de proposer séparément.
@@ -54,6 +57,20 @@ Caractéristiques
 - Dépendances minimales : l'application n'utilise des bibliothèques que lorsque c'est nécessaire
 - Les bases de signatures peuvent être activées ou désactivées à la demande de l'utilisateur
 
+
+Serveurs de bases de données et clés de signature
+-------------------------------------------------
+Par défaut, Asclépios AV télécharge ses bases depuis [Jdont9/HypatiaDatabases](https://github.com/Jdont9/HypatiaDatabases). Pour changer de serveur, appuyez sur les trois points en haut à droite de l'écran principal, puis sur `Remplacer le serveur de base de données`. La clé de signature correspondante est appliquée automatiquement ; pour un serveur personnalisé, saisissez sa clé manuellement dans `Signature utilisée pour signer la base de données`.
+
+| Serveur (nom dans l'application) | URL | Clé de signature |
+|---|---|---|
+| **Jdont9** (par défaut) | https://jdont9.github.io/HypatiaDatabases/ | `B93D98077D1C` |
+| Serveur Maintain Team | https://maintainteam.github.io/HypatiaDatabases/ | `5298C0C0C3E73288` |
+| Serveur principal (Codeberg) | https://maintainteam.codeberg.page/HypatiaDatabases/ | `5298C0C0C3E73288` |
+| Miroir GitHub | https://maintainteam.github.io/HypatiaDatabases/ | `5298C0C0C3E73288` |
+| AXP.OS | https://lav.axpos.org/db/ | `14C17E7F99EABF3F` |
+
+Sources : [Jdont9/HypatiaDatabases](https://github.com/Jdont9/HypatiaDatabases) · [MaintainTeam/HypatiaDatabases](https://github.com/MaintainTeam/HypatiaDatabases) · [miroir Codeberg](https://codeberg.org/MaintainTeam/HypatiaDatabases)
 
 Dépannage
 ---------

@@ -1,0 +1,5 @@
+4.3: default database server is now Jdont9/HypatiaDatabases
+new "Maintain Team Server" choice (previous default)
+README lists all database servers and signing keys
+manual app update check in the menu
+show last database update date on the main screen
