@@ -1,6 +1,6 @@
 > [!WARNING]
 > ### This is a fork of the [original](https://github.com/Divested-Mobile/Hypatia) (and discontinued) app from DivestOS.
-> ### This repository ([Jdont9/Hypatia](https://github.com/Jdont9/Hypatia)) is **Asclépios AV**, my personal fork of [MaintainTeam/Hypatia](https://github.com/MaintainTeam/Hypatia), see [Changes in this fork](#changes-in-this-fork-43).
+> ### This repository ([Jdont9/Hypatia](https://github.com/Jdont9/Hypatia)) is **Asclépios AV**, my personal fork of [MaintainTeam/Hypatia](https://github.com/MaintainTeam/Hypatia), see [Changes in this fork](#changes-in-this-fork-431).
 
 ![Banner](./fastlane/metadata/android/en-US/images/featureGraphic.png)
 
@@ -22,13 +22,13 @@ Asclépios AV is a fork of Hypatia, the world's first FOSS malware scanner for A
      alt="Translation status (original Hypatia)"
      height="66">](https://hosted.weblate.org/projects/maintainteam/hypatia/)
 
-Changes in this fork (4.3)
+Changes in this fork (4.3.1)
 --------------------------
 Asclépios AV (application id `fr.jd.asclepios`) is [my personal fork](https://github.com/Jdont9/Hypatia) of [MaintainTeam/Hypatia](https://github.com/MaintainTeam/Hypatia), itself a fork of the discontinued [Divested-Mobile/Hypatia](https://github.com/Divested-Mobile/Hypatia). Signed APKs are on the [Releases page](https://github.com/Jdont9/Hypatia/releases). Compared to upstream `stable` (3.18):
 
-- **Database date (4.3):** the main screen shows the date and time of the last database update under the signature count.
-- **Manual update check (4.3):** a new "Check for app update" menu entry queries the latest release of this repository on GitHub when tapped (never automatically) and offers to open the release page.
-- **Database servers (4.3):** the default server is now [Jdont9/HypatiaDatabases](https://github.com/Jdont9/HypatiaDatabases) (signing key `B93D98077D1C`), a new "Maintain Team Server" choice keeps the previous default, and the README lists every server with its signing key.
+- **Database date (4.3.1):** the main screen shows the date and time of the last database update under the signature count.
+- **Manual update check (4.3.1):** a new "Check for app update" menu entry queries the latest release of this repository on GitHub when tapped (never automatically) and offers to open the release page.
+- **Database servers (4.3.1):** the default server is now [Jdont9/HypatiaDatabases](https://github.com/Jdont9/HypatiaDatabases) (signing key `B93D98077D1C`), the Maintain Team servers (Codeberg and GitHub mirror) remain available, and the README lists every server with its signing key.
 - **Rename and identity:** the app is now called **Asclépios AV** with the application id `fr.jd.asclepios`, so it installs next to the original Hypatia and does not share its settings. It has a new icon, every "Hypatia" label shown in the app was renamed, the license shown in the app is corrected to AGPL-3.0 (as in `LICENSE`) and a copyleft line for this fork was added. The original attributions and credits are kept.
 
 - **Modernisation:** removed the deprecated `AsyncTask` (scans and database downloads now run on a dedicated thread pool, with logs and notifications always posted from the main thread); an exception during a scan is now logged instead of crashing the app.
@@ -40,7 +40,7 @@ Asclépios AV (application id `fr.jd.asclepios`) is [my personal fork](https://g
 - **Root scan:** a new "Deep scan (root)" menu option hashes /system, /vendor, /product, /data (including other apps' private data) and the other system partitions through a root shell (`su`), using the device's own `md5sum`, `sha1sum` and `sha256sum`. Since Android 11 apps only see their own data in `/data/data`, so the shell is started with `su --mount-master` (global mount namespace, like SD Maid does), falling back to plain `su` with a warning. Nothing is installed, and no dependency is added. The system / apps / internal storage options keep working on their own (without root, or if root is refused); when the root scan succeeds they are skipped since it already covers them. Matches are reported with the usual notifications, but deleting a file in a protected location from the notification is not possible without root.
 - **New and updated apps:** while the realtime scanner is running, the APKs of apps being installed or updated are scanned automatically.
 - **Database sanity checks:** downloads are rejected when empty or truncated (the previous working file is kept), empty databases are refused at load time, and a warning is shown when the built-in test signatures are missing.
-- **Release workflow:** pushing a `v*` tag (for example `v4.3`) now builds, signs and publishes a GitHub release automatically from this repository, instead of MaintainTeam's.
+- **Release workflow:** pushing a `v*` tag (for example `v4.3.1`) now builds, signs and publishes a GitHub release automatically from this repository, instead of MaintainTeam's.
 - **Documentation:** the French README was rewritten to match the English one.
 
 Not merged from upstream: the UI redesign of PR #101 (scan progress card and threat list), which the maintainers asked to be submitted separately.
@@ -66,10 +66,9 @@ By default, Asclépios AV downloads its databases from [Jdont9/HypatiaDatabases]
 
 | Server (name in the app) | URL | Signing key |
 |---|---|---|
-| **Jdont9** (default) | https://jdont9.github.io/HypatiaDatabases/ | `B93D98077D1C` |
-| Maintain Team Server | https://maintainteam.github.io/HypatiaDatabases/ | `5298C0C0C3E73288` |
-| Primary Server (Codeberg) | https://maintainteam.codeberg.page/HypatiaDatabases/ | `5298C0C0C3E73288` |
-| GitHub Mirror | https://maintainteam.github.io/HypatiaDatabases/ | `5298C0C0C3E73288` |
+| **Primary Server** (default, Jdont9) | https://jdont9.github.io/HypatiaDatabases/ | `B93D98077D1C` |
+| Maintain Team Server (Codeberg) | https://maintainteam.codeberg.page/HypatiaDatabases/ | `5298C0C0C3E73288` |
+| Maintain Team Server Mirror (GitHub) | https://maintainteam.github.io/HypatiaDatabases/ | `5298C0C0C3E73288` |
 | AXP.OS | https://lav.axpos.org/db/ | `14C17E7F99EABF3F` |
 
 Sources: [Jdont9/HypatiaDatabases](https://github.com/Jdont9/HypatiaDatabases) · [MaintainTeam/HypatiaDatabases](https://github.com/MaintainTeam/HypatiaDatabases) · [Codeberg mirror](https://codeberg.org/MaintainTeam/HypatiaDatabases)

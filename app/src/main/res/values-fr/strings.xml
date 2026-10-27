@@ -97,7 +97,8 @@
     <string name="lblNotificationLinkDetection">Lien malveillant détecté :</string>
     <string name="accessibility_service_description">Extrait les domaines de tout le texte affiché à l\'écran et les compare à une liste de blocage</string>
     <string name="database_switcher_mt_team">Serveur Maintain Team</string>
-    <string name="database_switcher_primary">Serveur principal</string>
+    <string name="database_switcher_mt_mirror">Serveur Maintain Team Miroir</string>
+    <string name="database_switcher_primary">Serveur Principal</string>
     <string name="database_switcher_mirror">Miroir GitHub</string>
     <string name="database_switcher_custom">Serveur personnalisé</string>
     <string name="main_database_new_source">Serveur personnalisé défini : %s</string>
