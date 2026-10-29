@@ -163,4 +163,13 @@
     <string name="last_scan_clean">Aucune menace détectée</string>
     <string name="last_scan_threats">Menaces détectées : %d</string>
     <string name="last_scan_detail">%1$s · %2$s fichiers vérifiés</string>
+
+    <string name="app_subtitle">Sécurité mobile</string>
+    <string name="badge_active">ACTIF</string>
+    <string name="badge_inactive">INACTIF</string>
+    <string name="badge_description">Protection en temps réel</string>
+    <string name="tile_signatures">Signatures chargées</string>
+    <string name="tile_updated">Dernière mise à jour</string>
+    <string name="log_show">Afficher le journal</string>
+    <string name="log_hide">Masquer le journal</string>
 </resources>

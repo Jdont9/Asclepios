@@ -16,4 +16,5 @@
     <color name="textSecondary">#5F4240</color>
     <color name="colorSafe">#2E7D32</color>
     <color name="colorDanger">#B3261E</color>
+    <color name="cardInner">#FFF8F7</color>
 </resources>

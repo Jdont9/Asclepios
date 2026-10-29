@@ -26,7 +26,7 @@ Changes in this fork (4.4.0)
 --------------------------
 Asclépios AV (application id `fr.jd.asclepios`) is [my personal fork](https://github.com/Jdont9/Hypatia) of [MaintainTeam/Hypatia](https://github.com/MaintainTeam/Hypatia), itself a fork of the discontinued [Divested-Mobile/Hypatia](https://github.com/Divested-Mobile/Hypatia). Signed APKs are on the [Releases page](https://github.com/Jdont9/Hypatia/releases). Compared to upstream `stable` (3.18):
 
-- **Redesign (4.4.0):** red theme (light and dark), rounded cards and a large Start / Stop scan button on the main screen.
+- **Redesign (4.4.0):** red theme (light and dark), a status card with signature and last-update tiles, a large Start / Stop scan button and a badge showing whether realtime protection is active. The log is hidden until you tap "Show log".
 - **Settings page (4.4.0):** a categorised Settings screen (Network, Updates, Protection, Scans, Advanced), opened with the gear icon, replaces the overflow menu. Scan options (apps, external storage, removable storage, deep scan, /system) are now remembered between launches.
 - **Last scan (4.4.0):** a new card on the main screen shows the date of the last completed scan, its result (threats detected or none) and the number of files checked.
 - **Automatic update options (4.4.0):** choose the frequency (every 6 h, 12 h, once a day, every 2 days, once a week) and the allowed network (Wi-Fi only, Wi-Fi + mobile data without roaming, or any network including roaming). The default stays once a day on Wi-Fi. Enabling automatic updates now schedules a first check right away.

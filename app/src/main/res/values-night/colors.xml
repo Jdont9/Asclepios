@@ -13,4 +13,5 @@
     <color name="textSecondary">#D8C2BF</color>
     <color name="colorSafe">#81C995</color>
     <color name="colorDanger">#FFB4AB</color>
+    <color name="cardInner">#3A2221</color>
 </resources>
