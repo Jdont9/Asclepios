@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Asclépios red palette (dark) -->
+    <color name="colorPrimary">#7A1713</color>
+    <color name="colorPrimaryDark">#5A100D</color>
+    <color name="colorAccent">#FFB4AB</color>
+    <color name="colorButton">#C93E36</color>
+    <color name="onButton">#FFFFFF</color>
+    <color name="appBackground">#140D0C</color>
+    <color name="cardStatus">#2E1918</color>
+    <color name="cardLog">#211615</color>
+    <color name="textPrimary">#F1DEDC</color>
+    <color name="textSecondary">#D8C2BF</color>
+    <color name="colorSafe">#81C995</color>
+    <color name="colorDanger">#FFB4AB</color>
+</resources>

@@ -1,6 +1,6 @@
 > [!WARNING]
 > ### Ceci est un fork de l'application [originale](https://github.com/Divested-Mobile/Hypatia) (abandonnée) de DivestOS.
-> ### Ce dépôt ([Jdont9/Hypatia](https://github.com/Jdont9/Hypatia)) est **Asclépios AV**, mon fork personnel de [MaintainTeam/Hypatia](https://github.com/MaintainTeam/Hypatia), voir [Modifications de ce fork](#modifications-de-ce-fork-431).
+> ### Ce dépôt ([Jdont9/Hypatia](https://github.com/Jdont9/Hypatia)) est **Asclépios AV**, mon fork personnel de [MaintainTeam/Hypatia](https://github.com/MaintainTeam/Hypatia), voir [Modifications de ce fork](#modifications-de-ce-fork-440).
 
 ![Bannière](./fastlane/metadata/android/en-US/images/featureGraphic.png)
 
@@ -19,13 +19,18 @@ Asclépios AV est un fork d'Hypatia, le premier scanner de logiciels malveillant
      alt="État des traductions (Hypatia d'origine)"
      height="66">](https://hosted.weblate.org/projects/maintainteam/hypatia/)
 
-<a id="modifications-de-ce-fork-43"></a>
-Modifications de ce fork (4.3.1)
+<a id="modifications-de-ce-fork-440"></a>
+Modifications de ce fork (4.4.0)
 ------------------------------
 Asclépios AV (identifiant d'application `fr.jd.asclepios`) est [mon fork personnel](https://github.com/Jdont9/Hypatia) de [MaintainTeam/Hypatia](https://github.com/MaintainTeam/Hypatia), lui-même un fork de l'application abandonnée [Divested-Mobile/Hypatia](https://github.com/Divested-Mobile/Hypatia). Les APK signés sont sur la [page des Releases](https://github.com/Jdont9/Hypatia/releases). Par rapport à la branche `stable` d'origine (3.18) :
 
+- **Refonte graphique (4.4.0) :** thème rouge (clair et sombre), cartes arrondies et gros bouton Lancer / Arrêter l'analyse sur l'écran principal.
+- **Page de paramètres (4.4.0) :** un écran de paramètres par catégories (Réseau, Mises à jour, Protection, Analyses, Avancé), ouvert par l'icône d'engrenage, remplace le menu à trois points. Les options d'analyse (applications, stockage externe, stockage amovible, analyse approfondie, /system) sont désormais conservées d'un lancement à l'autre.
+- **Dernière analyse (4.4.0) :** une nouvelle carte de l'écran principal affiche la date de la dernière analyse terminée, son résultat (menaces détectées ou aucune) et le nombre de fichiers vérifiés.
+- **Options de mise à jour automatique (4.4.0) :** choix de la fréquence (toutes les 6 h, 12 h, une fois par jour, tous les 2 jours, une fois par semaine) et du réseau autorisé (Wi-Fi uniquement, Wi-Fi + données mobiles hors itinérance, ou tous réseaux itinérance comprise). Le réglage par défaut reste une fois par jour en Wi-Fi. Activer les mises à jour automatiques planifie désormais une première vérification immédiate.
+- **Animation d'analyse (4.4.0) :** le bâton d'Asclépios dans un anneau qui tourne s'affiche pendant une analyse.
 - **Date des bases (4.3.1) :** l'écran principal affiche la date et l'heure de la dernière mise à jour des bases sous le nombre de signatures.
-- **Vérification manuelle des mises à jour (4.3.1) :** une nouvelle entrée de menu « Rechercher une mise à jour de l'application » interroge la dernière release de ce dépôt sur GitHub uniquement quand on la touche (jamais automatiquement) et propose d'ouvrir la page de la release.
+- **Vérification manuelle des mises à jour (4.3.1) :** une nouvelle entrée « Rechercher une mise à jour de l'application » (Paramètres → Avancé) interroge la dernière release de ce dépôt sur GitHub uniquement quand on la touche (jamais automatiquement) et propose d'ouvrir la page de la release.
 - **Serveurs de bases (4.3.1) :** le serveur par défaut est désormais [Jdont9/HypatiaDatabases](https://github.com/Jdont9/HypatiaDatabases) (clé de signature `B93D98077D1C`), les serveurs Maintain Team (Codeberg et miroir GitHub) restent disponibles, et le README liste chaque serveur avec sa clé de signature.
 - **Nom et identité :** l'application s'appelle désormais **Asclépios AV** avec l'identifiant `fr.jd.asclepios` : elle s'installe à côté d'Hypatia et ne partage pas ses réglages. Elle a une nouvelle icône, tous les libellés « Hypatia » affichés dans l'application ont été renommés, la licence affichée dans l'application est corrigée en AGPL-3.0 (comme dans `LICENSE`) et une ligne de copyleft pour ce fork a été ajoutée. Les attributions et crédits d'origine sont conservés.
 
@@ -35,10 +40,10 @@ Asclépios AV (identifiant d'application `fr.jd.asclepios`) est [mon fork person
 - **Traductions :** traduction française complète (avertissement, noms des serveurs de bases, analyseur de liens et notifications manquaient), textes des notifications (`Domaine :` / `Fichier :`) et libellés des services déplacés dans des ressources traduisibles, et intégration des mises à jour Weblate de la PR amont #98 (bg, de, et, fi, pl, ro, ru).
 - **Analyseur de liens :** la base de domaines est désormais chargée automatiquement (après vérification de sa signature GPG) quand l'analyseur en a besoin, sans dépendre du scanner temps réel ni d'une analyse manuelle (d'après la PR amont #94).
 - **Bases disponibles après un démarrage à froid :** l'application restaure sa liste de bases au lancement, donc l'analyse manuelle et l'analyseur de liens n'affichent plus « aucune base » alors que les fichiers sont déjà sur l'appareil (d'après un correctif de la PR amont #101).
-- **Analyse root :** une nouvelle option de menu « Analyse approfondie (root) » calcule les empreintes de /system, /vendor, /product, /data (y compris les données privées des autres applications) et des autres partitions système via un shell root (`su`), avec les commandes `md5sum`, `sha1sum` et `sha256sum` de l'appareil. Depuis Android 11, une application ne voit que ses propres données dans `/data/data` : le shell est donc lancé avec `su --mount-master` (espace de montage global, comme le fait SD Maid), avec un retour à `su` simple et un avertissement. Rien n'est installé et aucune dépendance n'est ajoutée. Les cases système / applications / stockage interne continuent de fonctionner seules (sans root, ou si le root est refusé) ; quand l'analyse root réussit, elles sont ignorées car déjà couvertes. Les détections s'affichent avec les notifications habituelles, mais supprimer un fichier situé dans un emplacement protégé depuis la notification est impossible sans root.
+- **Analyse root :** une nouvelle option « Analyse approfondie (root) » (Paramètres → Analyses) calcule les empreintes de /system, /vendor, /product, /data (y compris les données privées des autres applications) et des autres partitions système via un shell root (`su`), avec les commandes `md5sum`, `sha1sum` et `sha256sum` de l'appareil. Depuis Android 11, une application ne voit que ses propres données dans `/data/data` : le shell est donc lancé avec `su --mount-master` (espace de montage global, comme le fait SD Maid), avec un retour à `su` simple et un avertissement. Rien n'est installé et aucune dépendance n'est ajoutée. Les cases système / applications / stockage interne continuent de fonctionner seules (sans root, ou si le root est refusé) ; quand l'analyse root réussit, elles sont ignorées car déjà couvertes. Les détections s'affichent avec les notifications habituelles, mais supprimer un fichier situé dans un emplacement protégé depuis la notification est impossible sans root.
 - **Applications installées ou mises à jour :** tant que le scanner en temps réel tourne, les APK des applications en cours d'installation ou de mise à jour sont analysés automatiquement.
 - **Vérifications de cohérence des bases :** les téléchargements vides ou tronqués sont rejetés (le fichier précédent est conservé), les bases vides sont refusées au chargement, et un avertissement s'affiche si les signatures de test intégrées sont absentes.
-- **Workflow de publication :** pousser un tag `v*` (par exemple `v4.3.1`) compile, signe et publie désormais automatiquement une release GitHub depuis ce dépôt, au lieu de celui de MaintainTeam.
+- **Workflow de publication :** pousser un tag `v*` (par exemple `v4.4.0`) compile, signe et publie désormais automatiquement une release GitHub depuis ce dépôt, au lieu de celui de MaintainTeam.
 - **Documentation :** le README français a été réécrit pour correspondre à la version anglaise.
 
 Non repris de l'amont : la refonte de l'interface de la PR #101 (carte de progression et liste des menaces), que les mainteneurs ont demandé de proposer séparément.
@@ -51,7 +56,7 @@ Caractéristiques
 - Analyse manuelle : permet de sélectionner /system, le stockage interne, le stockage externe et les applications installées
 - Scanner en temps réel : détecte les logiciels malveillants à l'écriture ou au renommage de fichiers dans le stockage interne, et analyse les applications lors de leur installation ou mise à jour
 - Entièrement hors ligne : Internet n'est utilisé que pour télécharger les bases de signatures, les fichiers ne quittent jamais votre appareil
-- Mises à jour automatiques optionnelles des bases : une fois par jour, en Wi-Fi uniquement, avec téléchargement seulement si le serveur a un fichier plus récent (HTTP 304)
+- Mises à jour automatiques optionnelles des bases : fréquence (de 6 h à une fois par semaine) et réseau configurables (Wi-Fi uniquement par défaut, données mobiles en option), avec téléchargement seulement si le serveur a un fichier plus récent (HTTP 304)
 - Persistance : redémarre automatiquement au démarrage et après une mise à jour
 - Code source minuscule : il peut être audité même par quelqu'un ayant une expérience de base en programmation
 - Dépendances minimales : l'application n'utilise des bibliothèques que lorsque c'est nécessaire
@@ -60,7 +65,7 @@ Caractéristiques
 
 Serveurs de bases de données et clés de signature
 -------------------------------------------------
-Par défaut, Asclépios AV télécharge ses bases depuis [Jdont9/HypatiaDatabases](https://github.com/Jdont9/HypatiaDatabases). Pour changer de serveur, appuyez sur les trois points en haut à droite de l'écran principal, puis sur `Remplacer le serveur de base de données`. La clé de signature correspondante est appliquée automatiquement ; pour un serveur personnalisé, saisissez sa clé manuellement dans `Signature utilisée pour signer la base de données`.
+Par défaut, Asclépios AV télécharge ses bases depuis [Jdont9/HypatiaDatabases](https://github.com/Jdont9/HypatiaDatabases). Pour changer de serveur, ouvrez les Paramètres (icône d'engrenage en haut à droite de l'écran principal), puis `Réseau` → `Remplacer le serveur de base de données`. La clé de signature correspondante est appliquée automatiquement ; pour un serveur personnalisé, saisissez sa clé manuellement dans `Avancé` → `Signature utilisée pour signer la base de données`.
 
 | Serveur (nom dans l'application) | URL | Clé de signature |
 |---|---|---|
@@ -76,7 +81,7 @@ Dépannage
 - **L'application plante et est très instable :**
 Vérifiez d'abord si les bases de données étendues sont activées. Elles nécessitent davantage de RAM (8 Go) et peuvent parfois rendre l'application très instable.
 - **Impossible de télécharger les bases de données :**
-Appuyez sur les trois points en haut à droite de l'écran principal, puis sur `Remplacer le serveur de base de données`. Cela permet d'utiliser un miroir si le serveur principal est indisponible.
+Ouvrez les Paramètres (icône d'engrenage en haut à droite de l'écran principal), puis `Remplacer le serveur de base de données` dans `Réseau`. Cela permet d'utiliser un miroir si le serveur principal est indisponible.
 - **Il y a des faux positifs :**
 Cela arrive occasionnellement en raison de la nature des filtres de Bloom. Si vous pensez avoir un faux positif, relancez d'abord l'analyse, ce qui le corrige parfois. S'il persiste, envoyez le fichier à [VirusTotal](https://www.virustotal.com/gui/home/upload) : il vous dira s'il s'agit réellement d'un faux positif ou d'un logiciel malveillant.
 
@@ -100,7 +105,7 @@ Détails techniques
 ------------------
 - Les bases de signatures sont au format de sérialisation d'objet BloomFilter de Guava
 - Les bases de signatures ne sont pas retéléchargées si le fichier n'a pas changé sur le serveur (304 Not Modified)
-- Une tâche JobScheduler quotidienne optionnelle (Wi-Fi / connexion non facturée uniquement) vérifie la présence de bases plus récentes et les télécharge
+- Une tâche JobScheduler optionnelle (de 6 h à une fois par semaine, une fois par jour par défaut ; Wi-Fi uniquement par défaut, données mobiles en option) vérifie la présence de bases plus récentes et les télécharge
 - Les signatures sont stockées dans des BloomFilters pour une recherche en O(k)
 - Les hachages MD5, SHA-1 et SHA-256 des fichiers sont calculés en un seul passage
 - Le scanner en temps réel est multitâche et utilise la moitié du nombre de cœurs de l'appareil pour analyser plusieurs fichiers de manière asynchrone
@@ -131,15 +136,6 @@ Compiler l'application est similaire à la plupart des applications Android, mai
          <trust file=".*-sources[.]jar" regex="true"/>
       </trusted-artifacts>
 ```
-
-Mises à jour prévues
---------------------
-Pour consulter la feuille de route immédiate, regardez les [jalons](https://github.com/MaintainTeam/Hypatia/milestones) : vous pourrez ainsi estimer le délai avant la prochaine version. 😀
-- Option d'analyse à l'accès
-- Option permettant aux applications tierces de lancer des analyses
-- Tests
-- Meilleure interface graphique
-- Traductions
 
 Objectifs
 ---------

@@ -2,4 +2,18 @@
 <resources>
     <color name="colorRed">#FF0000</color>
     <color name="colorGreen">#008000</color>
+
+    <!-- Asclépios red palette (light) -->
+    <color name="colorPrimary">#B3261E</color>
+    <color name="colorPrimaryDark">#8C1D18</color>
+    <color name="colorAccent">#B3261E</color>
+    <color name="colorButton">#B3261E</color>
+    <color name="onButton">#FFFFFF</color>
+    <color name="appBackground">#FFF8F7</color>
+    <color name="cardStatus">#FDE7E5</color>
+    <color name="cardLog">#F5EEED</color>
+    <color name="textPrimary">#231918</color>
+    <color name="textSecondary">#5F4240</color>
+    <color name="colorSafe">#2E7D32</color>
+    <color name="colorDanger">#B3261E</color>
 </resources>

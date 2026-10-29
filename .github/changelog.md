@@ -1,23 +1,17 @@
 Asclépios AV (`fr.jd.asclepios`): personal fork of MaintainTeam/Hypatia, see the README for the full list of changes.
 
-This release renames the app and uses a new application id, so it installs next to the original Hypatia and does not update it.
-
 ## Features
-- The main screen shows the date and time of the last database update.
-- New manual "Check for app update" menu entry (no automatic check).
-- The default database server is now Jdont9/HypatiaDatabases (key `B93D98077D1C`); the Maintain Team servers (Codeberg and GitHub mirror) remain available.
-- The link scanner now loads the domain database by itself (after GPG verification).
-- Rotation and large screens are supported (no more portrait lock).
-- New "Deep scan (root)" option: scans protected locations such as /data/data through `su`.
-- Newly installed or updated apps are scanned automatically while the realtime scanner runs.
-- Database sanity checks: empty or truncated downloads are rejected, empty databases are refused, and a warning is shown when the test signatures are missing.
+- Redesigned main screen: red theme (light and dark), rounded cards and a large Start / Stop scan button.
+- New categorised Settings page (Network, Updates, Protection, Scans, Advanced) replacing the overflow menu.
+- New "Last scan" card on the main screen: date, result (threats detected or none) and number of files checked.
+- Automatic database updates: choose the frequency (every 6 h, 12 h, once a day, every 2 days, once a week) and the allowed network (Wi-Fi only, Wi-Fi + mobile data without roaming, or any network).
+- Scan animation: the rod of Asclépios inside a rotating ring while a scan is running.
 
-## Bug Fixes
-- Fixed "no database available" after a cold start even though the databases were already downloaded.
-- Fixed untranslated strings (French) and hardcoded notification texts.
+## Changes
+- Scan options (apps, external storage, removable storage, deep scan, /system) are now remembered between launches.
+- Enabling automatic updates now schedules a first check right away (it waits for an allowed network if needed).
+- Defaults are unchanged: once a day, Wi-Fi only.
 
 ## Development Updates
-- Removed the deprecated `AsyncTask`.
-- `targetSdk` raised to 36 (edge-to-edge, predictive back, foreground service declarations).
-- Release workflow now builds and publishes from this repository.
-- Updated translations (bg, de, et, fi, pl, ro, ru, fr).
+- New `SettingsActivity` and `LastScan` helper; no new dependency.
+- Added translations (en, fr) for the new strings; other languages fall back to English.

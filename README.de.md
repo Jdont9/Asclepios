@@ -33,20 +33,6 @@ Technische Details
 - Netzwerkverbindungen werden zu Adressen nach dem Folgendem Muster hergestellt: https://divested.dev/MalwareScannerSignatures/hypatia-*-bloom.bin{,.sig}
 - Statistiken und generierte Zusammenfassung der aktuellen Datenbank zu finden auf https://divested.dev/MalwareScannerSignatures/
 
-Geplante Updates
-----------------
-- Option zum Scannen beim Zugriff
-- Scannen von Dateien über Share Intent
-- Scannen neu installierter/aktualisierter Anwendungen
-- Option zum Anstoßen von Scans durch Drittanbieter-Apps
-- Automatische Datenbank-Updates
-- Automatische Datenbankerstellung
-- Datenbank-Sanity-Tests
-- Prüfung
-- Bessere Benutzeroberfläche (GUI)
-- Übersetzungen
-- Scannen des gesamten Systems mittels root Zugriff (niedrige Priorität)
-
 Ziele
 -----
 - Schnelle Performance

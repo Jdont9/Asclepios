@@ -1,0 +1,5 @@
+4.4.0: redesigned main screen (red theme)
+new categorised Settings page
+last scan card: date and result
+auto-update: choose frequency and network (Wi-Fi / mobile data)
+scan animation

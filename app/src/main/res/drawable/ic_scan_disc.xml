@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Disc with the rod of Asclepius (static part of the scan animation) -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="112dp" android:height="112dp"
+    android:viewportWidth="100" android:viewportHeight="100">
+    <path
+        android:fillColor="#5A100D"
+        android:strokeColor="#C0C0C0"
+        android:strokeWidth="2.5"
+        android:pathData="M50,50 m-36,0 a36,36 0 1,0 72,0 a36,36 0 1,0 -72,0" />
+    <!-- rod -->
+    <path
+        android:strokeColor="#F5E6E4"
+        android:strokeWidth="3.5"
+        android:strokeLineCap="round"
+        android:pathData="M50,23 L50,79" />
+    <!-- snake body winding around the rod -->
+    <path
+        android:strokeColor="#FFB4AB"
+        android:strokeWidth="4.5"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="round"
+        android:pathData="M50,75 C33,71 33,63 50,59 C67,55 67,47 50,43 C37,40 37,34 50,32 C54,31 56,29 55,26" />
+    <!-- snake head -->
+    <path
+        android:fillColor="#FFB4AB"
+        android:pathData="M55.5,25.5 m-3.4,0 a3.4,3.4 0 1,0 6.8,0 a3.4,3.4 0 1,0 -6.8,0" />
+</vector>

@@ -1,6 +1,6 @@
 > [!WARNING]
 > ### This is a fork of the [original](https://github.com/Divested-Mobile/Hypatia) (and discontinued) app from DivestOS.
-> ### This repository ([Jdont9/Hypatia](https://github.com/Jdont9/Hypatia)) is **Asclépios AV**, my personal fork of [MaintainTeam/Hypatia](https://github.com/MaintainTeam/Hypatia), see [Changes in this fork](#changes-in-this-fork-431).
+> ### This repository ([Jdont9/Hypatia](https://github.com/Jdont9/Hypatia)) is **Asclépios AV**, my personal fork of [MaintainTeam/Hypatia](https://github.com/MaintainTeam/Hypatia), see [Changes in this fork](#changes-in-this-fork-440).
 
 ![Banner](./fastlane/metadata/android/en-US/images/featureGraphic.png)
 
@@ -22,12 +22,17 @@ Asclépios AV is a fork of Hypatia, the world's first FOSS malware scanner for A
      alt="Translation status (original Hypatia)"
      height="66">](https://hosted.weblate.org/projects/maintainteam/hypatia/)
 
-Changes in this fork (4.3.1)
+Changes in this fork (4.4.0)
 --------------------------
 Asclépios AV (application id `fr.jd.asclepios`) is [my personal fork](https://github.com/Jdont9/Hypatia) of [MaintainTeam/Hypatia](https://github.com/MaintainTeam/Hypatia), itself a fork of the discontinued [Divested-Mobile/Hypatia](https://github.com/Divested-Mobile/Hypatia). Signed APKs are on the [Releases page](https://github.com/Jdont9/Hypatia/releases). Compared to upstream `stable` (3.18):
 
+- **Redesign (4.4.0):** red theme (light and dark), rounded cards and a large Start / Stop scan button on the main screen.
+- **Settings page (4.4.0):** a categorised Settings screen (Network, Updates, Protection, Scans, Advanced), opened with the gear icon, replaces the overflow menu. Scan options (apps, external storage, removable storage, deep scan, /system) are now remembered between launches.
+- **Last scan (4.4.0):** a new card on the main screen shows the date of the last completed scan, its result (threats detected or none) and the number of files checked.
+- **Automatic update options (4.4.0):** choose the frequency (every 6 h, 12 h, once a day, every 2 days, once a week) and the allowed network (Wi-Fi only, Wi-Fi + mobile data without roaming, or any network including roaming). The default stays once a day on Wi-Fi. Enabling automatic updates now schedules a first check right away.
+- **Scan animation (4.4.0):** the rod of Asclépios inside a rotating ring is shown while a scan is running.
 - **Database date (4.3.1):** the main screen shows the date and time of the last database update under the signature count.
-- **Manual update check (4.3.1):** a new "Check for app update" menu entry queries the latest release of this repository on GitHub when tapped (never automatically) and offers to open the release page.
+- **Manual update check (4.3.1):** a new "Check for app update" entry (Settings → Advanced) queries the latest release of this repository on GitHub when tapped (never automatically) and offers to open the release page.
 - **Database servers (4.3.1):** the default server is now [Jdont9/HypatiaDatabases](https://github.com/Jdont9/HypatiaDatabases) (signing key `B93D98077D1C`), the Maintain Team servers (Codeberg and GitHub mirror) remain available, and the README lists every server with its signing key.
 - **Rename and identity:** the app is now called **Asclépios AV** with the application id `fr.jd.asclepios`, so it installs next to the original Hypatia and does not share its settings. It has a new icon, every "Hypatia" label shown in the app was renamed, the license shown in the app is corrected to AGPL-3.0 (as in `LICENSE`) and a copyleft line for this fork was added. The original attributions and credits are kept.
 
@@ -37,10 +42,10 @@ Asclépios AV (application id `fr.jd.asclepios`) is [my personal fork](https://g
 - **Translations:** complete French translation (the disclaimer, database server names, link scanner and notification strings were missing), notification texts (`Domain:` / `File:`) and service labels moved to translatable resources, and the Weblate updates from upstream PR #98 (bg, de, et, fi, pl, ro, ru) merged.
 - **Link scanner:** the domain database is now loaded automatically (after GPG signature verification) when the link scanner needs it, instead of depending on the realtime scanner or a manual scan (based on upstream PR #94).
 - **Database availability after a cold start:** the app now restores its database list on startup, so manual scans and the link scanner no longer report "no database" while the files are already on the device (based on a fix from upstream PR #101).
-- **Root scan:** a new "Deep scan (root)" menu option hashes /system, /vendor, /product, /data (including other apps' private data) and the other system partitions through a root shell (`su`), using the device's own `md5sum`, `sha1sum` and `sha256sum`. Since Android 11 apps only see their own data in `/data/data`, so the shell is started with `su --mount-master` (global mount namespace, like SD Maid does), falling back to plain `su` with a warning. Nothing is installed, and no dependency is added. The system / apps / internal storage options keep working on their own (without root, or if root is refused); when the root scan succeeds they are skipped since it already covers them. Matches are reported with the usual notifications, but deleting a file in a protected location from the notification is not possible without root.
+- **Root scan:** a new "Deep scan (root)" option (Settings → Scans) hashes /system, /vendor, /product, /data (including other apps' private data) and the other system partitions through a root shell (`su`), using the device's own `md5sum`, `sha1sum` and `sha256sum`. Since Android 11 apps only see their own data in `/data/data`, so the shell is started with `su --mount-master` (global mount namespace, like SD Maid does), falling back to plain `su` with a warning. Nothing is installed, and no dependency is added. The system / apps / internal storage options keep working on their own (without root, or if root is refused); when the root scan succeeds they are skipped since it already covers them. Matches are reported with the usual notifications, but deleting a file in a protected location from the notification is not possible without root.
 - **New and updated apps:** while the realtime scanner is running, the APKs of apps being installed or updated are scanned automatically.
 - **Database sanity checks:** downloads are rejected when empty or truncated (the previous working file is kept), empty databases are refused at load time, and a warning is shown when the built-in test signatures are missing.
-- **Release workflow:** pushing a `v*` tag (for example `v4.3.1`) now builds, signs and publishes a GitHub release automatically from this repository, instead of MaintainTeam's.
+- **Release workflow:** pushing a `v*` tag (for example `v4.4.0`) now builds, signs and publishes a GitHub release automatically from this repository, instead of MaintainTeam's.
 - **Documentation:** the French README was rewritten to match the English one.
 
 Not merged from upstream: the UI redesign of PR #101 (scan progress card and threat list), which the maintainers asked to be submitted separately.
@@ -53,7 +58,7 @@ Features
 - Regular scan: allowing selection of /system, internal storage, external storage, and installed apps
 - Realtime scanner: can detect malware in realtime on write/rename in internal storage, and scans apps as they are installed or updated
 - Completely offline: Internet is only used to download signature databases, files will never ever leave your device
-- Optional automatic database updates: once a day, Wi-Fi only, downloads only if the server has a newer file (HTTP 304)
+- Optional automatic database updates: configurable frequency (6 h to once a week) and network (Wi-Fi only by default, mobile data optional), downloads only if the server has a newer file (HTTP 304)
 - Persistence: will automatically restart on boot/update
 - Tiny codebase: coming in at under 1000 sloc, it can be audited by even someone with basic programming experience
 - Minimal dependencies: the app only uses libraries when necessary
@@ -62,7 +67,7 @@ Features
 
 Database servers and signing keys
 ---------------------------------
-By default, Asclépios AV downloads its databases from [Jdont9/HypatiaDatabases](https://github.com/Jdont9/HypatiaDatabases). To switch to another server, tap the ellipsis in the top right of the main screen, then `Database server override`. The matching signing key is applied automatically; a custom server needs its key entered manually under `Database signing key`.
+By default, Asclépios AV downloads its databases from [Jdont9/HypatiaDatabases](https://github.com/Jdont9/HypatiaDatabases). To switch to another server, open Settings (gear icon in the top right of the main screen), then `Network` → `Database server override`. The matching signing key is applied automatically; a custom server needs its key entered manually under `Advanced` → `Database signing key`.
 
 | Server (name in the app) | URL | Signing key |
 |---|---|---|
@@ -78,7 +83,7 @@ Troubleshooting
 - **The app crashes and is very buggy:**
 The first thing to check is if you have extended databases enabled. Extended databases require more RAM (8 GB), and can occasionally cause the app to be very buggy.
 - **Unable to download databases:**
-If this occurs, try tapping the ellipsis in the top right of the main screen and tap `Database server override`. This uses a mirror database in case the main database is down.
+If this occurs, try opening Settings (gear icon in the top right of the main screen) and tap `Database server override` under `Network`. This uses a mirror database in case the main database is down.
 - **There are false positives:**
 This occasionally occurs due to the nature of bloom filters. If you believe there is a false positive, first, rescan. This will sometimes fix the false positive. And if this still returns a false positive, scan the file to [VirusTotal](https://www.virustotal.com/gui/home/upload), and this will tell you if you truly have a false positive or rather some malware. 
 
@@ -102,7 +107,7 @@ Technical Details
 ------------------
 - Signature databases are serialized Guava BloomFilter object format
 - Signature databases will not be redownloaded if the file hasn't changed on the server (304 not modified)
-- Optional daily JobScheduler task (Wi-Fi / unmetered only) checks for newer databases and downloads them when present
+- Optional JobScheduler task (every 6 h to once a week, once a day by default; Wi-Fi only by default, mobile data optional) checks for newer databases and downloads them when present
 - Signatures are stored using BloomFilters for O(k) lookup
 - Files have their MD5/SHA-1/SHA-256 hashes calculated in one pass
 - Realtime scanner is multithreaded and will use half of the device's core count for scanning multiple files asynchronously
@@ -133,15 +138,6 @@ Building the app is simliar to most android apps, but if you would like to sync 
          <trust file=".*-sources[.]jar" regex="true"/>
       </trusted-artifacts>
 ```
-
-Planned Updates
-----------------
-In order to view the immediate roadmap, please check out the [milestones](https://github.com/MaintainTeam/Hypatia/milestones). From here, you can gauge the time untill the next release. 😀
-- Option to scan on access
-- Option to let 3rd-party apps invoke scans
-- Testing
-- Better GUI
-- Translations
 
 Goals
 -----

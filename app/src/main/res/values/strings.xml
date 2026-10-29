@@ -130,4 +130,37 @@
     <string name="notification_file">File: >>>%s&lt;&lt;&lt;</string>
     <string name="notification_file_id">File: >>>%1$s&lt;&lt;&lt;\nID: >>>%2$s&lt;&lt;&lt;</string>
     <string name="see_notifications">Please see Notifications to manage the infected file.</string>
+
+    <!-- Redesign + auto-update options -->
+    <string name="btn_scan_start">Start scan</string>
+    <string name="btn_scan_stop">Stop scan</string>
+    <string name="lblAutoUpdateToggle">Automatic database updates</string>
+    <string name="lblAutoUpdateEnabledMsg">Automatic database updates enabled (%1$s, %2$s). A download only happens if a newer database is available.</string>
+    <string name="lblAutoUpdateWaitNetwork">The current network is not allowed by your auto-update settings: the first check will run as soon as an allowed connection is available.</string>
+    <string name="lblAutoUpdateOptions">Auto-update frequency and network</string>
+    <string name="auto_update_status_on">Auto-update: %1$s · %2$s</string>
+    <string name="auto_update_status_off">Auto-update: off</string>
+    <string name="auto_update_dialog_frequency">Frequency</string>
+    <string name="auto_update_dialog_network">Allowed network</string>
+    <string name="auto_update_dialog_data_hint">A mobile-data update can download up to %s MB.</string>
+    <string name="auto_update_saved">Auto-update settings saved</string>
+    <string name="auto_update_every_hours">Every %d hours</string>
+    <string name="auto_update_daily">Once a day</string>
+    <string name="auto_update_every_2_days">Every 2 days</string>
+    <string name="auto_update_weekly">Once a week</string>
+    <string name="auto_update_net_wifi">Wi-Fi only</string>
+    <string name="auto_update_net_mobile">Wi-Fi + mobile data (not roaming)</string>
+    <string name="auto_update_net_any">Any network, roaming included</string>
+
+    <string name="settings_title">Settings</string>
+    <string name="settings_cat_network">Network</string>
+    <string name="settings_cat_updates">Updates</string>
+    <string name="settings_cat_protection">Protection</string>
+    <string name="settings_cat_scans">Scans</string>
+    <string name="settings_cat_advanced">Advanced</string>
+    <string name="last_scan_title">Last scan</string>
+    <string name="last_scan_never">No scan yet</string>
+    <string name="last_scan_clean">No threats detected</string>
+    <string name="last_scan_threats">Threats detected: %d</string>
+    <string name="last_scan_detail">%1$s · %2$s files checked</string>
 </resources>

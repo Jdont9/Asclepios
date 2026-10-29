@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Rotating arc around the disc -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="112dp" android:height="112dp"
+    android:viewportWidth="100" android:viewportHeight="100">
+    <path
+        android:strokeColor="#FF5449"
+        android:strokeWidth="4"
+        android:strokeLineCap="round"
+        android:pathData="M50,6 A44,44 0 1,1 6,50" />
+</vector>

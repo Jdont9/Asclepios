@@ -35,20 +35,6 @@ Datos técnicos
 - Escaneo en tiempo real impulsado por un FileObserver recursivo
 - Se establecerán conexiones de red a: https://divested.dev/MalwareScannerSignatures/hypatia-*-bloom.bin{,.sig}
 
-Actualizaciones previstas
------------------------
-- Opción de escanear al acceder a la aplicación
-- Escanear archivos a través de la intención de compartir
-- Escanear aplicaciones recién instaladas/actualizadas
-- Opción de permitir que aplicaciones de terceros invoquen escaneos
-- Actualización automática de la base de datos
-- Generación automática de bases de datos
-- Comprobaciones de integridad de la base de datos
-- Pruebas
-- Mejor GUI
-- Traducciones
-- Escaneo de todo el sistema mediante root (prioridad baja)
-
 Objetivos
 ---------
 - Que sea rápido

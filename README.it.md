@@ -32,15 +32,6 @@ Dettagli tecnici
 - Scansione in tempo reale alimentata da un FileObserver ricorsivo
 - Le connessioni di rete saranno effettuate su: https://divested.dev/MalwareScannerSignatures/hypatia-*-bloom.bin{,.sig}
 
-Aggiornamenti pianificati
-----------------
-- Opzione di scansione all'accesso
-- Scansione dei file tramite intento di condivisione
-- Scansione delle app appena installate/aggiornate
-- Migliore interfaccia grafica
-- Traduzioni
-- Scansione dell'intero sistema usando root (bassa priorità)
-
 Obiettivi
 -----
 - Essere veloce

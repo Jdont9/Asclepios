@@ -34,20 +34,6 @@ Teknik Ayrıntılar
 - Gerçek zamanlı tarama özyinelemeli bir FileObserver (DosyaGözlemcisi) tarafından desteklenmektedir
 - Şebeke bağlantıları şu adreslere yapılır: https://divested.dev/MalwareScannerSignatures/hypatia-*-bloom.bin{,.sig}
 
-Planlanan Güncellemeler
-----------------
-- Erişim esnasında tarama için seçenek
-- Paylaşılma niyeti olan dosyaları tarama
-- Yeni kurulan/güncellenen uygulamaları tarama
-- Üçüncü taraf uygulamaların tarama isteği yapmalarına imkân sağlama
-- Otomatik veri tabanı güncellemeleri
-- Otomatik veri tabanı oluşturma
-- Veri tabanı tutarlılık kontrolleri
-- Denemeler
-- Daha iyi bir grafik arayüz
-- Tercümeler
-- root kullanılarak tüm sistemi tarama (düşük öncelik)
-
 Hedefler
 -----
 - Hızlı olmak

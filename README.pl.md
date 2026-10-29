@@ -32,20 +32,6 @@ Technical Details
 - Skaner w czasie rzeczywistym wykorzystuje rekurencyjny FileObserver
 - Połączenia z internetem są dokonywane z adresem https://divested.dev/MalwareScannerSignatures/hypatia-*-bloom.bin{,.sig}
 
-Planowane aktualizacje
-----------------
-- Opcja skanowania przy dostępie
-- Skanowanie plików przez opcję udostępnienia
-- Skanowanie nowo zainstalowanych/aktualizowanych aplikacji
-- Możlwiość wywołania skanowania przez aplikacje trzecie
-- Automatyczne aktualizacje baz danych
-- Automatyczne generowanie baz danych
-- Kontrola poprawności baz danych
-- Testy
-- Lepsze GUI
-- Tłumaczenia
-- Skanowanie całego systemu z wykorzystaniem roota (niski priorytet)
-
 Cele
 -----
 - Szybkokść
