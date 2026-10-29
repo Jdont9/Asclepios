@@ -30,12 +30,14 @@
             android:paddingEnd="16dp"
             android:paddingBottom="16dp">
 
-            <!-- Main card -->
+            <!-- Main card (takes the free height of the screen) -->
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:minHeight="480dp"
                 android:orientation="vertical"
-                android:padding="16dp"
+                android:padding="20dp"
                 android:background="@drawable/bg_card_status">
 
                 <!-- Header -->
@@ -46,9 +48,9 @@
                     android:gravity="center_vertical">
 
                     <ImageView
-                        android:layout_width="52dp"
-                        android:layout_height="52dp"
-                        android:padding="12dp"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:padding="14dp"
                         android:background="@drawable/bg_icon_square"
                         android:importantForAccessibility="no"
                         android:src="@drawable/ic_shield_check" />
@@ -65,15 +67,16 @@
                             android:layout_height="wrap_content"
                             android:text="@string/app_name"
                             android:textColor="@color/textPrimary"
-                            android:textSize="20sp"
+                            android:textSize="22sp"
                             android:textStyle="bold" />
 
                         <TextView
+                            android:id="@+id/txtVersion"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/app_subtitle"
+                            android:text=""
                             android:textColor="@color/textSecondary"
-                            android:textSize="14sp" />
+                            android:textSize="15sp" />
                     </LinearLayout>
 
                     <TextView
@@ -95,10 +98,12 @@
                 <!-- Status block: last scan -->
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="14dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:layout_marginTop="16dp"
+                    android:gravity="center_vertical"
                     android:orientation="vertical"
-                    android:padding="18dp"
+                    android:padding="22dp"
                     android:background="@drawable/bg_card_inner">
 
                     <TextView
@@ -116,26 +121,26 @@
                         android:layout_marginTop="4dp"
                         android:text="@string/last_scan_never"
                         android:textColor="@color/textPrimary"
-                        android:textSize="20sp"
+                        android:textSize="24sp"
                         android:textStyle="bold" />
 
                     <TextView
                         android:id="@+id/txtLastScanDetail"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="2dp"
+                        android:layout_marginTop="4dp"
                         android:text=""
                         android:textColor="@color/textSecondary"
-                        android:textSize="14sp" />
+                        android:textSize="15sp" />
 
                     <TextView
                         android:id="@+id/txtAutoUpdateStatus"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
+                        android:layout_marginTop="14dp"
                         android:text=""
                         android:textColor="@color/textSecondary"
-                        android:textSize="13sp" />
+                        android:textSize="14sp" />
                 </LinearLayout>
 
                 <!-- Two tiles -->
@@ -143,15 +148,16 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="12dp"
+                    android:baselineAligned="false"
                     android:orientation="horizontal">
 
                     <LinearLayout
                         android:layout_width="0dp"
-                        android:layout_height="wrap_content"
+                        android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:layout_marginEnd="6dp"
                         android:orientation="vertical"
-                        android:padding="16dp"
+                        android:padding="18dp"
                         android:background="@drawable/bg_card_inner"
                         android:contentDescription="@string/signature_count_content_description">
 
@@ -168,7 +174,7 @@
                             android:layout_marginTop="10dp"
                             android:text="—"
                             android:textColor="@color/textPrimary"
-                            android:textSize="24sp"
+                            android:textSize="28sp"
                             android:textStyle="bold"
                             android:maxLines="1" />
 
@@ -182,11 +188,11 @@
 
                     <LinearLayout
                         android:layout_width="0dp"
-                        android:layout_height="wrap_content"
+                        android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:layout_marginStart="6dp"
                         android:orientation="vertical"
-                        android:padding="16dp"
+                        android:padding="18dp"
                         android:background="@drawable/bg_card_inner">
 
                         <ImageView
@@ -202,9 +208,17 @@
                             android:layout_marginTop="10dp"
                             android:text="—"
                             android:textColor="@color/textPrimary"
-                            android:textSize="24sp"
+                            android:textSize="28sp"
                             android:textStyle="bold"
                             android:maxLines="1" />
+
+                        <TextView
+                            android:id="@+id/txtDatabaseTime"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text=""
+                            android:textColor="@color/textPrimary"
+                            android:textSize="16sp" />
 
                         <TextView
                             android:layout_width="match_parent"
@@ -216,40 +230,27 @@
                 </LinearLayout>
 
                 <!-- Scan animation (only while scanning) -->
-                <FrameLayout
+                <ImageView
                     android:id="@+id/scanAnim"
                     android:layout_width="112dp"
                     android:layout_height="112dp"
                     android:layout_gravity="center_horizontal"
-                    android:layout_marginTop="20dp"
+                    android:layout_marginTop="16dp"
                     android:visibility="gone"
-                    android:contentDescription="@string/btn_scan_stop">
-
-                    <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:importantForAccessibility="no"
-                        android:src="@drawable/ic_scan_disc" />
-
-                    <ImageView
-                        android:id="@+id/scanRing"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:importantForAccessibility="no"
-                        android:src="@drawable/ic_scan_ring" />
-                </FrameLayout>
+                    android:contentDescription="@string/btn_scan_stop"
+                    android:src="@drawable/anim_scan" />
 
                 <Button
                     android:id="@+id/btnScan"
                     android:layout_width="match_parent"
-                    android:layout_height="56dp"
+                    android:layout_height="64dp"
                     android:layout_marginTop="16dp"
                     android:background="@drawable/bg_button_primary"
                     android:stateListAnimator="@null"
                     android:text="@string/btn_scan_start"
                     android:textAllCaps="false"
                     android:textColor="@color/onButton"
-                    android:textSize="16sp"
+                    android:textSize="18sp"
                     android:textStyle="bold" />
             </LinearLayout>
 
@@ -274,8 +275,7 @@
                 android:visibility="gone"
                 android:text=""
                 android:textColor="@color/textPrimary"
-                android:textSize="12sp"
-                android:typeface="monospace"
+                android:textSize="13sp"
                 android:scrollbars="vertical"
                 android:maxLines="500"
                 android:gravity="bottom" />

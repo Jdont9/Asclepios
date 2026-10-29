@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animation-list xmlns:android="http://schemas.android.com/apk/res/android"
+    android:oneshot="false">
+    <item android:drawable="@drawable/scan_f01" android:duration="125" />
+    <item android:drawable="@drawable/scan_f02" android:duration="125" />
+    <item android:drawable="@drawable/scan_f03" android:duration="125" />
+    <item android:drawable="@drawable/scan_f04" android:duration="125" />
+    <item android:drawable="@drawable/scan_f05" android:duration="125" />
+    <item android:drawable="@drawable/scan_f06" android:duration="125" />
+    <item android:drawable="@drawable/scan_f07" android:duration="125" />
+    <item android:drawable="@drawable/scan_f08" android:duration="125" />
+    <item android:drawable="@drawable/scan_f09" android:duration="125" />
+    <item android:drawable="@drawable/scan_f10" android:duration="125" />
+    <item android:drawable="@drawable/scan_f11" android:duration="125" />
+    <item android:drawable="@drawable/scan_f12" android:duration="125" />
+    <item android:drawable="@drawable/scan_f13" android:duration="125" />
+    <item android:drawable="@drawable/scan_f14" android:duration="125" />
+    <item android:drawable="@drawable/scan_f15" android:duration="125" />
+    <item android:drawable="@drawable/scan_f16" android:duration="125" />
+    <item android:drawable="@drawable/scan_f17" android:duration="125" />
+    <item android:drawable="@drawable/scan_f18" android:duration="125" />
+    <item android:drawable="@drawable/scan_f19" android:duration="125" />
+    <item android:drawable="@drawable/scan_f20" android:duration="125" />
+    <item android:drawable="@drawable/scan_f21" android:duration="125" />
+    <item android:drawable="@drawable/scan_f22" android:duration="125" />
+    <item android:drawable="@drawable/scan_f23" android:duration="125" />
+    <item android:drawable="@drawable/scan_f24" android:duration="125" />
+    <item android:drawable="@drawable/scan_f25" android:duration="125" />
+    <item android:drawable="@drawable/scan_f26" android:duration="125" />
+    <item android:drawable="@drawable/scan_f27" android:duration="125" />
+    <item android:drawable="@drawable/scan_f28" android:duration="125" />
+    <item android:drawable="@drawable/scan_f29" android:duration="125" />
+    <item android:drawable="@drawable/scan_f30" android:duration="125" />
+    <item android:drawable="@drawable/scan_f31" android:duration="125" />
+    <item android:drawable="@drawable/scan_f32" android:duration="125" />
+    <item android:drawable="@drawable/scan_f33" android:duration="125" />
+    <item android:drawable="@drawable/scan_f34" android:duration="125" />
+</animation-list>

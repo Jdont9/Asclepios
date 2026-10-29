@@ -1,17 +1,10 @@
 Asclépios AV (`fr.jd.asclepios`): personal fork of MaintainTeam/Hypatia, see the README for the full list of changes.
 
 ## Features
-- Redesigned main screen: red theme (light and dark), a status card with signature and last-update tiles, a large Start / Stop scan button and a badge showing whether realtime protection is active. The log is hidden until you tap "Show log".
-- New categorised Settings page (Network, Updates, Protection, Scans, Advanced) replacing the overflow menu.
-- New "Last scan" card on the main screen: date, result (threats detected or none) and number of files checked.
-- Automatic database updates: choose the frequency (every 6 h, 12 h, once a day, every 2 days, once a week) and the allowed network (Wi-Fi only, Wi-Fi + mobile data without roaming, or any network).
-- Scan animation: the rod of Asclépios inside a rotating ring while a scan is running.
+- New scan animation: the Asclépios shield turns while a scan is running (lightweight frame animation, about 90 KB).
+- The home screen now shows the app version under the name.
+- The last database update tile also shows the time of the update.
 
 ## Changes
-- Scan options (apps, external storage, removable storage, deep scan, /system) are now remembered between launches.
-- Enabling automatic updates now schedules a first check right away (it waits for an allowed network if needed).
-- Defaults are unchanged: once a day, Wi-Fi only.
-
-## Development Updates
-- New `SettingsActivity` and `LastScan` helper; no new dependency.
-- Added translations (en, fr) for the new strings; other languages fall back to English.
+- The main card now uses more of the screen height; the log is shown below it and the page scrolls when it is displayed.
+- The log now uses the same font as the rest of the app.

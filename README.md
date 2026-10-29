@@ -1,6 +1,6 @@
 > [!WARNING]
 > ### This is a fork of the [original](https://github.com/Divested-Mobile/Hypatia) (and discontinued) app from DivestOS.
-> ### This repository ([Jdont9/Hypatia](https://github.com/Jdont9/Hypatia)) is **Asclépios AV**, my personal fork of [MaintainTeam/Hypatia](https://github.com/MaintainTeam/Hypatia), see [Changes in this fork](#changes-in-this-fork-440).
+> ### This repository ([Jdont9/Hypatia](https://github.com/Jdont9/Hypatia)) is **Asclépios AV**, my personal fork of [MaintainTeam/Hypatia](https://github.com/MaintainTeam/Hypatia), see [Changes in this fork](#changes-in-this-fork-441).
 
 ![Banner](./fastlane/metadata/android/en-US/images/featureGraphic.png)
 
@@ -22,7 +22,7 @@ Asclépios AV is a fork of Hypatia, the world's first FOSS malware scanner for A
      alt="Translation status (original Hypatia)"
      height="66">](https://hosted.weblate.org/projects/maintainteam/hypatia/)
 
-Changes in this fork (4.4.0)
+Changes in this fork (4.4.1)
 --------------------------
 Asclépios AV (application id `fr.jd.asclepios`) is [my personal fork](https://github.com/Jdont9/Hypatia) of [MaintainTeam/Hypatia](https://github.com/MaintainTeam/Hypatia), itself a fork of the discontinued [Divested-Mobile/Hypatia](https://github.com/Divested-Mobile/Hypatia). Signed APKs are on the [Releases page](https://github.com/Jdont9/Hypatia/releases). Compared to upstream `stable` (3.18):
 
@@ -30,7 +30,8 @@ Asclépios AV (application id `fr.jd.asclepios`) is [my personal fork](https://g
 - **Settings page (4.4.0):** a categorised Settings screen (Network, Updates, Protection, Scans, Advanced), opened with the gear icon, replaces the overflow menu. Scan options (apps, external storage, removable storage, deep scan, /system) are now remembered between launches.
 - **Last scan (4.4.0):** a new card on the main screen shows the date of the last completed scan, its result (threats detected or none) and the number of files checked.
 - **Automatic update options (4.4.0):** choose the frequency (every 6 h, 12 h, once a day, every 2 days, once a week) and the allowed network (Wi-Fi only, Wi-Fi + mobile data without roaming, or any network including roaming). The default stays once a day on Wi-Fi. Enabling automatic updates now schedules a first check right away.
-- **Scan animation (4.4.0):** the rod of Asclépios inside a rotating ring is shown while a scan is running.
+- **Scan animation (4.4.1):** the Asclépios shield turns while a scan is running (a lightweight frame animation of about 90 KB).
+- **Home screen (4.4.1):** the app version is shown under the name, the last-update tile also shows the time, the main card uses more of the screen height and the log uses the same font as the rest of the app.
 - **Database date (4.3.1):** the main screen shows the date and time of the last database update under the signature count.
 - **Manual update check (4.3.1):** a new "Check for app update" entry (Settings → Advanced) queries the latest release of this repository on GitHub when tapped (never automatically) and offers to open the release page.
 - **Database servers (4.3.1):** the default server is now [Jdont9/HypatiaDatabases](https://github.com/Jdont9/HypatiaDatabases) (signing key `B93D98077D1C`), the Maintain Team servers (Codeberg and GitHub mirror) remain available, and the README lists every server with its signing key.
@@ -45,7 +46,7 @@ Asclépios AV (application id `fr.jd.asclepios`) is [my personal fork](https://g
 - **Root scan:** a new "Deep scan (root)" option (Settings → Scans) hashes /system, /vendor, /product, /data (including other apps' private data) and the other system partitions through a root shell (`su`), using the device's own `md5sum`, `sha1sum` and `sha256sum`. Since Android 11 apps only see their own data in `/data/data`, so the shell is started with `su --mount-master` (global mount namespace, like SD Maid does), falling back to plain `su` with a warning. Nothing is installed, and no dependency is added. The system / apps / internal storage options keep working on their own (without root, or if root is refused); when the root scan succeeds they are skipped since it already covers them. Matches are reported with the usual notifications, but deleting a file in a protected location from the notification is not possible without root.
 - **New and updated apps:** while the realtime scanner is running, the APKs of apps being installed or updated are scanned automatically.
 - **Database sanity checks:** downloads are rejected when empty or truncated (the previous working file is kept), empty databases are refused at load time, and a warning is shown when the built-in test signatures are missing.
-- **Release workflow:** pushing a `v*` tag (for example `v4.4.0`) now builds, signs and publishes a GitHub release automatically from this repository, instead of MaintainTeam's.
+- **Release workflow:** pushing a `v*` tag (for example `v4.4.1`) now builds, signs and publishes a GitHub release automatically from this repository, instead of MaintainTeam's.
 - **Documentation:** the French README was rewritten to match the English one.
 
 Not merged from upstream: the UI redesign of PR #101 (scan progress card and threat list), which the maintainers asked to be submitted separately.

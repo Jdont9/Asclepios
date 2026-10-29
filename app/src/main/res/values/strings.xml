@@ -164,7 +164,6 @@
     <string name="last_scan_threats">Threats detected: %d</string>
     <string name="last_scan_detail">%1$s · %2$s files checked</string>
 
-    <string name="app_subtitle">Mobile Security</string>
     <string name="badge_active">ACTIVE</string>
     <string name="badge_inactive">INACTIVE</string>
     <string name="badge_description">Realtime protection</string>

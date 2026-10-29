@@ -1,0 +1,4 @@
+4.4.1: new shield scan animation
+version number on the home screen
+time shown with the last database update
+larger home screen, log in the app font

@@ -1,6 +1,6 @@
 > [!WARNING]
 > ### Ceci est un fork de l'application [originale](https://github.com/Divested-Mobile/Hypatia) (abandonnée) de DivestOS.
-> ### Ce dépôt ([Jdont9/Hypatia](https://github.com/Jdont9/Hypatia)) est **Asclépios AV**, mon fork personnel de [MaintainTeam/Hypatia](https://github.com/MaintainTeam/Hypatia), voir [Modifications de ce fork](#modifications-de-ce-fork-440).
+> ### Ce dépôt ([Jdont9/Hypatia](https://github.com/Jdont9/Hypatia)) est **Asclépios AV**, mon fork personnel de [MaintainTeam/Hypatia](https://github.com/MaintainTeam/Hypatia), voir [Modifications de ce fork](#modifications-de-ce-fork-441).
 
 ![Bannière](./fastlane/metadata/android/en-US/images/featureGraphic.png)
 
@@ -19,8 +19,8 @@ Asclépios AV est un fork d'Hypatia, le premier scanner de logiciels malveillant
      alt="État des traductions (Hypatia d'origine)"
      height="66">](https://hosted.weblate.org/projects/maintainteam/hypatia/)
 
-<a id="modifications-de-ce-fork-440"></a>
-Modifications de ce fork (4.4.0)
+<a id="modifications-de-ce-fork-441"></a>
+Modifications de ce fork (4.4.1)
 ------------------------------
 Asclépios AV (identifiant d'application `fr.jd.asclepios`) est [mon fork personnel](https://github.com/Jdont9/Hypatia) de [MaintainTeam/Hypatia](https://github.com/MaintainTeam/Hypatia), lui-même un fork de l'application abandonnée [Divested-Mobile/Hypatia](https://github.com/Divested-Mobile/Hypatia). Les APK signés sont sur la [page des Releases](https://github.com/Jdont9/Hypatia/releases). Par rapport à la branche `stable` d'origine (3.18) :
 
@@ -28,7 +28,8 @@ Asclépios AV (identifiant d'application `fr.jd.asclepios`) est [mon fork person
 - **Page de paramètres (4.4.0) :** un écran de paramètres par catégories (Réseau, Mises à jour, Protection, Analyses, Avancé), ouvert par l'icône d'engrenage, remplace le menu à trois points. Les options d'analyse (applications, stockage externe, stockage amovible, analyse approfondie, /system) sont désormais conservées d'un lancement à l'autre.
 - **Dernière analyse (4.4.0) :** une nouvelle carte de l'écran principal affiche la date de la dernière analyse terminée, son résultat (menaces détectées ou aucune) et le nombre de fichiers vérifiés.
 - **Options de mise à jour automatique (4.4.0) :** choix de la fréquence (toutes les 6 h, 12 h, une fois par jour, tous les 2 jours, une fois par semaine) et du réseau autorisé (Wi-Fi uniquement, Wi-Fi + données mobiles hors itinérance, ou tous réseaux itinérance comprise). Le réglage par défaut reste une fois par jour en Wi-Fi. Activer les mises à jour automatiques planifie désormais une première vérification immédiate.
-- **Animation d'analyse (4.4.0) :** le bâton d'Asclépios dans un anneau qui tourne s'affiche pendant une analyse.
+- **Animation d'analyse (4.4.1) :** le bouclier d'Asclépios tourne pendant une analyse (animation par images légère, environ 90 Ko).
+- **Écran d'accueil (4.4.1) :** le numéro de version s'affiche sous le nom, la tuile de dernière mise à jour indique aussi l'heure, la carte principale occupe plus de hauteur d'écran et le journal utilise la même police que le reste de l'application.
 - **Date des bases (4.3.1) :** l'écran principal affiche la date et l'heure de la dernière mise à jour des bases sous le nombre de signatures.
 - **Vérification manuelle des mises à jour (4.3.1) :** une nouvelle entrée « Rechercher une mise à jour de l'application » (Paramètres → Avancé) interroge la dernière release de ce dépôt sur GitHub uniquement quand on la touche (jamais automatiquement) et propose d'ouvrir la page de la release.
 - **Serveurs de bases (4.3.1) :** le serveur par défaut est désormais [Jdont9/HypatiaDatabases](https://github.com/Jdont9/HypatiaDatabases) (clé de signature `B93D98077D1C`), les serveurs Maintain Team (Codeberg et miroir GitHub) restent disponibles, et le README liste chaque serveur avec sa clé de signature.
@@ -43,7 +44,7 @@ Asclépios AV (identifiant d'application `fr.jd.asclepios`) est [mon fork person
 - **Analyse root :** une nouvelle option « Analyse approfondie (root) » (Paramètres → Analyses) calcule les empreintes de /system, /vendor, /product, /data (y compris les données privées des autres applications) et des autres partitions système via un shell root (`su`), avec les commandes `md5sum`, `sha1sum` et `sha256sum` de l'appareil. Depuis Android 11, une application ne voit que ses propres données dans `/data/data` : le shell est donc lancé avec `su --mount-master` (espace de montage global, comme le fait SD Maid), avec un retour à `su` simple et un avertissement. Rien n'est installé et aucune dépendance n'est ajoutée. Les cases système / applications / stockage interne continuent de fonctionner seules (sans root, ou si le root est refusé) ; quand l'analyse root réussit, elles sont ignorées car déjà couvertes. Les détections s'affichent avec les notifications habituelles, mais supprimer un fichier situé dans un emplacement protégé depuis la notification est impossible sans root.
 - **Applications installées ou mises à jour :** tant que le scanner en temps réel tourne, les APK des applications en cours d'installation ou de mise à jour sont analysés automatiquement.
 - **Vérifications de cohérence des bases :** les téléchargements vides ou tronqués sont rejetés (le fichier précédent est conservé), les bases vides sont refusées au chargement, et un avertissement s'affiche si les signatures de test intégrées sont absentes.
-- **Workflow de publication :** pousser un tag `v*` (par exemple `v4.4.0`) compile, signe et publie désormais automatiquement une release GitHub depuis ce dépôt, au lieu de celui de MaintainTeam.
+- **Workflow de publication :** pousser un tag `v*` (par exemple `v4.4.1`) compile, signe et publie désormais automatiquement une release GitHub depuis ce dépôt, au lieu de celui de MaintainTeam.
 - **Documentation :** le README français a été réécrit pour correspondre à la version anglaise.
 
 Non repris de l'amont : la refonte de l'interface de la PR #101 (carte de progression et liste des menaces), que les mainteneurs ont demandé de proposer séparément.
