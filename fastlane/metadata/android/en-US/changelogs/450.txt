@@ -1,0 +1,4 @@
+4.5.0: active threats counter and details
+ransomware decoy files and mass rename detection (opt-in)
+malicious URL scan in APKs and text files (opt-in)
+trusted files list, online whitelist, manual NSRL import

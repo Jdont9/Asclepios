@@ -134,10 +134,25 @@
                         android:textSize="15sp" />
 
                     <TextView
-                        android:id="@+id/txtAutoUpdateStatus"
+                        android:id="@+id/txtActiveThreats"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="14dp"
+                        android:paddingTop="6dp"
+                        android:paddingBottom="6dp"
+                        android:background="?android:attr/selectableItemBackground"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:text=""
+                        android:textColor="@color/textPrimary"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/txtAutoUpdateStatus"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
                         android:text=""
                         android:textColor="@color/textSecondary"
                         android:textSize="14sp" />

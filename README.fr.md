@@ -1,6 +1,6 @@
 > [!WARNING]
 > ### Ceci est un fork de l'application [originale](https://github.com/Divested-Mobile/Hypatia) (abandonnée) de DivestOS.
-> ### Ce dépôt ([Jdont9/Hypatia](https://github.com/Jdont9/Hypatia)) est **Asclépios AV**, mon fork personnel de [MaintainTeam/Hypatia](https://github.com/MaintainTeam/Hypatia), voir [Modifications de ce fork](#modifications-de-ce-fork-441).
+> ### Ce dépôt ([Jdont9/Hypatia](https://github.com/Jdont9/Hypatia)) est **Asclépios AV**, mon fork personnel de [MaintainTeam/Hypatia](https://github.com/MaintainTeam/Hypatia), voir [Modifications de ce fork](#modifications-de-ce-fork-450).
 
 ![Bannière](./fastlane/metadata/android/en-US/images/featureGraphic.png)
 
@@ -19,11 +19,17 @@ Asclépios AV est un fork d'Hypatia, le premier scanner de logiciels malveillant
      alt="État des traductions (Hypatia d'origine)"
      height="66">](https://hosted.weblate.org/projects/maintainteam/hypatia/)
 
-<a id="modifications-de-ce-fork-441"></a>
-Modifications de ce fork (4.4.1)
+<a id="modifications-de-ce-fork-450"></a>
+Modifications de ce fork (4.5.0)
 ------------------------------
 Asclépios AV (identifiant d'application `fr.jd.asclepios`) est [mon fork personnel](https://github.com/Jdont9/Hypatia) de [MaintainTeam/Hypatia](https://github.com/MaintainTeam/Hypatia), lui-même un fork de l'application abandonnée [Divested-Mobile/Hypatia](https://github.com/Divested-Mobile/Hypatia). Les APK signés sont sur la [page des Releases](https://github.com/Jdont9/Hypatia/releases). Par rapport à la branche `stable` d'origine (3.18) :
 
+- **Recherche d'URL malveillantes dans les fichiers (4.5.0, optionnel) :** cherche les adresses web contenues dans les APK (code DEX et assets texte) et les fichiers de type texte, et compare leur hôte à la base de domaines malveillants. Une correspondance rejoint les menaces actives. Nécessite l'analyseur de liens (il télécharge la base de domaines). Le manifeste et les ressources binaires d'un APK ne sont pas lus.
+- **Liste de fichiers de confiance (4.5.0) :** « Toujours ignorer » sur une menace ajoute le SHA-256 du fichier à une liste blanche : il n'est plus jamais signalé. La liste peut être importée depuis un fichier texte (un SHA-256 par ligne), consultée et vidée dans Paramètres → Avancé. Une liste blanche en ligne de fichiers sains (`hypatia-whitelist-sha256-bloom.bin`, même format bloom signé que les autres bases) est téléchargée et chargée avec les bases de signatures ; elle se désactive dans Paramètres → Mises à jour.
+- **Import NSRL (4.5.0, optionnel, manuel) :** Paramètres → Avancé → Liste NSRL importe les SHA-256 d'APK Android connus préparés à partir du NSRL du NIST, pour qu'ils ne soient jamais signalés. Voir [le tutoriel](#importer-la-liste-blanche-nsrl-optionnel).
+- **Menaces actives (4.5.0) :** une nouvelle ligne « Menaces actives » sur l'écran d'accueil ouvre la liste des menaces encore actives. Chaque menace indique pourquoi elle a été signalée (correspondance dans la base de signatures et type d'empreinte, fichier, SHA-256, date), avec recherche VirusTotal, suppression / désinstallation et ignorer. Une menace reste listée jusqu'à la suppression du fichier, la désinstallation de l'application ou son abandon par l'utilisateur.
+- **Fichiers leurres anti-rançongiciel (4.5.0, optionnel) :** fichiers appâts dans Download, Documents, Pictures et DCIM. Si une application en modifie, renomme ou supprime un, vous recevez une alerte et l'appât est remis en place. Fonctionne uniquement quand le scanner temps réel tourne ; un rançongiciel qui ne cible que certaines extensions peut ignorer un appât `.txt`.
+- **Détection de renommage en masse (4.5.0, optionnel) :** alerte quand au moins 15 fichiers reçoivent un suffixe en 10 secondes, signature d'un rançongiciel qui chiffre les fichiers sur place. Nécessite le scanner temps réel.
 - **Refonte graphique (4.4.0) :** thème rouge (clair et sombre), carte d'état avec tuiles signatures et dernière mise à jour, gros bouton Lancer / Arrêter l'analyse et badge indiquant si la protection en temps réel est active. Le journal reste masqué tant qu'on n'appuie pas sur « Afficher le journal ».
 - **Page de paramètres (4.4.0) :** un écran de paramètres par catégories (Réseau, Mises à jour, Protection, Analyses, Avancé), ouvert par l'icône d'engrenage, remplace le menu à trois points. Les options d'analyse (applications, stockage externe, stockage amovible, analyse approfondie, /system) sont désormais conservées d'un lancement à l'autre.
 - **Dernière analyse (4.4.0) :** une nouvelle carte de l'écran principal affiche la date de la dernière analyse terminée, son résultat (menaces détectées ou aucune) et le nombre de fichiers vérifiés.
@@ -44,10 +50,30 @@ Asclépios AV (identifiant d'application `fr.jd.asclepios`) est [mon fork person
 - **Analyse root :** une nouvelle option « Analyse approfondie (root) » (Paramètres → Analyses) calcule les empreintes de /system, /vendor, /product, /data (y compris les données privées des autres applications) et des autres partitions système via un shell root (`su`), avec les commandes `md5sum`, `sha1sum` et `sha256sum` de l'appareil. Depuis Android 11, une application ne voit que ses propres données dans `/data/data` : le shell est donc lancé avec `su --mount-master` (espace de montage global, comme le fait SD Maid), avec un retour à `su` simple et un avertissement. Rien n'est installé et aucune dépendance n'est ajoutée. Les cases système / applications / stockage interne continuent de fonctionner seules (sans root, ou si le root est refusé) ; quand l'analyse root réussit, elles sont ignorées car déjà couvertes. Les détections s'affichent avec les notifications habituelles, mais supprimer un fichier situé dans un emplacement protégé depuis la notification est impossible sans root.
 - **Applications installées ou mises à jour :** tant que le scanner en temps réel tourne, les APK des applications en cours d'installation ou de mise à jour sont analysés automatiquement.
 - **Vérifications de cohérence des bases :** les téléchargements vides ou tronqués sont rejetés (le fichier précédent est conservé), les bases vides sont refusées au chargement, et un avertissement s'affiche si les signatures de test intégrées sont absentes.
-- **Workflow de publication :** pousser un tag `v*` (par exemple `v4.4.1`) compile, signe et publie désormais automatiquement une release GitHub depuis ce dépôt, au lieu de celui de MaintainTeam.
+- **Workflow de publication :** pousser un tag `v*` (par exemple `v4.5.0`) compile, signe et publie désormais automatiquement une release GitHub depuis ce dépôt, au lieu de celui de MaintainTeam.
 - **Documentation :** le README français a été réécrit pour correspondre à la version anglaise.
 
 Non repris de l'amont : la refonte de l'interface de la PR #101 (carte de progression et liste des menaces), que les mainteneurs ont demandé de proposer séparément.
+
+Importer la liste blanche NSRL (optionnel)
+------------------------------------------
+
+Le [NSRL](https://www.nist.gov/itl/ssd/software-quality-group/national-software-reference-library-nsrl) (National Software Reference Library du NIST) recense les empreintes d'un très grand nombre de fichiers logiciels connus, dont des applications Android. Importer les empreintes des **fichiers APK** connus évite qu'ils soient signalés. C'est entièrement optionnel et manuel, car la base est bien trop grosse pour être fournie ou lue sur un téléphone : on prépare un petit fichier texte sur un ordinateur, puis on l'importe.
+
+« Connu » dans le NSRL veut dire répertorié, pas sûr à coup sûr, et un fichier de confiance l'emporte sur une signature. N'importez la liste que si vous l'acceptez.
+
+1. **Téléchargez** le jeu *android* (ou *android minimal*, plus petit) depuis la page [Current RDS Hash Sets](https://www.nist.gov/itl/ssd/software-quality-group/national-software-reference-library-nsrl/nsrl-download/current-rds) et décompressez-le sur un ordinateur. C'est une base SQLite qui peut atteindre **plusieurs dizaines de gigaoctets** décompressée. Lisez le `README` du jeu et la [documentation RDSv3](https://s3.amazonaws.com/rds.nsrl.nist.gov/RDS/RDSv3_Docs/RDSv3.pdf).
+2. **Installez** l'outil en ligne de commande [`sqlite3`](https://www.sqlite.org/download.html) et vérifiez la table : `sqlite3 -readonly RDS_android.db ".schema FILE"` doit montrer les colonnes `sha256` et `file_name`.
+3. **Exportez** les SHA-256 des seuls fichiers APK (l'appli hashe des fichiers entiers, seules les entrées qui sont des APK servent). Cela peut être long sur une grosse base :
+
+   ```
+   sqlite3 -readonly RDS_android.db "SELECT DISTINCT lower(sha256) FROM FILE WHERE lower(file_name) LIKE '%.apk';" > nsrl-apk.sha256
+   ```
+
+4. **Vérifiez** le résultat : une empreinte de 64 caractères par ligne. L'appli conserve au plus **3 000 000** empreintes (8 octets de mémoire chacune).
+5. **Copiez** `nsrl-apk.sha256` sur le téléphone. Dans l'appli, ouvrez **Paramètres → Avancé → Liste NSRL (import manuel) → Importer…** et choisissez le fichier. Un nouvel import remplace le précédent, et **Retirer** le supprime.
+
+Tout fichier texte contenant des empreintes hexadécimales de 64 caractères convient (listes simples, CSV, exports entre guillemets). Pour utiliser votre propre liste, passez plutôt par **Paramètres → Avancé → Fichiers de confiance → Importer…**.
 
 Caractéristiques
 ----------------

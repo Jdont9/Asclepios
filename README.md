@@ -1,6 +1,6 @@
 > [!WARNING]
 > ### This is a fork of the [original](https://github.com/Divested-Mobile/Hypatia) (and discontinued) app from DivestOS.
-> ### This repository ([Jdont9/Hypatia](https://github.com/Jdont9/Hypatia)) is **Asclépios AV**, my personal fork of [MaintainTeam/Hypatia](https://github.com/MaintainTeam/Hypatia), see [Changes in this fork](#changes-in-this-fork-441).
+> ### This repository ([Jdont9/Hypatia](https://github.com/Jdont9/Hypatia)) is **Asclépios AV**, my personal fork of [MaintainTeam/Hypatia](https://github.com/MaintainTeam/Hypatia), see [Changes in this fork](#changes-in-this-fork-450).
 
 ![Banner](./fastlane/metadata/android/en-US/images/featureGraphic.png)
 
@@ -22,10 +22,16 @@ Asclépios AV is a fork of Hypatia, the world's first FOSS malware scanner for A
      alt="Translation status (original Hypatia)"
      height="66">](https://hosted.weblate.org/projects/maintainteam/hypatia/)
 
-Changes in this fork (4.4.1)
+Changes in this fork (4.5.0)
 --------------------------
 Asclépios AV (application id `fr.jd.asclepios`) is [my personal fork](https://github.com/Jdont9/Hypatia) of [MaintainTeam/Hypatia](https://github.com/MaintainTeam/Hypatia), itself a fork of the discontinued [Divested-Mobile/Hypatia](https://github.com/Divested-Mobile/Hypatia). Signed APKs are on the [Releases page](https://github.com/Jdont9/Hypatia/releases). Compared to upstream `stable` (3.18):
 
+- **Malicious URL scan in files (4.5.0, opt-in):** looks for web addresses inside APKs (DEX code and text assets) and text-like files, and checks their host against the malicious-domain database. A match joins the active threats. Needs the link scanner (it downloads the domain database). The binary manifest and resources of an APK are not read.
+- **Trusted files list (4.5.0):** "Always ignore" on a threat adds the file's SHA-256 to a whitelist of files that are never reported again. The list can be imported from a text file with one SHA-256 per line, viewed and cleared in Settings → Advanced. An online whitelist of known-good files (`hypatia-whitelist-sha256-bloom.bin`, same signed bloom format as the other databases) is downloaded and loaded with the signature databases; it can be turned off in Settings → Updates.
+- **NSRL import (4.5.0, optional, manual):** Settings → Advanced → NSRL list imports the SHA-256 of known Android APKs prepared from the NIST NSRL, so they are never reported. See [the tutorial](#import-the-nsrl-whitelist-optional).
+- **Active threats (4.5.0):** a new "Active threats" line on the home screen opens the list of threats still active. Each threat shows why it was flagged (signature database match and hash type, file, SHA-256, date) with VirusTotal lookup, delete / uninstall and ignore actions. Threats stay listed until the file is deleted, the app is uninstalled or the threat is ignored.
+- **Ransomware decoy files (4.5.0, opt-in):** bait files in Download, Documents, Pictures and DCIM. If an app modifies, renames or deletes one, you get an alert and the bait is put back. Only works while the realtime scanner is running; ransomware that only targets specific file extensions may ignore a `.txt` bait.
+- **Mass rename detection (4.5.0, opt-in):** alerts when at least 15 files get a suffix added to their name within 10 seconds, the signature of ransomware encrypting files in place. Needs the realtime scanner.
 - **Redesign (4.4.0):** red theme (light and dark), a status card with signature and last-update tiles, a large Start / Stop scan button and a badge showing whether realtime protection is active. The log is hidden until you tap "Show log".
 - **Settings page (4.4.0):** a categorised Settings screen (Network, Updates, Protection, Scans, Advanced), opened with the gear icon, replaces the overflow menu. Scan options (apps, external storage, removable storage, deep scan, /system) are now remembered between launches.
 - **Last scan (4.4.0):** a new card on the main screen shows the date of the last completed scan, its result (threats detected or none) and the number of files checked.
@@ -46,10 +52,30 @@ Asclépios AV (application id `fr.jd.asclepios`) is [my personal fork](https://g
 - **Root scan:** a new "Deep scan (root)" option (Settings → Scans) hashes /system, /vendor, /product, /data (including other apps' private data) and the other system partitions through a root shell (`su`), using the device's own `md5sum`, `sha1sum` and `sha256sum`. Since Android 11 apps only see their own data in `/data/data`, so the shell is started with `su --mount-master` (global mount namespace, like SD Maid does), falling back to plain `su` with a warning. Nothing is installed, and no dependency is added. The system / apps / internal storage options keep working on their own (without root, or if root is refused); when the root scan succeeds they are skipped since it already covers them. Matches are reported with the usual notifications, but deleting a file in a protected location from the notification is not possible without root.
 - **New and updated apps:** while the realtime scanner is running, the APKs of apps being installed or updated are scanned automatically.
 - **Database sanity checks:** downloads are rejected when empty or truncated (the previous working file is kept), empty databases are refused at load time, and a warning is shown when the built-in test signatures are missing.
-- **Release workflow:** pushing a `v*` tag (for example `v4.4.1`) now builds, signs and publishes a GitHub release automatically from this repository, instead of MaintainTeam's.
+- **Release workflow:** pushing a `v*` tag (for example `v4.5.0`) now builds, signs and publishes a GitHub release automatically from this repository, instead of MaintainTeam's.
 - **Documentation:** the French README was rewritten to match the English one.
 
 Not merged from upstream: the UI redesign of PR #101 (scan progress card and threat list), which the maintainers asked to be submitted separately.
+
+Import the NSRL whitelist (optional)
+------------------------------------
+
+The [NSRL](https://www.nist.gov/itl/ssd/software-quality-group/national-software-reference-library-nsrl) (NIST National Software Reference Library) lists the hashes of a huge number of known software files, including Android apps. Importing the hashes of the known **APK files** means they are never reported. It is entirely optional and manual, because the data set is far too big to ship or to read on a phone: you prepare a small text file on a computer, then import it.
+
+"Known" in the NSRL means catalogued, not guaranteed safe, and a trusted file overrides a signature match. Only import it if you accept that.
+
+1. **Download** the *android* set (or *android minimal*, smaller) from the [Current RDS Hash Sets](https://www.nist.gov/itl/ssd/software-quality-group/national-software-reference-library-nsrl/nsrl-download/current-rds) page and unzip it on a computer. It is a SQLite database that can reach **tens of gigabytes** once unzipped. Read the `README` of the set and the [RDSv3 documentation](https://s3.amazonaws.com/rds.nsrl.nist.gov/RDS/RDSv3_Docs/RDSv3.pdf).
+2. **Install** the [`sqlite3`](https://www.sqlite.org/download.html) command-line tool and check the table: `sqlite3 -readonly RDS_android.db ".schema FILE"` should show `sha256` and `file_name` columns.
+3. **Export** the SHA-256 of the APK files only (the app hashes whole files, so only entries that are APKs are useful). This can take a while on a large database:
+
+   ```
+   sqlite3 -readonly RDS_android.db "SELECT DISTINCT lower(sha256) FROM FILE WHERE lower(file_name) LIKE '%.apk';" > nsrl-apk.sha256
+   ```
+
+4. **Check** the result: one 64-character hash per line. The app keeps at most **3,000,000** fingerprints (8 bytes of memory each).
+5. **Copy** `nsrl-apk.sha256` to the phone. In the app open **Settings → Advanced → NSRL list (manual import) → Import…** and pick the file. A new import replaces the previous one, and **Remove** deletes it.
+
+Any text file containing 64-character hexadecimal hashes works (plain lists, CSV, quoted exports). To use a list of your own instead, use **Settings → Advanced → Trusted files → Import…**.
 
 Features
 --------

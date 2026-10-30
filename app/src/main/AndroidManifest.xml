@@ -54,6 +54,11 @@
             </intent-filter>
         </activity>
         <activity
+            android:name=".ThreatsActivity"
+            android:exported="false"
+            android:parentActivityName=".MainActivity"
+            android:label="@string/threats_title" />
+        <activity
             android:name=".SettingsActivity"
             android:exported="false"
             android:parentActivityName=".MainActivity"
