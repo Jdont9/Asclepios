@@ -1,6 +1,6 @@
 > [!WARNING]
 > ### This is a fork of the [original](https://github.com/Divested-Mobile/Hypatia) (and discontinued) app from DivestOS.
-> ### This repository ([Jdont9/Hypatia](https://github.com/Jdont9/Hypatia)) is **Asclépios AV**, my personal fork of [MaintainTeam/Hypatia](https://github.com/MaintainTeam/Hypatia), see [Changes in this fork](#changes-in-this-fork-450).
+> ### This repository ([Jdont9/Hypatia](https://github.com/Jdont9/Hypatia)) is **Asclépios AV**, my personal fork of [MaintainTeam/Hypatia](https://github.com/MaintainTeam/Hypatia), see [Changes in this fork](#changes-in-this-fork-451).
 
 ![Banner](./fastlane/metadata/android/en-US/images/featureGraphic.png)
 
@@ -22,10 +22,16 @@ Asclépios AV is a fork of Hypatia, the world's first FOSS malware scanner for A
      alt="Translation status (original Hypatia)"
      height="66">](https://hosted.weblate.org/projects/maintainteam/hypatia/)
 
-Changes in this fork (4.5.0)
+AI assistance
+-------------
+
+I use [Claude](https://claude.ai) (Anthropic's AI assistant) to write and update the code of this fork.
+
+Changes in this fork (4.5.1)
 --------------------------
 Asclépios AV (application id `fr.jd.asclepios`) is [my personal fork](https://github.com/Jdont9/Hypatia) of [MaintainTeam/Hypatia](https://github.com/MaintainTeam/Hypatia), itself a fork of the discontinued [Divested-Mobile/Hypatia](https://github.com/Divested-Mobile/Hypatia). Signed APKs are on the [Releases page](https://github.com/Jdont9/Hypatia/releases). Compared to upstream `stable` (3.18):
 
+- **Log scrolling (4.5.1):** the log can be scrolled back up again on the home screen.
 - **Malicious URL scan in files (4.5.0, opt-in):** looks for web addresses inside APKs (DEX code and text assets) and text-like files, and checks their host against the malicious-domain database. A match joins the active threats. Needs the link scanner (it downloads the domain database). The binary manifest and resources of an APK are not read.
 - **Trusted files list (4.5.0):** "Always ignore" on a threat adds the file's SHA-256 to a whitelist of files that are never reported again. The list can be imported from a text file with one SHA-256 per line, viewed and cleared in Settings → Advanced. An online whitelist of known-good files (`hypatia-whitelist-sha256-bloom.bin`, same signed bloom format as the other databases) is downloaded and loaded with the signature databases; it can be turned off in Settings → Updates.
 - **NSRL import (4.5.0, optional, manual):** Settings → Advanced → NSRL list imports the SHA-256 of known Android APKs prepared from the NIST NSRL, so they are never reported. See [the tutorial](#import-the-nsrl-whitelist-optional).
@@ -52,7 +58,7 @@ Asclépios AV (application id `fr.jd.asclepios`) is [my personal fork](https://g
 - **Root scan:** a new "Deep scan (root)" option (Settings → Scans) hashes /system, /vendor, /product, /data (including other apps' private data) and the other system partitions through a root shell (`su`), using the device's own `md5sum`, `sha1sum` and `sha256sum`. Since Android 11 apps only see their own data in `/data/data`, so the shell is started with `su --mount-master` (global mount namespace, like SD Maid does), falling back to plain `su` with a warning. Nothing is installed, and no dependency is added. The system / apps / internal storage options keep working on their own (without root, or if root is refused); when the root scan succeeds they are skipped since it already covers them. Matches are reported with the usual notifications, but deleting a file in a protected location from the notification is not possible without root.
 - **New and updated apps:** while the realtime scanner is running, the APKs of apps being installed or updated are scanned automatically.
 - **Database sanity checks:** downloads are rejected when empty or truncated (the previous working file is kept), empty databases are refused at load time, and a warning is shown when the built-in test signatures are missing.
-- **Release workflow:** pushing a `v*` tag (for example `v4.5.0`) now builds, signs and publishes a GitHub release automatically from this repository, instead of MaintainTeam's.
+- **Release workflow:** pushing a `v*` tag (for example `v4.5.1`) now builds, signs and publishes a GitHub release automatically from this repository, instead of MaintainTeam's.
 - **Documentation:** the French README was rewritten to match the English one.
 
 Not merged from upstream: the UI redesign of PR #101 (scan progress card and threat list), which the maintainers asked to be submitted separately.
@@ -220,3 +226,8 @@ Notices
 - Divested Computing Group is not affiliated with Cisco or ESET
 - MaintainTeam is not affiliated with Cisco or ESET
 - Hypatia is not sponsored or endorsed by Cisco or ESET
+
+Support the project
+-------------------
+
+The app is free and will stay free. If you like it and want to thank its author, you can donate through [PayPal](https://www.paypal.me/jd02310). It is entirely optional: a donation gives no particular support entitlement.

@@ -1,0 +1,1 @@
+4.5.1: the log can be scrolled back up again

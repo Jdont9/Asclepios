@@ -1,6 +1,6 @@
 > [!WARNING]
 > ### Ceci est un fork de l'application [originale](https://github.com/Divested-Mobile/Hypatia) (abandonnée) de DivestOS.
-> ### Ce dépôt ([Jdont9/Hypatia](https://github.com/Jdont9/Hypatia)) est **Asclépios AV**, mon fork personnel de [MaintainTeam/Hypatia](https://github.com/MaintainTeam/Hypatia), voir [Modifications de ce fork](#modifications-de-ce-fork-450).
+> ### Ce dépôt ([Jdont9/Hypatia](https://github.com/Jdont9/Hypatia)) est **Asclépios AV**, mon fork personnel de [MaintainTeam/Hypatia](https://github.com/MaintainTeam/Hypatia), voir [Modifications de ce fork](#modifications-de-ce-fork-451).
 
 ![Bannière](./fastlane/metadata/android/en-US/images/featureGraphic.png)
 
@@ -19,11 +19,17 @@ Asclépios AV est un fork d'Hypatia, le premier scanner de logiciels malveillant
      alt="État des traductions (Hypatia d'origine)"
      height="66">](https://hosted.weblate.org/projects/maintainteam/hypatia/)
 
-<a id="modifications-de-ce-fork-450"></a>
-Modifications de ce fork (4.5.0)
+Assistance par IA
+-----------------
+
+J'utilise [Claude](https://claude.ai) (l'assistant IA d'Anthropic) pour écrire et mettre à jour le code de ce fork.
+
+<a id="modifications-de-ce-fork-451"></a>
+Modifications de ce fork (4.5.1)
 ------------------------------
 Asclépios AV (identifiant d'application `fr.jd.asclepios`) est [mon fork personnel](https://github.com/Jdont9/Hypatia) de [MaintainTeam/Hypatia](https://github.com/MaintainTeam/Hypatia), lui-même un fork de l'application abandonnée [Divested-Mobile/Hypatia](https://github.com/Divested-Mobile/Hypatia). Les APK signés sont sur la [page des Releases](https://github.com/Jdont9/Hypatia/releases). Par rapport à la branche `stable` d'origine (3.18) :
 
+- **Défilement du journal (4.5.1) :** le journal peut de nouveau être remonté sur l'écran d'accueil.
 - **Recherche d'URL malveillantes dans les fichiers (4.5.0, optionnel) :** cherche les adresses web contenues dans les APK (code DEX et assets texte) et les fichiers de type texte, et compare leur hôte à la base de domaines malveillants. Une correspondance rejoint les menaces actives. Nécessite l'analyseur de liens (il télécharge la base de domaines). Le manifeste et les ressources binaires d'un APK ne sont pas lus.
 - **Liste de fichiers de confiance (4.5.0) :** « Toujours ignorer » sur une menace ajoute le SHA-256 du fichier à une liste blanche : il n'est plus jamais signalé. La liste peut être importée depuis un fichier texte (un SHA-256 par ligne), consultée et vidée dans Paramètres → Avancé. Une liste blanche en ligne de fichiers sains (`hypatia-whitelist-sha256-bloom.bin`, même format bloom signé que les autres bases) est téléchargée et chargée avec les bases de signatures ; elle se désactive dans Paramètres → Mises à jour.
 - **Import NSRL (4.5.0, optionnel, manuel) :** Paramètres → Avancé → Liste NSRL importe les SHA-256 d'APK Android connus préparés à partir du NSRL du NIST, pour qu'ils ne soient jamais signalés. Voir [le tutoriel](#importer-la-liste-blanche-nsrl-optionnel).
@@ -50,7 +56,7 @@ Asclépios AV (identifiant d'application `fr.jd.asclepios`) est [mon fork person
 - **Analyse root :** une nouvelle option « Analyse approfondie (root) » (Paramètres → Analyses) calcule les empreintes de /system, /vendor, /product, /data (y compris les données privées des autres applications) et des autres partitions système via un shell root (`su`), avec les commandes `md5sum`, `sha1sum` et `sha256sum` de l'appareil. Depuis Android 11, une application ne voit que ses propres données dans `/data/data` : le shell est donc lancé avec `su --mount-master` (espace de montage global, comme le fait SD Maid), avec un retour à `su` simple et un avertissement. Rien n'est installé et aucune dépendance n'est ajoutée. Les cases système / applications / stockage interne continuent de fonctionner seules (sans root, ou si le root est refusé) ; quand l'analyse root réussit, elles sont ignorées car déjà couvertes. Les détections s'affichent avec les notifications habituelles, mais supprimer un fichier situé dans un emplacement protégé depuis la notification est impossible sans root.
 - **Applications installées ou mises à jour :** tant que le scanner en temps réel tourne, les APK des applications en cours d'installation ou de mise à jour sont analysés automatiquement.
 - **Vérifications de cohérence des bases :** les téléchargements vides ou tronqués sont rejetés (le fichier précédent est conservé), les bases vides sont refusées au chargement, et un avertissement s'affiche si les signatures de test intégrées sont absentes.
-- **Workflow de publication :** pousser un tag `v*` (par exemple `v4.5.0`) compile, signe et publie désormais automatiquement une release GitHub depuis ce dépôt, au lieu de celui de MaintainTeam.
+- **Workflow de publication :** pousser un tag `v*` (par exemple `v4.5.1`) compile, signe et publie désormais automatiquement une release GitHub depuis ce dépôt, au lieu de celui de MaintainTeam.
 - **Documentation :** le README français a été réécrit pour correspondre à la version anglaise.
 
 Non repris de l'amont : la refonte de l'interface de la PR #101 (carte de progression et liste des menaces), que les mainteneurs ont demandé de proposer séparément.
@@ -218,3 +224,8 @@ Avis
 - Divested Computing Group n'est pas affilié à Cisco ou à ESET
 - MaintainTeam n'est pas affilié à Cisco ou à ESET
 - Hypatia n'est pas sponsorisé ni approuvé par Cisco ou ESET
+
+Soutenir le projet
+------------------
+
+L'application est gratuite et le restera. Si elle vous plaît et que vous voulez remercier son auteur, vous pouvez faire un don via [PayPal](https://www.paypal.me/jd02310). C'est entièrement facultatif : un don ne donne droit à aucun support particulier.
