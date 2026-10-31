@@ -1,6 +1,6 @@
 > [!WARNING]
 > ### This is a fork of the [original](https://github.com/Divested-Mobile/Hypatia) (and discontinued) app from DivestOS.
-> ### This repository ([Jdont9/Hypatia](https://github.com/Jdont9/Hypatia)) is **Asclépios AV**, my personal fork of [MaintainTeam/Hypatia](https://github.com/MaintainTeam/Hypatia), see [Changes in this fork](#changes-in-this-fork-452).
+> ### This repository ([Jdont9/Hypatia](https://github.com/Jdont9/Hypatia)) is **Asclépios AV**, my personal fork of [MaintainTeam/Hypatia](https://github.com/MaintainTeam/Hypatia), see [Changes in this fork](#changes-in-this-fork-453).
 
 ![Banner](./fastlane/metadata/android/en-US/images/featureGraphic.png)
 
@@ -27,10 +27,11 @@ AI assistance
 
 I use [Claude](https://claude.ai) (Anthropic's AI assistant) to write and update the code of this fork.
 
-Changes in this fork (4.5.2)
+Changes in this fork (4.5.3)
 --------------------------
 Asclépios AV (application id `fr.jd.asclepios`) is [my personal fork](https://github.com/Jdont9/Hypatia) of [MaintainTeam/Hypatia](https://github.com/MaintainTeam/Hypatia), itself a fork of the discontinued [Divested-Mobile/Hypatia](https://github.com/Divested-Mobile/Hypatia). Signed APKs are on the [Releases page](https://github.com/Jdont9/Hypatia/releases). Compared to upstream `stable` (3.18):
 
+- **Database loading (4.5.3):** the "loading" state is always released if a load is cancelled or fails, and a partially loaded database is no longer treated as loaded (it is reloaded).
 - **Notification (4.5.2):** the persistent notification opens the app when tapped and shows the signature count (and files scanned) again, whether the link scanner or the realtime scanner is running.
 - **Log scrolling (4.5.1):** the log can be scrolled back up again on the home screen.
 - **Malicious URL scan in files (4.5.0, opt-in):** looks for web addresses inside APKs (DEX code and text assets) and text-like files, and checks their host against the malicious-domain database. A match joins the active threats. Needs the link scanner (it downloads the domain database). The binary manifest and resources of an APK are not read.
@@ -120,6 +121,8 @@ The first thing to check is if you have extended databases enabled. Extended dat
 If this occurs, try opening Settings (gear icon in the top right of the main screen) and tap `Database server override` under `Network`. This uses a mirror database in case the main database is down.
 - **There are false positives:**
 This occasionally occurs due to the nature of bloom filters. If you believe there is a false positive, first, rescan. This will sometimes fix the false positive. And if this still returns a false positive, scan the file to [VirusTotal](https://www.virustotal.com/gui/home/upload), and this will tell you if you truly have a false positive or rather some malware. 
+- **The databases reload from time to time ("Loading databases" shows up again):**
+The databases are kept in memory, and they are large. When Android is short on memory or restricts the app in the background, it can stop the app process, and the databases then have to be loaded again the next time the realtime scanner, the link scanner, an automatic update or the app itself starts. This is normal and cannot be avoided completely. To reduce it, disable battery optimization for the app (Android Settings → Apps → Asclépios AV → Battery → Unrestricted / Don't optimize), keep the realtime scanner running, and avoid the extended databases on devices with little RAM. A reload also happens after a real database update. Since 4.5.3, a load that is cancelled or fails no longer leaves the app stuck in the "loading" state.
 
 APK Info & Security
 --------------------

@@ -1,6 +1,6 @@
 > [!WARNING]
 > ### Ceci est un fork de l'application [originale](https://github.com/Divested-Mobile/Hypatia) (abandonnée) de DivestOS.
-> ### Ce dépôt ([Jdont9/Hypatia](https://github.com/Jdont9/Hypatia)) est **Asclépios AV**, mon fork personnel de [MaintainTeam/Hypatia](https://github.com/MaintainTeam/Hypatia), voir [Modifications de ce fork](#modifications-de-ce-fork-452).
+> ### Ce dépôt ([Jdont9/Hypatia](https://github.com/Jdont9/Hypatia)) est **Asclépios AV**, mon fork personnel de [MaintainTeam/Hypatia](https://github.com/MaintainTeam/Hypatia), voir [Modifications de ce fork](#modifications-de-ce-fork-453).
 
 ![Bannière](./fastlane/metadata/android/en-US/images/featureGraphic.png)
 
@@ -24,11 +24,12 @@ Assistance par IA
 
 J'utilise [Claude](https://claude.ai) (l'assistant IA d'Anthropic) pour écrire et mettre à jour le code de ce fork.
 
-<a id="modifications-de-ce-fork-452"></a>
-Modifications de ce fork (4.5.2)
+<a id="modifications-de-ce-fork-453"></a>
+Modifications de ce fork (4.5.3)
 ------------------------------
 Asclépios AV (identifiant d'application `fr.jd.asclepios`) est [mon fork personnel](https://github.com/Jdont9/Hypatia) de [MaintainTeam/Hypatia](https://github.com/MaintainTeam/Hypatia), lui-même un fork de l'application abandonnée [Divested-Mobile/Hypatia](https://github.com/Divested-Mobile/Hypatia). Les APK signés sont sur la [page des Releases](https://github.com/Jdont9/Hypatia/releases). Par rapport à la branche `stable` d'origine (3.18) :
 
+- **Chargement de la base (4.5.3) :** l'état « chargement en cours » est toujours libéré si un chargement est annulé ou échoue, et une base partiellement chargée n'est plus considérée comme chargée (elle est rechargée).
 - **Notification (4.5.2) :** la notification persistante ouvre de nouveau l'application au clic et affiche le nombre de signatures (et de fichiers analysés), que l'analyseur de liens ou le scanner temps réel soit actif.
 - **Défilement du journal (4.5.1) :** le journal peut de nouveau être remonté sur l'écran d'accueil.
 - **Recherche d'URL malveillantes dans les fichiers (4.5.0, optionnel) :** cherche les adresses web contenues dans les APK (code DEX et assets texte) et les fichiers de type texte, et compare leur hôte à la base de domaines malveillants. Une correspondance rejoint les menaces actives. Nécessite l'analyseur de liens (il télécharge la base de domaines). Le manifeste et les ressources binaires d'un APK ne sont pas lus.
@@ -118,6 +119,8 @@ Vérifiez d'abord si les bases de données étendues sont activées. Elles néce
 Ouvrez les Paramètres (icône d'engrenage en haut à droite de l'écran principal), puis `Remplacer le serveur de base de données` dans `Réseau`. Cela permet d'utiliser un miroir si le serveur principal est indisponible.
 - **Il y a des faux positifs :**
 Cela arrive occasionnellement en raison de la nature des filtres de Bloom. Si vous pensez avoir un faux positif, relancez d'abord l'analyse, ce qui le corrige parfois. S'il persiste, envoyez le fichier à [VirusTotal](https://www.virustotal.com/gui/home/upload) : il vous dira s'il s'agit réellement d'un faux positif ou d'un logiciel malveillant.
+- **Les bases se rechargent de temps en temps (« Chargement des bases » réapparaît) :**
+Les bases sont conservées en mémoire et sont volumineuses. Quand Android manque de mémoire ou restreint l'application en arrière-plan, il peut arrêter son processus ; les bases doivent alors être rechargées au prochain démarrage du scanner temps réel, de l'analyseur de liens, d'une mise à jour automatique ou de l'application. C'est normal et impossible à éviter complètement. Pour réduire ce phénomène, désactivez l'optimisation de la batterie pour l'application (Paramètres Android → Applications → Asclépios AV → Batterie → Sans restriction / Ne pas optimiser), laissez le scanner temps réel actif et évitez les bases étendues sur un appareil avec peu de RAM. Un rechargement a aussi lieu après une vraie mise à jour des bases. Depuis la 4.5.3, un chargement annulé ou en échec ne laisse plus l'application bloquée en état « chargement ».
 
 Informations sur l'APK et sécurité
 ----------------------------------
