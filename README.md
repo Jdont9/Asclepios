@@ -1,6 +1,6 @@
 > [!WARNING]
 > ### This is a fork of the [original](https://github.com/Divested-Mobile/Hypatia) (and discontinued) app from DivestOS.
-> ### This repository ([Jdont9/Hypatia](https://github.com/Jdont9/Hypatia)) is **Asclépios AV**, my personal fork of [MaintainTeam/Hypatia](https://github.com/MaintainTeam/Hypatia), see [Changes in this fork](#changes-in-this-fork-451).
+> ### This repository ([Jdont9/Hypatia](https://github.com/Jdont9/Hypatia)) is **Asclépios AV**, my personal fork of [MaintainTeam/Hypatia](https://github.com/MaintainTeam/Hypatia), see [Changes in this fork](#changes-in-this-fork-452).
 
 ![Banner](./fastlane/metadata/android/en-US/images/featureGraphic.png)
 
@@ -27,10 +27,11 @@ AI assistance
 
 I use [Claude](https://claude.ai) (Anthropic's AI assistant) to write and update the code of this fork.
 
-Changes in this fork (4.5.1)
+Changes in this fork (4.5.2)
 --------------------------
 Asclépios AV (application id `fr.jd.asclepios`) is [my personal fork](https://github.com/Jdont9/Hypatia) of [MaintainTeam/Hypatia](https://github.com/MaintainTeam/Hypatia), itself a fork of the discontinued [Divested-Mobile/Hypatia](https://github.com/Divested-Mobile/Hypatia). Signed APKs are on the [Releases page](https://github.com/Jdont9/Hypatia/releases). Compared to upstream `stable` (3.18):
 
+- **Notification (4.5.2):** the persistent notification opens the app when tapped and shows the signature count (and files scanned) again, whether the link scanner or the realtime scanner is running.
 - **Log scrolling (4.5.1):** the log can be scrolled back up again on the home screen.
 - **Malicious URL scan in files (4.5.0, opt-in):** looks for web addresses inside APKs (DEX code and text assets) and text-like files, and checks their host against the malicious-domain database. A match joins the active threats. Needs the link scanner (it downloads the domain database). The binary manifest and resources of an APK are not read.
 - **Trusted files list (4.5.0):** "Always ignore" on a threat adds the file's SHA-256 to a whitelist of files that are never reported again. The list can be imported from a text file with one SHA-256 per line, viewed and cleared in Settings → Advanced. An online whitelist of known-good files (`hypatia-whitelist-sha256-bloom.bin`, same signed bloom format as the other databases) is downloaded and loaded with the signature databases; it can be turned off in Settings → Updates.
