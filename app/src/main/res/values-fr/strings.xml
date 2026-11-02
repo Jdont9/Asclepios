@@ -235,4 +235,10 @@
     <string name="nsrl_import_empty">Aucun SHA-256 trouvé dans ce fichier</string>
     <string name="nsrl_imported_truncated">%d empreintes importées (la liste a été coupée à la limite)</string>
     <string name="nsrl_tutorial_url">https://github.com/Jdont9/Hypatia/blob/main/README.fr.md#importer-la-liste-blanche-nsrl-optionnel</string>
+
+    <string name="menu_scan_folder">Analyser un dossier…</string>
+    <string name="menu_scan_file">Analyser un fichier…</string>
+    <string name="scan_pick_folder">Analyse du dossier : %1$s</string>
+    <string name="scan_pick_file">Analyse du fichier : %1$s</string>
+    <string name="scan_pick_unsupported">Cet emplacement n\'est pas lisible directement. Choisissez un dossier du stockage interne ou de la carte SD.</string>
 </resources>

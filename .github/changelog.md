@@ -1,7 +1,8 @@
 Asclépios AV (`fr.jd.asclepios`): personal fork of MaintainTeam/Hypatia, see the README for the full list of changes.
 
+## New Features
+- Scan a folder or a file: two new entries in the home screen menu ("Scan a folder…", "Scan a file…") scan only what you pick, ignoring the Settings scan options.
+- Share several files at once to Asclépios AV (previously a single file).
+
 ## Bug Fixes
-- The database loading state is always released if a load is cancelled or fails, and a partially loaded database is reloaded instead of being treated as loaded.
-- README: troubleshooting entry about periodic database reloads (process killed by Android, battery optimization).
-- The persistent notification opens the app when tapped and shows the signature count again (link scanner and realtime scanner).
-- The log can be scrolled back up again on the home screen.
+- Temporary copies made for shared-file scans are all deleted after the scan (only the first one was).

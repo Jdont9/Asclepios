@@ -235,4 +235,10 @@
     <string name="nsrl_import_empty">No SHA-256 found in this file</string>
     <string name="nsrl_imported_truncated">%d fingerprints imported (the list was cut at the limit)</string>
     <string name="nsrl_tutorial_url">https://github.com/Jdont9/Hypatia#import-the-nsrl-whitelist-optional</string>
+
+    <string name="menu_scan_folder">Scan a folder…</string>
+    <string name="menu_scan_file">Scan a file…</string>
+    <string name="scan_pick_folder">Scanning folder: %1$s</string>
+    <string name="scan_pick_file">Scanning file: %1$s</string>
+    <string name="scan_pick_unsupported">This location can\'t be read directly. Pick a folder on internal or SD storage.</string>
 </resources>

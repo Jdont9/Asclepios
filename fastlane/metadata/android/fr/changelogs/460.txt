@@ -1,0 +1,1 @@
+4.6.0 : analyse d'un dossier ou d'un fichier depuis le menu de l'écran d'accueil, et partage de plusieurs fichiers à analyser

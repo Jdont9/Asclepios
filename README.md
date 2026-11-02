@@ -1,6 +1,6 @@
 > [!WARNING]
 > ### This is a fork of the [original](https://github.com/Divested-Mobile/Hypatia) (and discontinued) app from DivestOS.
-> ### This repository ([Jdont9/Hypatia](https://github.com/Jdont9/Hypatia)) is **Asclépios AV**, my personal fork of [MaintainTeam/Hypatia](https://github.com/MaintainTeam/Hypatia), see [Changes in this fork](#changes-in-this-fork-453).
+> ### This repository ([Jdont9/Hypatia](https://github.com/Jdont9/Hypatia)) is **Asclépios AV**, my personal fork of [MaintainTeam/Hypatia](https://github.com/MaintainTeam/Hypatia), see [Changes in this fork](#changes-in-this-fork-460).
 
 ![Banner](./fastlane/metadata/android/en-US/images/featureGraphic.png)
 
@@ -27,10 +27,12 @@ AI assistance
 
 I use [Claude](https://claude.ai) (Anthropic's AI assistant) to write and update the code of this fork.
 
-Changes in this fork (4.5.3)
+Changes in this fork (4.6.0)
 --------------------------
 Asclépios AV (application id `fr.jd.asclepios`) is [my personal fork](https://github.com/Jdont9/Hypatia) of [MaintainTeam/Hypatia](https://github.com/MaintainTeam/Hypatia), itself a fork of the discontinued [Divested-Mobile/Hypatia](https://github.com/Divested-Mobile/Hypatia). Signed APKs are on the [Releases page](https://github.com/Jdont9/Hypatia/releases). Compared to upstream `stable` (3.18):
 
+- **Scan a folder or a file (4.6.0):** the menu of the home screen has two new entries, "Scan a folder…" and "Scan a file…". They open the system picker and scan only what you choose, ignoring the scan options in Settings. Folders must be on internal or SD storage; a file without a real path (cloud provider) is scanned from a temporary copy that is deleted afterwards.
+- **Share several files (4.6.0):** Share → Asclépios AV now also accepts several files at once (they were limited to one). Shared files are scanned from temporary copies, all deleted after the scan (previously only the first copy was deleted).
 - **Database loading (4.5.3):** the "loading" state is always released if a load is cancelled or fails, and a partially loaded database is no longer treated as loaded (it is reloaded).
 - **Notification (4.5.2):** the persistent notification opens the app when tapped and shows the signature count (and files scanned) again, whether the link scanner or the realtime scanner is running.
 - **Log scrolling (4.5.1):** the log can be scrolled back up again on the home screen.
