@@ -1,0 +1,1 @@
+4.6.1: fixed sharing a file to scan it, scan a folder or a file from the home screen menu, share several files to scan them, and choose the time of day of the automatic database update

@@ -241,4 +241,10 @@
     <string name="scan_pick_folder">Analyse du dossier : %1$s</string>
     <string name="scan_pick_file">Analyse du fichier : %1$s</string>
     <string name="scan_pick_unsupported">Cet emplacement n\'est pas lisible directement. Choisissez un dossier du stockage interne ou de la carte SD.</string>
+
+    <string name="auto_update_dialog_time">Heure de mise à jour</string>
+    <string name="auto_update_time_any">À tout moment (le système décide)</string>
+    <string name="auto_update_time_hint">S\'applique aux mises à jour quotidiennes ou moins fréquentes. Android peut la lancer un peu plus tard (attente d\'un réseau autorisé, batterie faible).</string>
+    <string name="auto_update_at_time">%1$s à %2$s</string>
+    <string name="auto_update_datasaver_hint">L\'économiseur de données est activé : les téléchargements en arrière-plan en données mobiles ou en itinérance peuvent être bloqués. Autorisez l\'app dans « Données sans restriction » dans les réglages Android.</string>
 </resources>

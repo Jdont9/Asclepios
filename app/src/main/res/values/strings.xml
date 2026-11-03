@@ -241,4 +241,10 @@
     <string name="scan_pick_folder">Scanning folder: %1$s</string>
     <string name="scan_pick_file">Scanning file: %1$s</string>
     <string name="scan_pick_unsupported">This location can\'t be read directly. Pick a folder on internal or SD storage.</string>
+
+    <string name="auto_update_dialog_time">Update time</string>
+    <string name="auto_update_time_any">Any time (the system decides)</string>
+    <string name="auto_update_time_hint">Applies to daily or less frequent updates. Android may run it a little later (waiting for an allowed network, low battery).</string>
+    <string name="auto_update_at_time">%1$s at %2$s</string>
+    <string name="auto_update_datasaver_hint">Data Saver is on: background downloads over mobile data or roaming can be blocked. Allow this app under "Unrestricted data" in Android settings.</string>
 </resources>

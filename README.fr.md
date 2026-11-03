@@ -1,6 +1,6 @@
 > [!WARNING]
 > ### Ceci est un fork de l'application [originale](https://github.com/Divested-Mobile/Hypatia) (abandonnée) de DivestOS.
-> ### Ce dépôt ([Jdont9/Hypatia](https://github.com/Jdont9/Hypatia)) est **Asclépios AV**, mon fork personnel de [MaintainTeam/Hypatia](https://github.com/MaintainTeam/Hypatia), voir [Modifications de ce fork](#modifications-de-ce-fork-460).
+> ### Ce dépôt ([Jdont9/Hypatia](https://github.com/Jdont9/Hypatia)) est **Asclépios AV**, mon fork personnel de [MaintainTeam/Hypatia](https://github.com/MaintainTeam/Hypatia), voir [Modifications de ce fork](#modifications-de-ce-fork-461).
 
 ![Bannière](./fastlane/metadata/android/en-US/images/featureGraphic.png)
 
@@ -25,12 +25,13 @@ Assistance par IA
 J'utilise [Claude](https://claude.ai) (l'assistant IA d'Anthropic) pour écrire et mettre à jour le code de ce fork.
 
 <a id="modifications-de-ce-fork-453"></a>
-Modifications de ce fork (4.6.0)
+Modifications de ce fork (4.6.1)
 ------------------------------
 Asclépios AV (identifiant d'application `fr.jd.asclepios`) est [mon fork personnel](https://github.com/Jdont9/Hypatia) de [MaintainTeam/Hypatia](https://github.com/MaintainTeam/Hypatia), lui-même un fork de l'application abandonnée [Divested-Mobile/Hypatia](https://github.com/Divested-Mobile/Hypatia). Les APK signés sont sur la [page des Releases](https://github.com/Jdont9/Hypatia/releases). Par rapport à la branche `stable` d'origine (3.18) :
 
-- **Analyse d'un dossier ou d'un fichier (4.6.0) :** le menu de l'écran d'accueil propose deux nouvelles entrées, « Analyser un dossier… » et « Analyser un fichier… ». Elles ouvrent le sélecteur système et n'analysent que ce que vous choisissez, sans tenir compte des options d'analyse des Paramètres. Les dossiers doivent être sur le stockage interne ou la carte SD ; un fichier sans chemin réel (fournisseur cloud) est analysé à partir d'une copie temporaire supprimée ensuite.
-- **Partage de plusieurs fichiers (4.6.0) :** Partager → Asclépios AV accepte maintenant plusieurs fichiers à la fois (un seul auparavant). Les fichiers partagés sont analysés à partir de copies temporaires, toutes supprimées après l'analyse (seule la première l'était avant).
+- **Analyse d'un dossier ou d'un fichier (4.6.1) :** le menu de l'écran d'accueil propose deux nouvelles entrées, « Analyser un dossier… » et « Analyser un fichier… ». Elles ouvrent le sélecteur système et n'analysent que ce que vous choisissez, sans tenir compte des options d'analyse des Paramètres. Les dossiers doivent être sur le stockage interne ou la carte SD ; un fichier sans chemin réel (fournisseur cloud) est analysé à partir d'une copie temporaire supprimée ensuite.
+- **Heure de mise à jour automatique (4.6.1) :** dans Paramètres → Mises à jour → Options de mise à jour automatique, un nouveau réglage « Heure de mise à jour » permet de choisir l'heure de la vérification (pour les mises à jour quotidiennes, tous les 2 jours et hebdomadaires ; « À tout moment » garde le comportement géré par le système). La tâche attend un réseau autorisé et se réarme après chaque exécution ; Android peut la lancer un peu plus tard (batterie, Doze). La tâche revérifie aussi la politique réseau choisie au démarrage : une tâche déclenchée par son échéance ne télécharge plus en données mobiles ou en itinérance quand « Wi-Fi uniquement » est choisi. Rappel : pour télécharger en itinérance, choisissez « Tous réseaux, itinérance comprise » et, si l'économiseur de données est activé, autorisez l'app dans « Données sans restriction ».
+- **Correction du partage et plusieurs fichiers (4.6.1) :** le partage d'un fichier ouvrait seulement l'app sans l'analyser. L'analyse se lance maintenant depuis l'écran principal (progression et résultat affichés) et attend la base de signatures si elle est encore en chargement après un démarrage à froid. Le partage accepte aussi plusieurs fichiers à la fois Partager → Asclépios AV accepte maintenant plusieurs fichiers à la fois (un seul auparavant). Les fichiers partagés sont analysés à partir de copies temporaires, toutes supprimées après l'analyse (seule la première l'était avant).
 - **Chargement de la base (4.5.3) :** l'état « chargement en cours » est toujours libéré si un chargement est annulé ou échoue, et une base partiellement chargée n'est plus considérée comme chargée (elle est rechargée).
 - **Notification (4.5.2) :** la notification persistante ouvre de nouveau l'application au clic et affiche le nombre de signatures (et de fichiers analysés), que l'analyseur de liens ou le scanner temps réel soit actif.
 - **Défilement du journal (4.5.1) :** le journal peut de nouveau être remonté sur l'écran d'accueil.

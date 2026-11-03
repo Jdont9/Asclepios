@@ -1,0 +1,1 @@
+4.6.1 : correction du partage pour analyser un fichier, analyse d'un dossier ou d'un fichier depuis le menu d'accueil, partage de plusieurs fichiers à analyser, et choix de l'heure de la mise à jour automatique de la base

@@ -1,6 +1,6 @@
 > [!WARNING]
 > ### This is a fork of the [original](https://github.com/Divested-Mobile/Hypatia) (and discontinued) app from DivestOS.
-> ### This repository ([Jdont9/Hypatia](https://github.com/Jdont9/Hypatia)) is **Asclépios AV**, my personal fork of [MaintainTeam/Hypatia](https://github.com/MaintainTeam/Hypatia), see [Changes in this fork](#changes-in-this-fork-460).
+> ### This repository ([Jdont9/Hypatia](https://github.com/Jdont9/Hypatia)) is **Asclépios AV**, my personal fork of [MaintainTeam/Hypatia](https://github.com/MaintainTeam/Hypatia), see [Changes in this fork](#changes-in-this-fork-461).
 
 ![Banner](./fastlane/metadata/android/en-US/images/featureGraphic.png)
 
@@ -27,12 +27,13 @@ AI assistance
 
 I use [Claude](https://claude.ai) (Anthropic's AI assistant) to write and update the code of this fork.
 
-Changes in this fork (4.6.0)
+Changes in this fork (4.6.1)
 --------------------------
 Asclépios AV (application id `fr.jd.asclepios`) is [my personal fork](https://github.com/Jdont9/Hypatia) of [MaintainTeam/Hypatia](https://github.com/MaintainTeam/Hypatia), itself a fork of the discontinued [Divested-Mobile/Hypatia](https://github.com/Divested-Mobile/Hypatia). Signed APKs are on the [Releases page](https://github.com/Jdont9/Hypatia/releases). Compared to upstream `stable` (3.18):
 
-- **Scan a folder or a file (4.6.0):** the menu of the home screen has two new entries, "Scan a folder…" and "Scan a file…". They open the system picker and scan only what you choose, ignoring the scan options in Settings. Folders must be on internal or SD storage; a file without a real path (cloud provider) is scanned from a temporary copy that is deleted afterwards.
-- **Share several files (4.6.0):** Share → Asclépios AV now also accepts several files at once (they were limited to one). Shared files are scanned from temporary copies, all deleted after the scan (previously only the first copy was deleted).
+- **Scan a folder or a file (4.6.1):** the menu of the home screen has two new entries, "Scan a folder…" and "Scan a file…". They open the system picker and scan only what you choose, ignoring the scan options in Settings. Folders must be on internal or SD storage; a file without a real path (cloud provider) is scanned from a temporary copy that is deleted afterwards.
+- **Auto-update time (4.6.1):** in Settings → Updates → Auto-update options, a new "Update time" setting lets you pick the time of day of the check (for daily, every-2-days and weekly updates; "Any time" keeps the system-timed behaviour). The job waits for an allowed network and is re-armed after each run; Android may start it slightly later (battery, Doze). The job also re-checks the chosen network policy when it starts, so a job fired by its deadline no longer downloads over mobile data or roaming when "Wi-Fi only" is selected. Reminder: to download in roaming, choose "Any network, roaming included" and, if Data Saver is on, allow the app under "Unrestricted data".
+- **Share fix and several files (4.6.1):** sharing a file only opened the app without scanning it. The scan now runs from the main screen (progress and result shown there) and waits for the signature database if it is still loading after a cold start. Sharing also accepts several files at once Share → Asclépios AV now also accepts several files at once (they were limited to one). Shared files are scanned from temporary copies, all deleted after the scan (previously only the first copy was deleted).
 - **Database loading (4.5.3):** the "loading" state is always released if a load is cancelled or fails, and a partially loaded database is no longer treated as loaded (it is reloaded).
 - **Notification (4.5.2):** the persistent notification opens the app when tapped and shows the signature count (and files scanned) again, whether the link scanner or the realtime scanner is running.
 - **Log scrolling (4.5.1):** the log can be scrolled back up again on the home screen.
