@@ -4,13 +4,13 @@ plugins {
 }
 
 android {
-    compileSdkVersion 36
+    compileSdkVersion 37
     namespace 'us.spotco.malwarescanner'
 
     defaultConfig {
         applicationId "fr.jd.asclepios"
         resValue "string", "app_name", "Asclépios AV"
-        minSdkVersion 21
+        minSdkVersion 23
         targetSdkVersion 36
         if (System.properties.containsKey('versionCodeOverride')) {
             versionCode System.getProperty('versionCodeOverride') as Integer
@@ -50,7 +50,7 @@ android {
             }
             minifyEnabled true
             shrinkResources false // disabled to fix F-Droid's reproducible build
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
     lint {
@@ -73,6 +73,7 @@ android {
     }
     buildFeatures {
         buildConfig = true
+        resValues = true
     }
     dependenciesInfo {
 
