@@ -31,6 +31,7 @@ jobs:
           sed -i 's/^core-ktx = "[^"]*"/core-ktx = "1.19.1"/' gradle/libs.versions.toml
           sed -i 's/compileSdkVersion 36/compileSdkVersion 37/' app/build.gradle
           sed -i "s#getDefaultProguardFile('proguard-android.txt')#getDefaultProguardFile('proguard-android-optimize.txt')#" app/build.gradle
+          sed -i 's/^\( *\)buildConfig = true/\1buildConfig = true\n\1resValues = true/' app/build.gradle
           sed -i 's/rootProject.buildDir/rootProject.layout.buildDirectory/' build.gradle
           printf '\nandroid.builtInKotlin=false\nandroid.newDsl=false\n' >> gradle.properties
           cat gradle/libs.versions.toml
@@ -55,4 +56,4 @@ jobs:
           git checkout -b deps-bump
           git add gradle gradlew gradlew.bat gradle.properties build.gradle app/build.gradle app/src
           git commit -m "chore: upgrade Gradle 9.6.0, AGP 9.5.0 and dependencies"
-          git push -f origin deps-bump
+          git push -f origin de ps-bump
