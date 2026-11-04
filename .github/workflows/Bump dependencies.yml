@@ -19,7 +19,6 @@ jobs:
         run: |
           sed -i 's/^guava = "[^"]*"/guava = "33.7.2-jre"/' gradle/libs.versions.toml
           sed -i 's/^bouncycastle = "[^"]*"/bouncycastle = "1.86"/' gradle/libs.versions.toml
-          sed -i 's/^core-ktx = "[^"]*"/core-ktx = "1.19.1"/' gradle/libs.versions.toml
           sed -i 's/^kotlin = "[^"]*"/kotlin = "2.4.21"/' gradle/libs.versions.toml
           cat gradle/libs.versions.toml
 
