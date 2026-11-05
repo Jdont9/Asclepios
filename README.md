@@ -1,6 +1,6 @@
 > [!WARNING]
 > ### This is a fork of the [original](https://github.com/Divested-Mobile/Hypatia) (and discontinued) app from DivestOS.
-> ### This repository ([Jdont9/Hypatia](https://github.com/Jdont9/Hypatia)) is **Asclépios AV**, my personal fork of [MaintainTeam/Hypatia](https://github.com/MaintainTeam/Hypatia), see [Changes in this fork](#changes-in-this-fork-470).
+> ### This repository ([Jdont9/Hypatia](https://github.com/Jdont9/Hypatia)) is **Asclépios AV**, my personal fork of [MaintainTeam/Hypatia](https://github.com/MaintainTeam/Hypatia), see [Changes in this fork](#changes-in-this-fork-471).
 
 ![Banner](./fastlane/metadata/android/en-US/images/featureGraphic.png)
 
@@ -27,10 +27,11 @@ AI assistance
 
 I use [Claude](https://claude.ai) (Anthropic's AI assistant) to write and update the code of this fork.
 
-Changes in this fork (4.7.0)
+Changes in this fork (4.7.1)
 --------------------------
 Asclépios AV (application id `fr.jd.asclepios`) is [my personal fork](https://github.com/Jdont9/Hypatia) of [MaintainTeam/Hypatia](https://github.com/MaintainTeam/Hypatia), itself a fork of the discontinued [Divested-Mobile/Hypatia](https://github.com/Divested-Mobile/Hypatia). Signed APKs are on the [Releases page](https://github.com/Jdont9/Hypatia/releases). Compared to upstream `stable` (3.18):
 
+- **Phishing domains (4.7.1):** the malicious-domain database now also includes the active phishing domains of [Phishing.Database](https://github.com/Phishing-Database/Phishing.Database), after the same allowlist filtering as the other extra sources. No setting to change: the link scanner and the file URL scan use them as soon as the databases are updated. The app itself is unchanged in this version; it only moves to 4.7.1 to match the databases.
 - **Stalkerware detection (4.7.0, on by default):** compares the package name and the signing certificate of installed apps (and of APK files) with a GPG-signed list, `hypatia-stalkerware-bloom.bin`, built by [HypatiaDatabases](https://github.com/MaintainTeam/HypatiaDatabases) from the [Stalkerware Indicators](https://github.com/AssoEchap/stalkerware-indicators) of the Echap association. The certificate is decisive; a package name alone is ignored for system apps. Update the databases once to download the list. Before uninstalling, the app warns that whoever installed the stalkerware may notice its removal, and points to stopstalkerware.org.
 - **App risk analysis (4.7.0, on by default, heuristic):** a score computed from what the manifest declares (accessibility service, device admin, notification access, SMS, overlay, app installation, microphone, call log, contacts, background location, all-files access), a missing launcher icon, an unknown install source and a signer different from the installed app of the same name. Only combinations raise an alert (banking-trojan, spyware and remote-control profiles) and every reason is listed in the threat details. The data comes from PackageManager, the parser Android itself uses, so an obfuscated manifest cannot hide it. Runs on install and update, and on the apps list during a full manual scan.
 - **Downloaded APK watcher (4.7.0, on by default):** an `.apk` that lands in storage (outside the private `Android/` folders), typically a browser download, is analysed before you install it. A notification says whether it is dangerous or just an installable app. `.apks`, `.xapk` and `.apkm` bundles are reported but not analysed. Needs the realtime scanner.

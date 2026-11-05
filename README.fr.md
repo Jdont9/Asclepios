@@ -1,6 +1,6 @@
 > [!WARNING]
 > ### Ceci est un fork de l'application [originale](https://github.com/Divested-Mobile/Hypatia) (abandonnée) de DivestOS.
-> ### Ce dépôt ([Jdont9/Hypatia](https://github.com/Jdont9/Hypatia)) est **Asclépios AV**, mon fork personnel de [MaintainTeam/Hypatia](https://github.com/MaintainTeam/Hypatia), voir [Modifications de ce fork](#modifications-de-ce-fork-470).
+> ### Ce dépôt ([Jdont9/Hypatia](https://github.com/Jdont9/Hypatia)) est **Asclépios AV**, mon fork personnel de [MaintainTeam/Hypatia](https://github.com/MaintainTeam/Hypatia), voir [Modifications de ce fork](#modifications-de-ce-fork-471).
 
 ![Bannière](./fastlane/metadata/android/en-US/images/featureGraphic.png)
 
@@ -25,10 +25,11 @@ Assistance par IA
 J'utilise [Claude](https://claude.ai) (l'assistant IA d'Anthropic) pour écrire et mettre à jour le code de ce fork.
 
 <a id="modifications-de-ce-fork-453"></a>
-Modifications de ce fork (4.7.0)
+Modifications de ce fork (4.7.1)
 ------------------------------
 Asclépios AV (identifiant d'application `fr.jd.asclepios`) est [mon fork personnel](https://github.com/Jdont9/Hypatia) de [MaintainTeam/Hypatia](https://github.com/MaintainTeam/Hypatia), lui-même un fork de l'application abandonnée [Divested-Mobile/Hypatia](https://github.com/Divested-Mobile/Hypatia). Les APK signés sont sur la [page des Releases](https://github.com/Jdont9/Hypatia/releases). Par rapport à la branche `stable` d'origine (3.18) :
 
+- **Domaines de phishing (4.7.1) :** la base de domaines malveillants inclut maintenant aussi les domaines de phishing actifs de [Phishing.Database](https://github.com/Phishing-Database/Phishing.Database), après le même filtrage par liste d'autorisation que les autres sources supplémentaires. Aucun réglage à changer : l'analyseur de liens et la recherche d'URL dans les fichiers les utilisent dès la mise à jour des bases. L'application elle-même ne change pas dans cette version ; elle passe en 4.7.1 pour rester alignée avec les bases.
 - **Détection de stalkerwares (4.7.0, activée par défaut) :** compare le nom de paquet et le certificat de signature des applications installées (et des fichiers APK) à une liste signée GPG, `hypatia-stalkerware-bloom.bin`, générée par [HypatiaDatabases](https://github.com/MaintainTeam/HypatiaDatabases) à partir des [Stalkerware Indicators](https://github.com/AssoEchap/stalkerware-indicators) de l'association Echap. Le certificat est décisif ; un nom de paquet seul est ignoré pour les applications système. Mettez à jour les bases une fois pour télécharger la liste. Avant une désinstallation, l'application prévient que la personne qui a installé le stalkerware peut remarquer sa suppression, et renvoie vers stopstalkerware.org.
 - **Analyse du risque des applications (4.7.0, activée par défaut, heuristique) :** score calculé à partir de ce que déclare le manifeste (service d'accessibilité, administrateur de l'appareil, accès aux notifications, SMS, affichage par-dessus, installation d'applications, micro, journal d'appels, contacts, position en arrière-plan, accès à tous les fichiers), de l'absence d'icône de lancement, d'une source d'installation inconnue et d'un signataire différent de l'application de même nom déjà installée. Seules les combinaisons déclenchent une alerte (profils de trojan bancaire, de surveillance et de contrôle à distance) et chaque raison est détaillée. Les données viennent de PackageManager, l'analyseur qu'utilise Android lui-même : un manifeste obfusqué ne peut pas le tromper. L'analyse se fait à l'installation et à la mise à jour, et sur la liste des applications pendant une analyse complète manuelle.
 - **Surveillance des APK téléchargés (4.7.0, activée par défaut) :** un fichier `.apk` qui arrive dans le stockage (hors dossiers privés `Android/`), typiquement un téléchargement du navigateur, est analysé avant son installation. Une notification indique s'il est dangereux ou simplement installable. Les lots `.apks`, `.xapk` et `.apkm` sont signalés mais pas analysés. Nécessite le scanner temps réel.

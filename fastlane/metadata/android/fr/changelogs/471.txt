@@ -1,0 +1,1 @@
+4.7.1 : domaines de phishing ajoutés à la base de domaines malveillants (analyseur de liens et recherche d'URL dans les fichiers) ; aucun changement dans l'application elle-même
