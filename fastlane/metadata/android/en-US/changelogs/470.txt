@@ -1,0 +1,1 @@
+4.7.0: stalkerware detection from a signed list, app risk analysis (accessibility, device admin, SMS, overlay...), analysis of downloaded APKs before install, and look-alike (punycode) domain detection in links

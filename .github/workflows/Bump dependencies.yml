@@ -1,0 +1,60 @@
+name: Bump dependencies
+on: workflow_dispatch
+
+jobs:
+  bump:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-java@v6
+        with:
+          java-version: 17
+          distribution: temurin
+          cache: gradle
+
+      - name: Upgrade Gradle wrapper to 9.6.0
+        run: |
+          SHA=$(curl -sfL https://services.gradle.org/distributions/gradle-9.6.0-bin.zip.sha256)
+          echo "sha256=$SHA"
+          ./gradlew wrapper --gradle-version 9.6.0 --distribution-type bin --gradle-distribution-sha256-sum "$SHA"
+          cat gradle/wrapper/gradle-wrapper.properties
+
+      - name: Apply version bumps and build config
+        run: |
+          sed -i 's/^agp = "[^"]*"/agp = "9.5.0"/' gradle/libs.versions.toml
+          sed -i 's/^kotlin = "[^"]*"/kotlin = "2.4.21"/' gradle/libs.versions.toml
+          sed -i 's/^guava = "[^"]*"/guava = "33.7.2-jre"/' gradle/libs.versions.toml
+          sed -i 's/^bouncycastle = "[^"]*"/bouncycastle = "1.86"/' gradle/libs.versions.toml
+          sed -i 's/^core-ktx = "[^"]*"/core-ktx = "1.19.1"/' gradle/libs.versions.toml
+          sed -i 's/compileSdkVersion 36/compileSdkVersion 37/' app/build.gradle
+          sed -i 's/minSdkVersion 21/minSdkVersion 23/' app/build.gradle
+          sed -i "s#getDefaultProguardFile('proguard-android.txt')#getDefaultProguardFile('proguard-android-optimize.txt')#" app/build.gradle
+          sed -i 's/^\( *\)buildConfig = true/\1buildConfig = true\n\1resValues = true/' app/build.gradle
+          sed -i 's/rootProject.buildDir/rootProject.layout.buildDirectory/' build.gradle
+          printf '\nandroid.builtInKotlin=false\nandroid.newDsl=false\n' >> gradle.properties
+          cat gradle/libs.versions.toml
+
+      - name: Fix Kotlin sources for Guava 33.7 and Kotlin 2.4
+        run: |
+          # Funnels.stringFunnel() now returns Funnel<CharSequence>
+          grep -rl 'BloomFilter<String?>' app/src --include=*.kt | xargs sed -i 's/BloomFilter<String?>/BloomFilter<CharSequence>/g'
+          # requireNonNull<String?>() is now typed nullable
+          perl -0pi -e 's/Objects\.requireNonNull<String\?>\(intent\.dataString\)\s*\.contains\(context\.packageName\)/(intent.dataString ?: "").contains(context.packageName)/' app/src/main/java/us/spotco/malwarescanner/EventReceiver.kt
+          # file.value is String?, the filter now only accepts non-null
+          perl -pi -e 's/signatureDatabase\.mightContain\(file\.value\)/file.value?.let { signatureDatabase.mightContain(it) } == true/' app/src/main/java/us/spotco/malwarescanner/MalwareScanner.kt
+          git diff --stat
+
+      - name: Write verification metadata
+        run: ./gradlew --write-verification-metadata sha256 assembleDebug lintDebug testDebugUnitTest --stacktrace -DskipFormatKtlint
+
+      - name: Push branch
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git checkout -b deps-bump
+          git add gradle gradlew gradlew.bat gradle.properties build.gradle app/build.gradle app/src
+          git commit -m "chore: upgrade Gradle 9.6.0, AGP 9.5.0 and dependencies"
+          git push -f origin deps-bump
