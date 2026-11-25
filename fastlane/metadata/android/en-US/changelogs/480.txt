@@ -1,0 +1,1 @@
+4.8.0: device configuration check (optional), active sensitive services list, update watch (apps gaining accessibility/admin/SMS...), new risk criteria, hardened app (no backup, https only, no screenshots, anti-tapjacking), anti-rollback for the signed databases

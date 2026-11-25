@@ -1,0 +1,1 @@
+4.8.0 : vérification de la configuration de l'appareil (optionnelle), liste des services sensibles actifs, suivi des mises à jour (accessibilité/admin/SMS...), nouveaux critères de risque, application durcie (pas de sauvegarde, https uniquement, pas de captures, anti-tapjacking), protection anti-rollback des bases signées

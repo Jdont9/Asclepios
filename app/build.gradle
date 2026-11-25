@@ -15,9 +15,9 @@ android {
         if (System.properties.containsKey('versionCodeOverride')) {
             versionCode System.getProperty('versionCodeOverride') as Integer
         } else {
-            versionCode 471
+            versionCode 480
         }
-        versionName "4.7.1"
+        versionName "4.8.0"
         if (System.properties.containsKey('versionNameSuffix')) {
             versionNameSuffix System.getProperty('versionNameSuffix')
         }

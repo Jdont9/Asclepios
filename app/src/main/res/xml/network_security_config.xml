@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Everything goes over TLS. Only Tor hidden services (.onion), which are end-to-end encrypted by Tor
+     itself and cannot have a TLS certificate, may use http://. -->
+<network-security-config>
+    <base-config cleartextTrafficPermitted="false" />
+    <domain-config cleartextTrafficPermitted="true">
+        <domain includeSubdomains="true">onion</domain>
+    </domain-config>
+</network-security-config>
